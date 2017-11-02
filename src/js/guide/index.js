@@ -43,10 +43,10 @@
       }
     }
     resultDiv.style.display = "block";
-    var button = renderBackButton();
-    resultDiv.appendChild(button);
     var resultElements = renderResults();
     appendChildrenToParent(resultDiv, resultElements);
+    var button = renderBackButton();
+    resultDiv.appendChild(button);
   }
 
   function hideQuestionnaire(){
@@ -128,8 +128,8 @@
     if (!completionButton) {
       var completionButton = document.createElement("button");
       completionButton.id = "guide-completion-button"
-      completionButton.className = "btn btn-primary"
-      completionButton.innerHTML = "complete";
+      completionButton.className = "guide-button"
+      completionButton.innerHTML = "Generate";
       completionButton.onclick = completeQuestionnaire;
     }
     completionButton.style.display = "block";
@@ -141,7 +141,7 @@
     if (!backButton) {
       var backButton = document.createElement("button");
       backButton.id = "guide-back-button"
-      backButton.className = "btn btn-primary"
+      backButton.className = "guide-button"
       backButton.innerHTML = "Edit Responses";
       backButton.onclick = function() {
         displayQuestions();
@@ -157,7 +157,7 @@
     let results = user.getCurrentResults();
     for (var i = 0; i < results.length; i++) {
       let resultObj = results[i];
-      let resultElement = result.init(resultObj);
+      let resultElement = result.init(resultObj, i);
       resultElements.push(resultElement);
     }
     return resultElements;

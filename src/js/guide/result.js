@@ -1,11 +1,12 @@
 'use strict';
 var result = (function() {
 
-  function init (result) {
+  function init (result, index) {
     var resultDiv = document.createElement('div');
     resultDiv.id = result.key;
     var title = document.createElement('h2');
-    title.innerHTML = result.title;
+    var num = index + 1;
+    title.innerHTML = num + ": " + result.title;
     resultDiv.appendChild(title);
 
     for (var i = 0; i < result.sections.length; i++) {
@@ -31,12 +32,12 @@ var result = (function() {
     for (var i = 0; i < section.buttons.length; i++) {
       var button = section.buttons[i];
       var buttonDiv = document.createElement('a');
+      buttonDiv.className += "docs-button"
       buttonDiv.innerHTML = button.cta;
       let newURL = button.url;
       if (button.value_dependent != null) {
         let framework = user.getAnswerForKey("framework");
         newURL = newURL.replace("{framework}", framework)
-        buttonDiv.appendChild(document.createElement('br'))
       }
       buttonDiv.href = newURL;
       container.appendChild(buttonDiv);
