@@ -2469,8 +2469,8 @@
 <ul>
 <li>
 <p>Complete your <a href="https://dashboard.branch.io/settings/link">Branch Dashboard</a></p>
-<p><img alt="image" src="http://i.imgur.com/aFb69BS.png" />
-<img alt="image" src="http://i.imgur.com/Edpfn04.png" /></p>
+<p><img alt="image" src="../../../img/pages/dashboard/ios.png" />
+<img alt="image" src="../../../img/pages/dashboard/link-domain.png" /></p>
 </li>
 </ul>
 </li>
@@ -2478,8 +2478,8 @@
 <h3 id="configure-bundle-identifier">Configure bundle identifier<a class="headerlink" href="#configure-bundle-identifier" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
-<p>Bundle Id matches <a href="https://dashboard.branch.io/settings/link">Branch Dashboard</a></p>
-<p><img alt="image" src="http://i.imgur.com/BHAQIQf.png" /></p>
+<p>Make sure Bundle Id matches your <a href="https://dashboard.branch.io/settings/link">Branch Dashboard</a></p>
+<p><img alt="image" src="../../../img/pages/apps/ios-bundle-id.png" /></p>
 </li>
 </ul>
 </li>
@@ -2491,7 +2491,7 @@
 <li><code>test-</code> is needed if you need use a <a href="#use-test-key">test key</a></li>
 <li>
 <p>If you use a <a href="../../../pages/dashboard/integrate/#change-link-domain">custom link domain</a>, you will need to include your old link domain, your <code>-alternate</code> link domain, and your new link domain</p>
-<p><img alt="image" src="http://i.imgur.com/67t6hSY.png" /></p>
+<p><img alt="image" src="../../../img/pages/apps/ios-entitlements.png" /></p>
 </li>
 </ul>
 </li>
@@ -2500,7 +2500,7 @@
 <ul>
 <li>
 <p>Confirm entitlements are within target</p>
-<p><img alt="image" src="http://i.imgur.com/vhwis7f.png" /></p>
+<p><img alt="image" src="../../../img/pages/apps/ios-package.png" /></p>
 </li>
 </ul>
 </li>
@@ -2511,18 +2511,19 @@
 <p>Add <a href="https://dashboard.branch.io/account-settings/app">Branch Dashboard</a> values</p>
 <ul>
 <li>Add <code>branch_app_domain</code> with your live key domain</li>
+<li>Add <code>branch_key</code> with your current Branch key</li>
 <li>Add your URI scheme as <code>URL Types</code> -&gt; <code>Item 0</code> -&gt; <code>URL Schemes</code></li>
 </ul>
+<p><img alt="image" src="../../../img/pages/apps/ios-plist.png" /></p>
 </li>
 </ul>
-<p><img alt="image" src="http://i.imgur.com/PwXnHWz.png" /></p>
 </li>
 <li>
 <h3 id="confirm-app-prefix">Confirm app prefix<a class="headerlink" href="#confirm-app-prefix" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p>From your <a href="https://developer.apple.com/account/ios/identifier/bundle">Apple Developer Account</a></p>
-<p><img alt="image" src="http://i.imgur.com/2EoN1i0.png" /></p>
+<p><img alt="image" src="../../../img/pages/apps/ios-team-id.png" /></p>
 </li>
 </ul>
 </li>
@@ -2713,24 +2714,12 @@ target <span class="s1">&#39;APP_NAME&#39;</span> <span class="k">do</span>
 <li>
 <h3 id="test-deep-link">Test deep link<a class="headerlink" href="#test-deep-link" title="Permanent link">&para;</a></h3>
 <ul>
-<li>
-<p>Create a deep link from the <a href="https://dashboard.branch.io/marketing">Branch Marketing Dashboard</a></p>
-</li>
-<li>
-<p>Delete your app from the device</p>
-</li>
-<li>
-<p>Compile your app <em>(<code>cordova run ios</code> <code>phonegap run ios</code> <code>ionic run ios</code>)</em></p>
-</li>
-<li>
-<p>Paste deep link in <code>Apple Notes</code></p>
-</li>
-<li>
-<p>Long press on the deep link <em>(not 3D Touch)</em></p>
-</li>
-<li>
-<p>Click <code>Open in "APP_NAME"</code> to open your app <em>(<a href="http://i.imgur.com/VJVICXd.png">example</a>)</em></p>
-</li>
+<li>Create a deep link from the <a href="https://dashboard.branch.io/marketing">Branch Dashboard</a></li>
+<li>Delete your app from the device</li>
+<li>Compile and test on a device</li>
+<li>Paste deep link in <code>Apple Notes</code></li>
+<li>Long press on the deep link (not 3D Touch)</li>
+<li>Click <code>Open in "APP_NAME"</code> to open your app (<a href="../../../img/pages/apps/ios-notes.png">example</a>)</li>
 </ul>
 </li>
 </ul>
