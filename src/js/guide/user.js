@@ -6,12 +6,37 @@ var user = {
     },
     setAnswers: function(answers){
       this.answers = answers;
+      if (typeof(Storage) !== "undefined") {
+        for (var key in answers) {
+            if (answers.hasOwnProperty(key)) {
+              localStorage.setItem(key, answers[key]);
+            }
+        }
+      }
     },
     getAnswerForKey(key){
       return this.answers[key];
     },
     setAnswerForKey: function(value, key){
       this.answers[key] = value;
+      if (typeof(Storage) !== "undefined") {
+          localStorage.setItem(key, value);
+      }
+    },
+    checkLocalStorage: function() {
+      if (typeof(Storage) !== "undefined") {
+          for (var i = 0; i < database.questions.length; i++) {
+            var key = database.questions[i].key
+            var localValue = localStorage.getItem(key);
+            if (localValue) {
+              this.setAnswerForKey(localValue, key);
+            }
+          }
+          return true;
+      } else {
+          // Sorry! No Web Storage support..
+          return false;
+      }
     },
     getCurrentResults: function() {
       var customResults = [];

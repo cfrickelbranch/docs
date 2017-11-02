@@ -3,6 +3,13 @@ var question = (function() {
   var select;
 
   function init (question, callback) {
+    var questionContainer = document.createElement('div');
+
+    var questionTitle = document.createElement('p');
+    questionTitle.innerHTML = question.question;
+    questionTitle.className += "question-title";
+    questionContainer.appendChild(questionTitle);
+
     select = document.createElement('select');
     select.id = question.key;
     select.className += "question-select";
@@ -19,7 +26,10 @@ var question = (function() {
       option.innerHTML = optionObj.label;
       select.appendChild(option);
     }
-    return select;
+
+    questionContainer.appendChild(select);
+
+    return questionContainer;
   };
 
   function didSelectAnswer() {
