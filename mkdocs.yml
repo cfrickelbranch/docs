@@ -26,6 +26,11 @@ extra_javascript:
   - 'js/languages.js'
   - 'js/utils.js'
   - 'js/main.js'
+  - 'js/guide/database.js'
+  - 'js/guide/user.js'
+  - 'js/guide/question.js'
+  - 'js/guide/result.js'
+  - 'js/guide/index.js'
 
 # Extensions
 markdown_extensions:
@@ -114,6 +119,7 @@ extra:
 
 # Pages
 pages:
+  - Your Custom Guide: pages/guide.md
   - Getting started: index.md
   - Configure your dashboard: pages/dashboard/integrate.md
   - Configure your app:
