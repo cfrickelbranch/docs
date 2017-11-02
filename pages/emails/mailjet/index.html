@@ -2283,7 +2283,7 @@
 <p>The last step of the <a href="https://dashboard.branch.io/email" target="_blank">Deep Linked Email setup flow</a> validates whether you have completed all necessary steps and whether an engineer on your team has completed the <a href="#technical-setup">technical setup</a> steps. You will also see recommendations for how to improve your email integration.</p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
 <p>Once you’ve completed the <a href="#setup">one time setup steps</a>, it’s time to send your first email.</p>
-<p>This guide will identify which web links you'd like to open the app and deep link, as well as convert them to Branch links</p>
+<p>This guide will identify which web links you'd like to open the app and deep link, as well as convert them to Branch links.</p>
 <h3 id="flag-your-deep-links">Flag your deep links<a class="headerlink" href="#flag-your-deep-links" title="Permanent link">&para;</a></h3>
 <p>For the email links that you would like to deep link to content, add <code>$deep_link=true</code> to the URL as a query parameter, for example:</p>
 <div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;links.example.com?$deep_link=true&quot;</span> <span class="p">&gt;</span>Link to your app!<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
@@ -2299,6 +2299,7 @@
 <p class="admonition-title">Handle links for web-only content</p>
 <p>Make sure you have completed the <a href="#handle-links-for-web-only-content">technical setup steps</a> to handle web-only links within your app.</p>
 </div>
+<p>This will also ensure that your links are converted to Branch links that will open the app on Android as well, with full tracking and attribution.</p>
 <div class="admonition protip">
 <p class="admonition-title">What happens to your links behind the scenes?</p>
 <p>This is what a link looks like within your email template:</p>
@@ -2311,6 +2312,8 @@
 
 <p>Where <code>vza3.app.link</code> is your Branch domain.</p>
 </div>
+<p>The conversion to Branch links will only work when your links are wrapped in your click tracking domain. To test links without wrapping, please generate a test link on step 3 of email onboarding, also accessible by clicking the gear icon for your ESP on the <a href="https://dashboard.branch.io/email" target="_blank">email page</a>.</p>
+<p><img alt="image" src="../../../img/pages/email/test-link.png" /></p>
 <h2 id="more-information">More information<a class="headerlink" href="#more-information" title="Permanent link">&para;</a></h2>
 <p>Curious about how email works and more FAQ? <strong>Visit our general <a href="../../../pages/emails/support">email support</a> page</strong>.</p>
                 
