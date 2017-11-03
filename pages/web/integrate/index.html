@@ -3340,8 +3340,7 @@
 <span class="p">};</span>
 <span class="kd">var</span> <span class="nx">linkOptions</span> <span class="o">=</span> <span class="p">{</span>
   <span class="nx">make_new_link</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span> <span class="c1">// don&#39;t create a new deep link if one already exists (e.g. _branch_match_id is in the address bar)</span>
-  <span class="nx">o</span>
-  <span class="nx">e</span> <span class="c1">// will attempt to open the app if install (URI Scheme deep linking only - will not work with Safari)</span>
+  <span class="nx">open_app</span><span class="o">:</span> <span class="kc">true</span>  <span class="c1">// will attempt to open the app if install (URI Scheme deep linking only - will not work with Safari)</span>
 <span class="p">};</span>
 <span class="nx">branch</span><span class="p">.</span><span class="nx">deepview</span><span class="p">(</span><span class="nx">linkData</span><span class="p">,</span> <span class="nx">linkOptions</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span>
