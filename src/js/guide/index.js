@@ -8,12 +8,11 @@
   rootDiv.innerHTML = "";
 
   var title = document.createElement("h1");
-  title.innerHTML = "Your Custom Guide";
+  title.innerHTML = "Custom Guide";
   rootDiv.appendChild(title);
 
   displayQuestions();
   checkLocalStorage();
-  setAnswers();
 
   function displayQuestions() {
     var questionDiv = document.getElementById("question-container");
@@ -70,6 +69,7 @@
 
   function checkLocalStorage() {
     if(user.checkLocalStorage()){
+      console.log("Should hide results");
       var selects = document.getElementsByClassName('question-select');
       var answers = user.getAnswers();
       for (var i = 0; i < selects.length; i++) {
@@ -94,6 +94,7 @@
   }
 
   function completeQuestionnaire() {
+    setAnswers();
     hideQuestionnaire();
     displayResults();
   }
@@ -102,7 +103,6 @@
       var trim = window.location.pathname.replace(/^\/|\/$/g, '').split('/');
     trim = trim[0] === 'docs' ? trim.slice(1, trim.length).join('/') : trim.join('/');
     var path = (trim === '') ? 'index' : trim;
-    console.log(path);
     if (path === "pages/guide") {
       return document.getElementsByClassName("md-content__inner")[0];
     }
@@ -120,7 +120,7 @@
   }
 
   function questionSelected(value, key) {
-
+    //called when a new question is updated
   }
 
   function renderCompletionButton() {

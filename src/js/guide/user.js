@@ -25,14 +25,16 @@ var user = {
     },
     checkLocalStorage: function() {
       if (typeof(Storage) !== "undefined") {
+          var returningUser = false;
           for (var i = 0; i < database.questions.length; i++) {
             var key = database.questions[i].key
             var localValue = localStorage.getItem(key);
-            if (localValue) {
+            if (localValue !== null) {
               this.setAnswerForKey(localValue, key);
+              returningUser = true;
             }
           }
-          return true;
+          return returningUser;
       } else {
           // Sorry! No Web Storage support..
           return false;

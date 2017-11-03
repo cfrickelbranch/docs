@@ -443,6 +443,10 @@ body.modal {
   display: inherit;
 }
 
+.question-container {
+  text-align: center;
+}
+
 .guide-button {
   text-decoration: underline;
   width: auto;
