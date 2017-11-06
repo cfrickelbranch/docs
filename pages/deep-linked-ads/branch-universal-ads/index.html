@@ -2316,7 +2316,8 @@
 <p>For customer experience and data accuracy, please do not set your deep linking window longer than the other attribution windows.</p>
 <h4 id="account-level-attribution-windows">Account Level Attribution Windows<a class="headerlink" href="#account-level-attribution-windows" title="Permanent link">&para;</a></h4>
 <p>You can edit your attribution windows under Link Settings &gt; Attribution Windows. View through attribution is not yet available, but will be coming soon.</p>
-<p><img alt="image" src="../../../img/pages/deep-linked-ads/branch-universal-ads/attribution-windows.png" /></p>
+<p><img alt="image" src="../../../img/pages/dashboard/unified-analytics/attribution-windows.png" /></p>
+<p>Learn more about account level attribution windows in <a href="../../../pages/dashboard/unified-analytics/#attribution-windows">Unified Analytics</a>.</p>
 <h4 id="link-level-attribution-windows">Link Level Attribution Windows<a class="headerlink" href="#link-level-attribution-windows" title="Permanent link">&para;</a></h4>
 <p>To set attribution windows on a link level, you can append the following parameters to your generated Branch link.</p>
 <table>
@@ -2328,12 +2329,20 @@
 </thead>
 <tbody>
 <tr>
+<td>$click_install_window_days</td>
+<td><a href="https://branchster.app.link/hpNVE52gxE?$click_install_window_days=3">https://branchster.app.link/hpNVE52gxE?$click_install_window_days=3</a></td>
+</tr>
+<tr>
 <td>$click_session_start_window_days</td>
 <td><a href="https://branchster.app.link/hpNVE52gxE?$click_session_start_window_days=7">https://branchster.app.link/hpNVE52gxE?$click_session_start_window_days=7</a></td>
 </tr>
 <tr>
 <td>$click_conversion_window_days</td>
 <td><a href="https://branchster.app.link/hpNVE52gxE?$click_session_start_window_days=30">https://branchster.app.link/hpNVE52gxE?$click_session_start_window_days=30</a></td>
+</tr>
+<tr>
+<td>$impression_install_window_days</td>
+<td><a href="https://branchster.app.link/hpNVE52gxE?$impression_install_window_days=3">https://branchster.app.link/hpNVE52gxE?$impression_install_window_days=3</a></td>
 </tr>
 <tr>
 <td>$impression_session_start_window_days</td>
@@ -2347,7 +2356,7 @@
 </table>
 <div class="admonition warning">
 <p class="admonition-title">Link Level Attribution Support for Standard Branch links</p>
-<p>As of July 2017, link level attribution window setting is only available on standard Branch links. Special Branch links such as the ones used for Google's Universal App Campaign or Play Store links with Branch link Ids are currently not supported.</p>
+<p>As of July 2017, link level attribution window setting is only available on standard Branch links. Special Branch links such as the ones used for Google's Universal App Campaign or Play Store links with Branch link id parameters are currently not supported.</p>
 </div>
 <h2 id="support">Support<a class="headerlink" href="#support" title="Permanent link">&para;</a></h2>
 <h3 id="how-do-i-debug-a-discrepancy">How do I debug a discrepancy?<a class="headerlink" href="#how-do-i-debug-a-discrepancy" title="Permanent link">&para;</a></h3>
