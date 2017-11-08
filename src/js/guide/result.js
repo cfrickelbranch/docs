@@ -6,7 +6,7 @@ var result = (function() {
     resultDiv.id = result.key;
     var title = document.createElement('h3');
     var num = index + 1;
-    title.innerHTML = result.title;
+    title.innerHTML = num + ": " + result.title;
     resultDiv.appendChild(title);
 
     for (var i = 0; i < result.sections.length; i++) {

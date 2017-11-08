@@ -253,7 +253,7 @@ Description: Highjacks the guide page and renders all of the appropriate
     for (var i = 0; i < results.length; i++) {
       let resultObj = results[i];
       if (!resultElements[resultObj.type]) {resultElements[resultObj.type] = [];}
-      let resultElement = result.init(resultObj, i);
+      let resultElement = result.init(resultObj, resultElements[resultObj.type].length);
       resultElements[resultObj.type].push(resultElement);
     }
     return resultElements;
