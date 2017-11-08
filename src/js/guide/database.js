@@ -355,7 +355,7 @@ var database = {
               "sections":[
                 {
                   "subtitle":null,
-                  "text":"Your mobile website is a critical acquisition channel for your app and Branch’s Journeys App Banners platform makes this easy. They are customizable, AMP-Compatible, user specific, deep linkable, trackable, and A/B testable..",
+                  "text":"Your mobile website is a critical acquisition channel for your app and Branch’s Journeys App Banners platform makes this easy. They are customizable, AMP-Compatible, user specific, deep linkable, trackable, and A/B testable.",
                   "buttons":[
                     {
                       "cta":"Journeys Docs",

@@ -114,7 +114,6 @@ Description: Highjacks the guide page and renders all of the appropriate
   */
   function checkLocalStorage() {
     if(user.checkLocalStorage()){
-      console.log("Should hide results");
       var selects = document.getElementsByClassName('question-select');
       var answers = user.getAnswers();
       for (var i = 0; i < selects.length; i++) {
@@ -154,8 +153,7 @@ Description: Highjacks the guide page and renders all of the appropriate
     setAnswers();
     hideQuestionnaire();
     displayResults();
-    console.log("completed questionnaire");
-    progress.track("completed questionnaire");
+    progress.track("Completed questionnaire");
   }
 
   /*
@@ -198,8 +196,6 @@ Description: Highjacks the guide page and renders all of the appropriate
   Description: Called whenever a question is updated with a new answer.
   */
   function questionSelected(value, key) {
-    //called when a new question is updated
-    console.log("Updated "+key+" to "+value);
     progress.track("Updated "+key+" to "+value);
   }
 
@@ -236,6 +232,7 @@ Description: Highjacks the guide page and renders all of the appropriate
       backButton.onclick = function() {
         displayQuestions();
         hideResults();
+        progress.track("Back to questionnaire");
       };
     }
     backButton.style.display = "block";
