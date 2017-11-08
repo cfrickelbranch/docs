@@ -40,6 +40,7 @@ var user = {
           return false;
       }
     },
+    // All logic for converting answers into results
     getCurrentResults: function() {
       var customResults = [];
 

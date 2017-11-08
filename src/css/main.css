@@ -460,3 +460,15 @@ body.modal {
   border-left: .4rem solid #448aff;
   border-radius: .2rem;
 }
+
+select {
+    border: 1px solid #ccc;
+    width: 200px;
+    border-radius: 3px;
+    overflow: hidden;
+    background: #fafafa;
+}
+
+select:focus {
+    outline: none;
+}

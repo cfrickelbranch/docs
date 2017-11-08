@@ -167,6 +167,7 @@ var database = {
             "mobile_sdk":{
               "key":"mobile_sdk",
               "title":"Integrate the Mobile SDK",
+              "type":"Mobile",
               "sections":[
                 {
                   "subtitle":null,
@@ -184,6 +185,7 @@ var database = {
             "routing":{
               "key":"routing",
               "title":"Deep Link Routing",
+              "type":"Mobile",
               "sections":[
                 {
                   "subtitle":null,
@@ -201,6 +203,7 @@ var database = {
             "web_sdk":{
               "key":"web_sdk",
               "title":"Integrate the Web SDK",
+              "type":"Website",
               "sections":[
                 {
                   "subtitle":null,
@@ -218,6 +221,7 @@ var database = {
             "content_sharing":{
               "key":"content_sharing",
               "title":"Content Sharing",
+              "type":"Mobile",
               "sections":[
                 {
                   "subtitle":null,
@@ -235,6 +239,7 @@ var database = {
             "event_tracking":{
               "key":"event_tracking",
               "title":"Event Tracking",
+              "type":"Mobile",
               "sections":[
                 {
                   "subtitle":null,
@@ -252,6 +257,7 @@ var database = {
             "commerce_events":{
               "key":"commerce_events",
               "title":"Commerce Event Tracking",
+              "type":"Mobile",
               "sections":[
                 {
                   "subtitle":null,
@@ -269,6 +275,7 @@ var database = {
             "referrals":{
               "key":"referrals",
               "title":"Referrals",
+              "type":"Mobile",
               "sections":[
                 {
                   "subtitle":null,
@@ -308,6 +315,7 @@ var database = {
             "tmta":{
               "key":"tmta",
               "title":"Text-Me-The-App",
+              "type":"Website",
               "sections":[
                 {
                   "subtitle":null,
@@ -325,6 +333,7 @@ var database = {
             "tmta_snippet":{
               "key":"tmta_snippet",
               "title":"Text-Me-The-App Snippet",
+              "type":"Website",
               "sections":[
                 {
                   "subtitle":null,
@@ -342,6 +351,7 @@ var database = {
             "journeys":{
               "key":"journeys",
               "title":"Journeys",
+              "type":"Website",
               "sections":[
                 {
                   "subtitle":null,
@@ -359,6 +369,7 @@ var database = {
             "email":{
               "key":"email",
               "title":"Deep Linked Email",
+              "type":"Other Products",
               "sections":[
                 {
                   "subtitle":null,
@@ -376,6 +387,7 @@ var database = {
             "social":{
               "key":"social",
               "title":"Twitter/Facebook",
+              "type":"Other Products",
               "sections":[
                 {
                   "subtitle":null,

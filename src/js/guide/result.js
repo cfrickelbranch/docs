@@ -4,9 +4,9 @@ var result = (function() {
   function init (result, index) {
     var resultDiv = document.createElement('div');
     resultDiv.id = result.key;
-    var title = document.createElement('h2');
+    var title = document.createElement('h3');
     var num = index + 1;
-    title.innerHTML = num + ": " + result.title;
+    title.innerHTML = result.title;
     resultDiv.appendChild(title);
 
     for (var i = 0; i < result.sections.length; i++) {
@@ -21,7 +21,7 @@ var result = (function() {
   function renderSection(section){
     var container = document.createElement('div');
     if (section.subtitle) {
-      var subtitle = document.createElement('h3');
+      var subtitle = document.createElement('h4');
       subtitle.innerHTML = section.subtitle;
       container.appendChild(subtitle);
     }
