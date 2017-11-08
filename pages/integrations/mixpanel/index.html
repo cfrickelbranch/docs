@@ -2259,7 +2259,7 @@
 <ol>
 <li>Navigate to <a href="https://mixpanel.com"><a href="https://mixpanel.com">https://mixpanel.com</a></a> and log into the Dashboard.</li>
 <li>Click on <strong>Account</strong> in the navigation bar at the top of the page.</li>
-<li>Choose <strong>Projects</strong> in the modal that appears, then copy your app’s Token: <img alt="image" src="../img/pages/integrations/mixpanel/mixpanel-token.png" /></li>
+<li>Choose <strong>Projects</strong> in the modal that appears, then copy your app’s Token: <img alt="image" src="../../../img/pages/integrations/mixpanel/mixpanel-token.png" /></li>
 </ol>
 <h3 id="configure-branch-dashboard">Configure Branch Dashboard<a class="headerlink" href="#configure-branch-dashboard" title="Permanent link">&para;</a></h3>
 <ol>
@@ -2268,7 +2268,7 @@
 <li>If you have not yet entered billing information, please do so now.</li>
 <li>Enter your Mixpanel Token and hit <strong>Save</strong>.</li>
 </ol>
-<p><img alt="image" src="../../../img/pages/third-party-integrations/mixpanel/enable-mixpanel-integration.png" /></p>
+<p><img alt="image" src="../../../img/pages/integrations/mixpanel/enable-mixpanel-integration.png" /></p>
 <div class="admonition warning">
 <p class="admonition-title">Please test integration!</p>
 <p>Branch is not responsible for inaccurate API keys.</p>
@@ -2287,7 +2287,7 @@
 <span class="n">Branch</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">setRequestMetadata</span><span class="o">(</span><span class="s">&quot;$mixpanel_distinct_id&quot;</span><span class="o">,</span> <span class="n">mp</span><span class="o">.</span><span class="na">getDistinctId</span><span class="o">());</span>
 </pre></div>
 
-<p>For more information, see <a href="../../../third-party-integrations/mixpanel/advanced/#why-we-recommend-passing-mixpanel-distinct-id">Why We Recommend Passing Mixpanel Distinct ID</a>.</p>
+<p>For more information, see <a href="#what-branch-sends-to-mixpanel">Why We Recommend Passing Mixpanel Distinct ID</a>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Changes in Mixpanel Distinct ID</p>
 <p>If you at any point change the Mixpanel Distinct ID for a user as she’s using your app, you should invoke the same one line of code as above. This way, future calls from Branch to Mixpanel use the updated distinct id.</p>
