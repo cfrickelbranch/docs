@@ -2904,7 +2904,7 @@
 <tr>
 <td>alias</td>
 <td></td>
-<td>Specify a link alias in place of the standard encoded short URL e.g. <code>yourdomain.com/youralias</code>. Link aliases are unique, immutable objects that cannot be deleted. You cannot change the alias of existing links. Aliases on the legacy <code>bnc.lt</code> domain are incompatible with Universal Links and Spotlight</td>
+<td>Specify a link alias to replace of the standard encoded short URL (e.g. <code>https://example.app.link/aQXXDHaxKF</code> -&gt; <code>https://example.app.link/youralias</code>). Link aliases must be unique (a <code>409 error</code> will occur if you create an alias already taken). Appending a <code>/</code> will break the alias. <code>bnc.lt</code> link domain alias links are incompatible with Universal Links and Spotlight.</td>
 </tr>
 <tr>
 <td>type</td>
