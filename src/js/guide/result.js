@@ -32,6 +32,7 @@ var result = (function() {
     for (var i = 0; i < section.buttons.length; i++) {
       var button = section.buttons[i];
       var buttonDiv = document.createElement('a');
+      buttonDiv.target = "_blank";
       buttonDiv.className += "docs-button"
       buttonDiv.innerHTML = button.cta;
       let newURL = button.url;
