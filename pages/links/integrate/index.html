@@ -870,6 +870,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#custom-tags" title="Custom Tags" class="md-nav__link">
+    Custom Tags
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#universal-object" title="Universal Object" class="md-nav__link">
     Universal Object
   </a>
@@ -2379,6 +2386,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#custom-tags" title="Custom Tags" class="md-nav__link">
+    Custom Tags
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#universal-object" title="Universal Object" class="md-nav__link">
     Universal Object
   </a>
@@ -3381,6 +3395,33 @@
 </tbody>
 </table>
 </li>
+</ul>
+</li>
+<li>
+<h3 id="custom-tags">Custom Tags<a class="headerlink" href="#custom-tags" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Handle custom meta tags</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$custom_meta_tags</td>
+<td>Valid stringified JSON dictionary of the tags’ keys and values</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Valid dictionary example: "{\"twitter:player:stream\": \"<a href="https://branch.io">https://branch.io</a>\"}". This will result in the following meta tag: <code>&lt;meta property="twitter:player:stream" content="https://branch.io" /&gt;</code></p>
+</li>
+<li>If you create the link via the Dashboard, don’t worry about stringifying the dictionary. It will be done automatically.</li>
+<li>apple_touch_icon is a special key in the dictionary. If you set it, we will add a <code>&lt;link rel="apple-touch-icon" href="&lt;url&gt;" /&gt;</code> tag to the scraped HTML page. This will allow you to show a custom icon for previews in iMessage, Safari Bookmarks, Slack, etc.</li>
 </ul>
 </li>
 <li>
