@@ -291,8 +291,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../dashboard/integrate/" title="1. Configure your dashboard" class="md-nav__link">
-      1. Configure your dashboard
+    <a href="../../dashboard/integrate/" title="Configure your dashboard" class="md-nav__link">
+      Configure your dashboard
     </a>
   </li>
 
@@ -319,11 +319,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
-      2. Configure your app
+      Configure your app
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
-        2. Configure your app
+        Configure your app
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -513,11 +513,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
     <label class="md-nav__link" for="nav-4">
-      3. Configure your deep linking
+      Configure your deep linking
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-4">
-        3. Configure your deep linking
+        Configure your deep linking
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -591,11 +591,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
     <label class="md-nav__link" for="nav-5">
-      4. Launch your app
+      Launch your app
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-5">
-        4. Launch your app
+        Launch your app
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -651,8 +651,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../web/integrate/" title="5. Configure your website" class="md-nav__link">
-      5. Configure your website
+    <a href="../../web/integrate/" title="Configure your website" class="md-nav__link">
+      Configure your website
     </a>
   </li>
 
@@ -679,8 +679,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../links/integrate/" title="6. Create deep links" class="md-nav__link">
-      6. Create deep links
+    <a href="../../links/integrate/" title="Create deep links" class="md-nav__link">
+      Create deep links
     </a>
   </li>
 
@@ -703,8 +703,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../dashboard/analytics/" title="7. Track analytics" class="md-nav__link">
-      7. Track analytics
+    <a href="../../dashboard/analytics/" title="Track analytics" class="md-nav__link">
+      Track analytics
     </a>
   </li>
 
@@ -2425,17 +2425,21 @@
 <p>To enable Universal Links on your click tracking domain, you'll need to add the click tracking domain to your Associated Domains entitlement.</p>
 <ol>
 <li>In Xcode, go to the <code>Capabilities</code> tab of your project file.</li>
-<li>Scroll down and enable <code>Associated Domains</code> if it is not already enabled.</li>
-</ol>
+<li>
+<p>Scroll down and enable <code>Associated Domains</code> if it is not already enabled.</p>
 <p><img alt="image" src="../../../img/pages/email/enable-associated-domains.png" /></p>
-<ol>
-<li>Copy your click tracking domain from the <a href="#configure-your-app-for-your-click-tracking-domain">email you received from Branch</a>, or retrieve it from your ESP's settings.</li>
-<li>In the <code>Domains</code> section, click the <code>+</code> icon and add your click tracking domain. For example, if your click tracking domain is <code>email.example.com</code>, add an entry for <code>applinks:email.example.com</code>.</li>
-</ol>
+</li>
+<li>
+<p>Copy your click tracking domain from the <a href="#configure-your-app-for-your-click-tracking-domain">email you received from Branch</a>, or retrieve it from your ESP's settings.</p>
+</li>
+<li>
+<p>In the <code>Domains</code> section, click the <code>+</code> icon and add your click tracking domain. For example, if your click tracking domain is <code>email.example.com</code>, add an entry for <code>applinks:email.example.com</code>.</p>
 <p><img alt="image" src="../../../img/pages/email/add-domain.png" /></p>
+</li>
+</ol>
 <div class="admonition protip">
 <p class="admonition-title">Having trouble or new to Universal Links?</p>
-<p>Follow <a href="../../../getting-started/universal-app-links/guide/ios/">these instructions</a> for more details on enabling Universal Links in the Branch dashboard and in Xcode.</p>
+<p>Follow <a href="../../../pages/deep-linking/universal-links/">these instructions</a> for more details on enabling Universal Links in the Branch dashboard and in Xcode.</p>
 </div>
 <h3 id="validate-and-test">Validate and test<a class="headerlink" href="#validate-and-test" title="Permanent link">&para;</a></h3>
 <p><img alt="image" src="../../../img/pages/email/validate-test.png" /></p>
@@ -2459,18 +2463,37 @@
 <p>There is also a <a href="https://www.youtube.com/watch?v=u8h8KlqFvo4" target="_blank">tutorial video</a> that walks through these steps.</p>
 </div>
 <ol>
-<li>Work with your Branch account manager to modify the following code snippet, replacing <code>DOMAIN-HERE</code> with your Branch base domain:
-   <div class="codehilite"><pre><span></span><span class="err">&lt;</span>#macro deeplink link_to_be_wrapped&gt;<span class="err">&lt;</span>#assign branch_base_url=&quot;https://DOMAIN-HERE/3p?%243p=e_rs&quot;&gt;<span class="err">&lt;</span>#assign final_link=branch_base_url + &quot;<span class="err">&amp;</span>%24original_url=&quot; + link_to_be_wrapped?url(&quot;ISO-8859-1&quot;)&gt;<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;</span><span class="cp">${</span><span class="n">final_link</span><span class="cp">}</span><span class="s">&quot;</span><span class="nt">&gt;</span><span class="err">&lt;</span>#nested&gt;<span class="nt">&lt;/a&gt;</span><span class="err">&lt;</span>/#macro&gt; <span class="err">&lt;</span>#macro tracked_deeplink link_to_be_wrapped&gt;<span class="err">&lt;</span>#assign branch_base_url=&quot;https://DOMAIN-HERE/3p?%243p=e_rs&quot;&gt;<span class="err">&lt;</span>#assign deeplink=branch_base_url + &quot;<span class="err">&amp;</span>%24original_url=&quot; + link_to_be_wrapped?url(&quot;ISO-8859-1&quot;)&gt;<span class="err">&lt;</span>/#macro&gt;
-</pre></div></li>
-<li>Log in to your Responsys account.</li>
-<li>In the Responsys Dashboard, open your Content Library. You can also access it via the Shortcuts screen on the main page: <img alt="image" src="../../../img/pages/email/responsys/responsys-shortcuts.png" /></li>
-<li>Once you are in the Content Manager, you’ll see a list of folders where content is stored. Under <strong>All Content</strong>, create a new folder named <code>Branch_SDK</code>: <img alt="image" src="../../../img/pages/email/responsys/responsys-new-folder.png" /></li>
-<li>Select the <strong>Branch_SDK</strong> folder and then click <strong>Create Document</strong>: <img alt="image" src="../../../img/pages/email/responsys/responsys-create-document.png" /></li>
-<li>In the Create Document window:</li>
+<li>
+<p>Work with your Branch account manager to modify the following code snippet, replacing <code>DOMAIN-HERE</code> with your Branch base domain:</p>
+<div class="codehilite"><pre><span></span><span class="err">&lt;</span>#macro deeplink link_to_be_wrapped&gt;<span class="err">&lt;</span>#assign branch_base_url=&quot;https://DOMAIN-HERE/3p?%243p=e_rs&quot;&gt;<span class="err">&lt;</span>#assign final_link=branch_base_url + &quot;<span class="err">&amp;</span>%24original_url=&quot; + link_to_be_wrapped?url(&quot;ISO-8859-1&quot;)&gt;<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;</span><span class="cp">${</span><span class="n">final_link</span><span class="cp">}</span><span class="s">&quot;</span><span class="nt">&gt;</span><span class="err">&lt;</span>#nested&gt;<span class="nt">&lt;/a&gt;</span><span class="err">&lt;</span>/#macro&gt; <span class="err">&lt;</span>#macro tracked_deeplink link_to_be_wrapped&gt;<span class="err">&lt;</span>#assign branch_base_url=&quot;https://DOMAIN-HERE/3p?%243p=e_rs&quot;&gt;<span class="err">&lt;</span>#assign deeplink=branch_base_url + &quot;<span class="err">&amp;</span>%24original_url=&quot; + link_to_be_wrapped?url(&quot;ISO-8859-1&quot;)&gt;<span class="err">&lt;</span>/#macro&gt;
+</pre></div>
+
+</li>
+<li>
+<p>Log in to your Responsys account.</p>
+</li>
+<li>
+<p>In the Responsys Dashboard, open your Content Library. You can also access it via the Shortcuts screen on the main page: </p>
+<p><img alt="image" src="../../../img/pages/email/responsys/responsys-shortcuts.png" /></p>
+</li>
+<li>
+<p>Once you are in the Content Manager, you’ll see a list of folders where content is stored. Under <strong>All Content</strong>, create a new folder named <code>Branch_SDK</code>:</p>
+<p><img alt="image" src="../../../img/pages/email/responsys/responsys-new-folder.png" /></p>
+</li>
+<li>
+<p>Select the <strong>Branch_SDK</strong> folder and then click <strong>Create Document</strong>:</p>
+<p><img alt="image" src="../../../img/pages/email/responsys/responsys-create-document.png" /></p>
+</li>
+<li>
+<p>In the Create Document window:</p>
+<ul>
 <li>Enter <code>branch-sdk</code> in the “Document Name” field.</li>
 <li>In the <strong>Content Box</strong>, delete all the text.</li>
 <li>Paste the snippet you copied in <strong>1</strong>.</li>
-<li>Click Save. <img alt="image" src="../../../img/pages/email/responsys/responsys-snippet.png" /></li>
+<li>Click Save. </li>
+</ul>
+<p><img alt="image" src="../../../img/pages/email/responsys/responsys-snippet.png" /></p>
+</li>
 </ol>
 <p>You have now successfully created the deep linking script. Your file structure should look as follows:</p>
 <p><img alt="image" src="../../../img/pages/email/responsys/deep-linked-email-manage-content.png" /></p>

@@ -291,8 +291,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../dashboard/integrate/" title="1. Configure your dashboard" class="md-nav__link">
-      1. Configure your dashboard
+    <a href="../../dashboard/integrate/" title="Configure your dashboard" class="md-nav__link">
+      Configure your dashboard
     </a>
   </li>
 
@@ -319,11 +319,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
-      2. Configure your app
+      Configure your app
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
-        2. Configure your app
+        Configure your app
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -513,11 +513,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
     <label class="md-nav__link" for="nav-4">
-      3. Configure your deep linking
+      Configure your deep linking
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-4">
-        3. Configure your deep linking
+        Configure your deep linking
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -591,11 +591,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
     <label class="md-nav__link" for="nav-5">
-      4. Launch your app
+      Launch your app
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-5">
-        4. Launch your app
+        Launch your app
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -651,8 +651,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../web/integrate/" title="5. Configure your website" class="md-nav__link">
-      5. Configure your website
+    <a href="../../web/integrate/" title="Configure your website" class="md-nav__link">
+      Configure your website
     </a>
   </li>
 
@@ -679,8 +679,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../links/integrate/" title="6. Create deep links" class="md-nav__link">
-      6. Create deep links
+    <a href="../../links/integrate/" title="Create deep links" class="md-nav__link">
+      Create deep links
     </a>
   </li>
 
@@ -703,8 +703,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../dashboard/analytics/" title="7. Track analytics" class="md-nav__link">
-      7. Track analytics
+    <a href="../../dashboard/analytics/" title="Track analytics" class="md-nav__link">
+      Track analytics
     </a>
   </li>
 
@@ -2350,17 +2350,21 @@
 <p>To enable Universal Links on your click tracking domain, you'll need to add the click tracking domain to your Associated Domains entitlement.</p>
 <ol>
 <li>In Xcode, go to the <code>Capabilities</code> tab of your project file.</li>
-<li>Scroll down and enable <code>Associated Domains</code> if it is not already enabled.</li>
-</ol>
+<li>
+<p>Scroll down and enable <code>Associated Domains</code> if it is not already enabled.</p>
 <p><img alt="image" src="../../../img/pages/email/enable-associated-domains.png" /></p>
-<ol>
-<li>Copy your click tracking domain from the <a href="#configure-your-app-for-your-click-tracking-domain">email you received from Branch</a>, or retrieve it from your ESP's settings.</li>
-<li>In the <code>Domains</code> section, click the <code>+</code> icon and add your click tracking domain. For example, if your click tracking domain is <code>email.example.com</code>, add an entry for <code>applinks:email.example.com</code>.</li>
-</ol>
+</li>
+<li>
+<p>Copy your click tracking domain from the <a href="#configure-your-app-for-your-click-tracking-domain">email you received from Branch</a>, or retrieve it from your ESP's settings.</p>
+</li>
+<li>
+<p>In the <code>Domains</code> section, click the <code>+</code> icon and add your click tracking domain. For example, if your click tracking domain is <code>email.example.com</code>, add an entry for <code>applinks:email.example.com</code>.</p>
 <p><img alt="image" src="../../../img/pages/email/add-domain.png" /></p>
+</li>
+</ol>
 <div class="admonition protip">
 <p class="admonition-title">Having trouble or new to Universal Links?</p>
-<p>Follow <a href="../../../getting-started/universal-app-links/guide/ios/">these instructions</a> for more details on enabling Universal Links in the Branch dashboard and in Xcode.</p>
+<p>Follow <a href="../../../pages/deep-linking/universal-links/">these instructions</a> for more details on enabling Universal Links in the Branch dashboard and in Xcode.</p>
 </div>
 <h3 id="validate-and-test">Validate and test<a class="headerlink" href="#validate-and-test" title="Permanent link">&para;</a></h3>
 <p><img alt="image" src="../../../img/pages/email/validate-test.png" /></p>
@@ -2379,18 +2383,48 @@
 <h4 id="add-a-new-content-area-for-easy-deep-linking">Add a new Content Area for easy deep linking<a class="headerlink" href="#add-a-new-content-area-for-easy-deep-linking" title="Permanent link">&para;</a></h4>
 <p>In this step, we'll add a new Content Area in Salesforce that makes it very easy to create deep links in your emails.</p>
 <ol>
-<li>Work with your Branch account manager to modify the following code snippet, replacing <code>DOMAIN-HERE</code> with your Branch base domain:
-   <div class="codehilite"><pre><span></span><span class="c">%%[ VAR @deeplink, @branch_base_url SET @branch_base_url = &quot;https://DOMAIN-HERE/3p?%243p=e_et&quot; SET @deeplink = CONCAT(@branch_base_url, CONCAT(&quot;&amp;%24original_url=&quot;, URLEncode(@link_to_be_wrapped, 1, 1))) ]%%</span>
-</pre></div></li>
-<li>After logging into Salesforce Marketing Cloud, click on <strong>Email Studio</strong> and then a sub-menu will appear. Click on <strong>Email</strong> in the dropdown menu: <img alt="image" src="../../../img/pages/email/salesforce/salesforce-dropdown.png" /></li>
-<li>This will take you to the landing page for the Email section. Click on <strong>Content</strong> in the menu bar to navigate to the Content section: <img alt="image" src="../../../img/pages/email/salesforce/salesforce-menu-bar.png" /></li>
-<li>In the Content section, you will see a list of folders on the left side. Right click on the <strong>My Contents</strong> folder and choose <strong>New Folder</strong> in the context menu: <img alt="image" src="../../../img/pages/email/salesforce/salesforce-folders.png" /></li>
-<li>Name the folder <code>Branch</code>: <img alt="image" src="../../../img/pages/email/salesforce/salesforce-name-folder.png" /></li>
-<li>Once the folder is created, click on the <strong>Branch</strong> folder. On the right side, you will see a menu bar for the Branch folder. Click on <strong>Create</strong> and in the sub menu, click <strong>Content</strong> to create new content: <img alt="image" src="../../../img/pages/email/salesforce/salesforce-new-content.png" /></li>
-<li>In the Create Content window that appears, enter <code>deeplink</code> in the text field named Content Name. Click on <strong>Next</strong> after you enter the text: <img alt="image" src="../../../img/pages/email/salesforce/salesforce-deeplink.png" /></li>
-<li>The next screen will ask you to select the format of the content. Choose <strong>Free Form</strong> and then click <strong>Next</strong>: <img alt="image" src="../../../img/pages/email/salesforce/salesforce-format.png" /></li>
-<li>In the next screen, paste in the snippet you generated in <strong>1</strong>: <img alt="image" src="../../../img/pages/email/salesforce/salesforce-snippet.png" /></li>
-<li>Click <strong>Save</strong>. You will now be back at your list of folders in the Content section with the file <strong>deeplink</strong> listed: <img alt="image" src="../../../img/pages/email/salesforce/salesforce-saved.png" /></li>
+<li>
+<p>Work with your Branch account manager to modify the following code snippet, replacing <code>DOMAIN-HERE</code> with your Branch base domain:</p>
+<div class="codehilite"><pre><span></span><span class="c">%%[ VAR @deeplink, @branch_base_url SET @branch_base_url = &quot;https://DOMAIN-HERE/3p?%243p=e_et&quot; SET @deeplink = CONCAT(@branch_base_url, CONCAT(&quot;&amp;%24original_url=&quot;, URLEncode(@link_to_be_wrapped, 1, 1))) ]%%</span>
+</pre></div>
+
+</li>
+<li>
+<p>After logging into Salesforce Marketing Cloud, click on <strong>Email Studio</strong> and then a sub-menu will appear. Click on <strong>Email</strong> in the dropdown menu:</p>
+<p><img alt="image" src="../../../img/pages/email/salesforce/salesforce-dropdown.png" /></p>
+</li>
+<li>
+<p>This will take you to the landing page for the Email section. Click on <strong>Content</strong> in the menu bar to navigate to the Content section:</p>
+<p><img alt="image" src="../../../img/pages/email/salesforce/salesforce-menu-bar.png" /></p>
+</li>
+<li>
+<p>In the Content section, you will see a list of folders on the left side. Right click on the <strong>My Contents</strong> folder and choose <strong>New Folder</strong> in the context menu:</p>
+<p><img alt="image" src="../../../img/pages/email/salesforce/salesforce-folders.png" /></p>
+</li>
+<li>
+<p>Name the folder <code>Branch</code>:</p>
+<p><img alt="image" src="../../../img/pages/email/salesforce/salesforce-name-folder.png" /></p>
+</li>
+<li>
+<p>Once the folder is created, click on the <strong>Branch</strong> folder. On the right side, you will see a menu bar for the Branch folder. Click on <strong>Create</strong> and in the sub menu, click <strong>Content</strong> to create new content:</p>
+<p><img alt="image" src="../../../img/pages/email/salesforce/salesforce-new-content.png" /></p>
+</li>
+<li>
+<p>In the Create Content window that appears, enter <code>deeplink</code> in the text field named Content Name. Click on <strong>Next</strong> after you enter the text:</p>
+<p><img alt="image" src="../../../img/pages/email/salesforce/salesforce-deeplink.png" /></p>
+</li>
+<li>
+<p>The next screen will ask you to select the format of the content. Choose <strong>Free Form</strong> and then click <strong>Next</strong>:</p>
+<p><img alt="image" src="../../../img/pages/email/salesforce/salesforce-format.png" /></p>
+</li>
+<li>
+<p>In the next screen, paste in the snippet you generated in <strong>1</strong>:</p>
+<p><img alt="image" src="../../../img/pages/email/salesforce/salesforce-snippet.png" /></p>
+</li>
+<li>
+<p>Click <strong>Save</strong>. You will now be back at your list of folders in the Content section with the file <strong>deeplink</strong> listed:</p>
+<p><img alt="image" src="../../../img/pages/email/salesforce/salesforce-saved.png" /></p>
+</li>
 </ol>
 <p>You have now successfully created the deep linking script.  </p>
 <div class="admonition example">
@@ -2412,23 +2446,48 @@ The code above has a placeholder for <code>@branch_base_url</code>. Replace it w
 <p>We recommend you create the deep link in a separate document and then paste it back into the HTML editor in Salesforce marketing cloud. To begin:</p>
 <ol>
 <li>Log in to Salesforce Marketing Cloud</li>
-<li>Click on <strong>Email Studio</strong> and then a sub-menu will appear. Click on <strong>Email</strong> in the dropdown menu: <img alt="image" src="../../../img/pages/email/salesforce/salesforce-dropdown.png" /></li>
-<li>This will take you to the landing page for the Email section. Click on <strong>Content</strong> in the menu bar to navigate to the Content section: <img alt="image" src="../../../img/pages/email/salesforce/salesforce-menu-bar.png" /></li>
-<li>Navigate to your folder containing your emails and open an existing email. Make sure the email is in HTML layout as shown below: <img alt="image" src="../../../img/pages/email/salesforce/salesforce-email-html.png" /></li>
-<li>Choose a link that you want to convert to a Branch deep link. Copy the text right after the <code>href=</code> in your email template, and paste it into a separate document. In the example, it is:
-   <strong><code>"https://www.blueapron.com/recipes/five-spice-chicken-vermicelli-with-mushrooms-collard-greens-baby-fennel"</code></strong></li>
-<li>Add <code>%%[ SET @link_to_be_wrapped =</code> before the link in your separate document. In the example, this is now:
-   <strong><code>%%[ SET @link_to_be_wrapped =</code></strong><code>"https://www.blueapron.com/recipes/five-spice-chicken-vermicelli-with-mushrooms-collard-greens-baby-fennel"</code></li>
-<li>Add <code>ContentAreaByName("My Contents\deeplink")]%%</code> after the link:
-   <code>%%[ SET @link_to_be_wrapped = "https://www.blueapron.com/recipes/five-spice-chicken-vermicelli-with-mushrooms-collard-greens-baby-fennel"</code><strong><code>ContentAreaByName("My Contents\deeplink")]%%</code></strong></li>
-<li>From the original link in your template, copy the text from and including <code>&lt;a</code> until the <code>href=</code>.  Add it to the text after <code>%%</code> in the last step. Please include the <code>&lt;a</code> but not the <code>href=</code>:
-   <code>%%[ SET @link_to_be_wrapped = "https://www.blueapron.com/recipes/five-spice-chicken-vermicelli-with-mushrooms-collard-greens-baby-fennel" ContentAreaByName("My Contents\deeplink") ]%%</code><strong><code>&lt;a style="border-radius: 4px;display: inline-block;font-size: 14px;font-weight: bold;line-height: 24px;padding: 12px 24px;text-align: center;text-decoration: none !important;transition: opacity 0.1s ease-in;color: #fff;background-color: #00afd1;font-family: sans-serif;"</code></strong></li>
-<li>Add <code>href="%%=RedirectTo(@deeplink)=%%"</code> to the end:
-   <code>%%[ SET @link_to_be_wrapped = "https://www.blueapron.com/recipes/five-spice-chicken-vermicelli-with-mushrooms-collard-greens-baby-fennel" ContentAreaByName("My Contents\deeplink") ]%% &lt;a style="border-radius: 4px;display: inline-block;font-size: 14px;font-weight: bold;line-height: 24px;padding: 12px 24px;text-align: center;text-decoration: none !important;transition: opacity 0.1s ease-in;color: #fff;background-color: #00afd1;font-family: sans-serif;"</code><strong><code>href="%%=RedirectTo(@deeplink)=%%"</code></strong></li>
-<li>From the original link in your template, copy the end of the tag, the link text, and the closing tag (<code>&gt;I want it!&lt;/a&gt;</code> in the example) and add it to the end:
-   <code>%%[ SET @link_to_be_wrapped = "https://www.blueapron.com/recipes/five-spice-chicken-vermicelli-with-mushrooms-collard-greens-baby-fennel" ContentAreaByName("My Contents\deeplink") ]%% &lt;a style="border-radius: 4px;display: inline-block;font-size: 14px;font-weight: bold;line-height: 24px;padding: 12px 24px;text-align: center;text-decoration: none !important;transition: opacity 0.1s ease-in;color: #fff;background-color: #00afd1;font-family: sans-serif;" href="%%=RedirectTo(@deeplink)=%%"</code><strong><code>&gt;I want it!&lt;/a&gt;</code></strong></li>
-<li>Copy your final result from the separate document back into your email template, replacing everything inside and including the <code>&lt;a&gt;&lt;/a&gt;</code> tags in the template.</li>
-<li>Repeat this for all your links in your email template that you want to convert to Branch deep links.</li>
+<li>
+<p>Click on <strong>Email Studio</strong> and then a sub-menu will appear. Click on <strong>Email</strong> in the dropdown menu:</p>
+<p><img alt="image" src="../../../img/pages/email/salesforce/salesforce-dropdown.png" /></p>
+</li>
+<li>
+<p>This will take you to the landing page for the Email section. Click on <strong>Content</strong> in the menu bar to navigate to the Content section:</p>
+<p><img alt="image" src="../../../img/pages/email/salesforce/salesforce-menu-bar.png" /></p>
+</li>
+<li>
+<p>Navigate to your folder containing your emails and open an existing email. Make sure the email is in HTML layout as shown below:</p>
+<p><img alt="image" src="../../../img/pages/email/salesforce/salesforce-email-html.png" /></p>
+</li>
+<li>
+<p>Choose a link that you want to convert to a Branch deep link. Copy the text right after the <code>href=</code> in your email template, and paste it into a separate document. In the example, it is:</p>
+<p><strong><code>"https://www.blueapron.com/recipes/five-spice-chicken-vermicelli-with-mushrooms-collard-greens-baby-fennel"</code></strong></p>
+</li>
+<li>
+<p>Add <code>%%[ SET @link_to_be_wrapped =</code> before the link in your separate document. In the example, this is now:</p>
+<p><strong><code>%%[ SET @link_to_be_wrapped =</code></strong><code>"https://www.blueapron.com/recipes/five-spice-chicken-vermicelli-with-mushrooms-collard-greens-baby-fennel"</code></p>
+</li>
+<li>
+<p>Add <code>ContentAreaByName("My Contents\deeplink")]%%</code> after the link:</p>
+<p><code>%%[ SET @link_to_be_wrapped = "https://www.blueapron.com/recipes/five-spice-chicken-vermicelli-with-mushrooms-collard-greens-baby-fennel"</code><strong><code>ContentAreaByName("My Contents\deeplink")]%%</code></strong></p>
+</li>
+<li>
+<p>From the original link in your template, copy the text from and including <code>&lt;a</code> until the <code>href=</code>.  Add it to the text after <code>%%</code> in the last step. Please include the <code>&lt;a</code> but not the <code>href=</code>:</p>
+<p><code>%%[ SET @link_to_be_wrapped = "https://www.blueapron.com/recipes/five-spice-chicken-vermicelli-with-mushrooms-collard-greens-baby-fennel" ContentAreaByName("My Contents\deeplink") ]%%</code><strong><code>&lt;a style="border-radius: 4px;display: inline-block;font-size: 14px;font-weight: bold;line-height: 24px;padding: 12px 24px;text-align: center;text-decoration: none !important;transition: opacity 0.1s ease-in;color: #fff;background-color: #00afd1;font-family: sans-serif;"</code></strong></p>
+</li>
+<li>
+<p>Add <code>href="%%=RedirectTo(@deeplink)=%%"</code> to the end:</p>
+<p><code>%%[ SET @link_to_be_wrapped = "https://www.blueapron.com/recipes/five-spice-chicken-vermicelli-with-mushrooms-collard-greens-baby-fennel" ContentAreaByName("My Contents\deeplink") ]%% &lt;a style="border-radius: 4px;display: inline-block;font-size: 14px;font-weight: bold;line-height: 24px;padding: 12px 24px;text-align: center;text-decoration: none !important;transition: opacity 0.1s ease-in;color: #fff;background-color: #00afd1;font-family: sans-serif;"</code><strong><code>href="%%=RedirectTo(@deeplink)=%%"</code></strong></p>
+</li>
+<li>
+<p>From the original link in your template, copy the end of the tag, the link text, and the closing tag (<code>&gt;I want it!&lt;/a&gt;</code> in the example) and add it to the end:</p>
+<p><code>%%[ SET @link_to_be_wrapped = "https://www.blueapron.com/recipes/five-spice-chicken-vermicelli-with-mushrooms-collard-greens-baby-fennel" ContentAreaByName("My Contents\deeplink") ]%% &lt;a style="border-radius: 4px;display: inline-block;font-size: 14px;font-weight: bold;line-height: 24px;padding: 12px 24px;text-align: center;text-decoration: none !important;transition: opacity 0.1s ease-in;color: #fff;background-color: #00afd1;font-family: sans-serif;" href="%%=RedirectTo(@deeplink)=%%"</code><strong><code>&gt;I want it!&lt;/a&gt;</code></strong></p>
+</li>
+<li>
+<p>Copy your final result from the separate document back into your email template, replacing everything inside and including the <code>&lt;a&gt;&lt;/a&gt;</code> tags in the template.</p>
+</li>
+<li>
+<p>Repeat this for all your links in your email template that you want to convert to Branch deep links.</p>
+</li>
 </ol>
 <p>These links are complete and will deep link to content in your app.  </p>
 <p>This converted code is referred to as the "Branch script" - this script will convert your web URLs to deep links. The script uses the <a href="#add-a-new-content-area-for-easy-deep-linking">Content Area</a> to turn your web URL into a deep link.</p>

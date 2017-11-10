@@ -291,8 +291,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../dashboard/integrate/" title="1. Configure your dashboard" class="md-nav__link">
-      1. Configure your dashboard
+    <a href="../../dashboard/integrate/" title="Configure your dashboard" class="md-nav__link">
+      Configure your dashboard
     </a>
   </li>
 
@@ -319,11 +319,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
-      2. Configure your app
+      Configure your app
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
-        2. Configure your app
+        Configure your app
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -513,11 +513,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
     <label class="md-nav__link" for="nav-4">
-      3. Configure your deep linking
+      Configure your deep linking
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-4">
-        3. Configure your deep linking
+        Configure your deep linking
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -591,11 +591,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
     <label class="md-nav__link" for="nav-5">
-      4. Launch your app
+      Launch your app
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-5">
-        4. Launch your app
+        Launch your app
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -651,8 +651,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../web/integrate/" title="5. Configure your website" class="md-nav__link">
-      5. Configure your website
+    <a href="../../web/integrate/" title="Configure your website" class="md-nav__link">
+      Configure your website
     </a>
   </li>
 
@@ -679,8 +679,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../links/integrate/" title="6. Create deep links" class="md-nav__link">
-      6. Create deep links
+    <a href="../../links/integrate/" title="Create deep links" class="md-nav__link">
+      Create deep links
     </a>
   </li>
 
@@ -703,8 +703,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../dashboard/analytics/" title="7. Track analytics" class="md-nav__link">
-      7. Track analytics
+    <a href="../../dashboard/analytics/" title="Track analytics" class="md-nav__link">
+      Track analytics
     </a>
   </li>
 
@@ -2282,26 +2282,26 @@
 <p>Apple recognizes the click tracking domain as a Universal Link, and opens the app immediately without the browser opening. Once the app has opened, Branch will collect the referring URL that opened the app (at this time, it will be the click tracking url). Inside the app, Branch will robotically “click” the link, registering the click with the ESP, and returning the Branch link information to the Branch SDK inside the app. This information is then used to deep link the user to the correct in-app content. See the <a href="#support">Support</a> section for more information.</p>
 </div>
 <h4 id="set-up-your-click-tracking-domain">Set up your click tracking domain<a class="headerlink" href="#set-up-your-click-tracking-domain" title="Permanent link">&para;</a></h4>
-<p>Only do this step after you've <a href="#tell-us-your-click-tracking-domain">provided your click tracking domain</a> to Branch.</p>
-<ol>
-<li>Create a CNAME for your subdomain and point it to <code>thirdparty.bnc.lt</code></li>
-<li>Confirm with your Branch Account Manager that the domain is working correctly.</li>
-</ol>
+<p>Create a CNAME for your click tracking domain and point it to <code>thirdparty.bnc.lt</code>.</p>
 <h4 id="add-your-click-tracking-domain-to-your-associated-domains">Add your click tracking domain to your Associated Domains<a class="headerlink" href="#add-your-click-tracking-domain-to-your-associated-domains" title="Permanent link">&para;</a></h4>
 <p>To enable Universal Links on your click tracking domain, you'll need to add the click tracking domain to your Associated Domains entitlement.</p>
 <ol>
 <li>In Xcode, go to the <code>Capabilities</code> tab of your project file.</li>
-<li>Scroll down and enable <code>Associated Domains</code> if it is not already enabled.</li>
-</ol>
+<li>
+<p>Scroll down and enable <code>Associated Domains</code> if it is not already enabled.</p>
 <p><img alt="image" src="../../../img/pages/email/enable-associated-domains.png" /></p>
-<ol>
-<li>Copy your click tracking domain from the <a href="#configure-your-app-for-your-click-tracking-domain">email you received from Branch</a>, or retrieve it from your ESP's settings.</li>
-<li>In the <code>Domains</code> section, click the <code>+</code> icon and add your click tracking domain. For example, if your click tracking domain is <code>email.example.com</code>, add an entry for <code>applinks:email.example.com</code>.</li>
-</ol>
+</li>
+<li>
+<p>Copy your click tracking domain from the <a href="#configure-your-app-for-your-click-tracking-domain">email you received from Branch</a>, or retrieve it from your ESP's settings.</p>
+</li>
+<li>
+<p>In the <code>Domains</code> section, click the <code>+</code> icon and add your click tracking domain. For example, if your click tracking domain is <code>email.example.com</code>, add an entry for <code>applinks:email.example.com</code>.</p>
 <p><img alt="image" src="../../../img/pages/email/add-domain.png" /></p>
+</li>
+</ol>
 <div class="admonition protip">
 <p class="admonition-title">Having trouble or new to Universal Links?</p>
-<p>Follow <a href="../../../getting-started/universal-app-links/guide/ios/">these instructions</a> for more details on enabling Universal Links in the Branch dashboard and in Xcode.</p>
+<p>Follow <a href="../../../pages/deep-linking/universal-links/">these instructions</a> for more details on enabling Universal Links in the Branch dashboard and in Xcode.</p>
 </div>
 <h3 id="validate-and-test">Validate and test<a class="headerlink" href="#validate-and-test" title="Permanent link">&para;</a></h3>
 <p><img alt="image" src="../../../img/pages/email/validate-test.png" /></p>
@@ -2350,13 +2350,18 @@
 <p>To use Branch links within your appboy campaigns, you’ll need to add an HTML tag to the Branch URLs within your appboy email templates.</p>
 <ol>
 <li>Create your email template same as you normally would.</li>
-<li>Add Branch links to your email for all links you would like to deep link users to specific app content (this works for existing app users as well as those without your app). Be sure to add <code>"$3p":"e_ab"</code> to the deep link data of any links you use in email to ensure Universal Link and click tracking works as expected.
-1.Once you’re done composing your email template, click on the “Source” button in the email creator toolbar
-   <img alt="image" src="../../../img/pages/email/appboy/appboy-source.png" /></li>
-<li>Add universal="true" to the HTML for any link which you want to convert intoa Branch deep link, for example:
-   <div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;links.example.com&quot;</span> <span class="na">universal</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>Link to your app!<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<li>
+<p>Add Branch links to your email for all links you would like to deep link users to specific app content (this works for existing app users as well as those without your app). Be sure to add <code>"$3p":"e_ab"</code> to the deep link data of any links you use in email to ensure Universal Link and click tracking works as expected.
+1.Once you’re done composing your email template, click on the “Source” button in the email creator toolbar</p>
+<p><img alt="image" src="../../../img/pages/email/appboy/appboy-source.png" /></p>
+</li>
+<li>
+<p>Add universal="true" to the HTML for any link which you want to convert intoa Branch deep link, for example:</p>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;links.example.com&quot;</span> <span class="na">universal</span><span class="o">=</span><span class="s">&quot;true&quot;</span><span class="p">&gt;</span>Link to your app!<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
 </pre></div>
-   <img alt="image" src="../../../img/pages/email/appboy/appboy-universal.png" /></li>
+
+<p><img alt="image" src="../../../img/pages/email/appboy/appboy-universal.png" /></p>
+</li>
 </ol>
 <p>All done! So long as you’ve taken the above steps, the links in your Appboy email campaigns will now dynamically deep link users to app content, even if they have uninstalled your app, giving you the best chance of engaging or re-acquiring them.</p>
 <h2 id="more-information">More information<a class="headerlink" href="#more-information" title="Permanent link">&para;</a></h2>
