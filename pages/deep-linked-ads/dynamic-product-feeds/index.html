@@ -2368,7 +2368,7 @@
 <p><img alt="image" src="../../../img/pages/deep-linked-ads/dynamic-product-ads/name-and-upload-feed-source.png" /></p>
 </li>
 </ol>
-<p>You can see all of the <strong>Feed Sources</strong> you've uploaded by going to the <a href="http://dashboard.branch.io/ads/feedsources">Feed Sources</a> tab.</p>
+<p>You can see all of the <strong>Feed Sources</strong> you've uploaded by going to the <a href="https://dashboard.branch.io/ads/links/feed-sources">Feed Sources</a> tab.</p>
 <h3 id="create-a-new-deep-linked-feed">Create a New Deep Linked Feed<a class="headerlink" href="#create-a-new-deep-linked-feed" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
@@ -2413,7 +2413,7 @@
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Ad Network Integrations</p>
-<p>Branch Deep Linked Feeds are accepted by top remarketing companies like <a href="../../../ads/criteo-dynamic-ads/guide/">Criteo</a>, Remerge and AppNexus. Ask your Account Manager about launching your campaign with Branch deep links.</p>
+<p>Branch Deep Linked Feeds are accepted by top remarketing companies like Criteo, Remerge and AppNexus. Ask your Account Manager about launching your campaign with Branch deep links.</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Drive Installs With Your Content</p>
@@ -2475,13 +2475,13 @@
 <h3 id="links-dont-open-the-app">Links don't open the app<a class="headerlink" href="#links-dont-open-the-app" title="Permanent link">&para;</a></h3>
 <ul>
 <li>First, understand what the <a href="../../../pages/links/integrate/#default-link-behavior">intended behavior</a> of your link should be.</li>
-<li>Links created by the Deep Linked Feeds tool currently fall back to the Web URL you originally specified in the <code>link</code> column by default. You can override this behavior by including a column called <code>branch_query_params</code> and including <code>$fallback_method=app_wide</code> as the value for every row. This will make each link fall back to the platform fallback you have specified in your <a href="https://dashboard.branch.io/settings/link">Link Settings</a>, which is usually the App Store.</li>
+<li>Links created by the Deep Linked Feeds tool currently fall back to the Web URL you originally specified in the <code>link</code> column by default. You can override this behavior by including a column called <code>branch_query_params</code> and including <code>$fallback_method=app_wide</code> as the value for every row. This will make each link fall back to the platform fallback you have specified in your <a href="https://dashboard.branch.io/link-settings">Link Settings</a>, which is usually the App Store.</li>
 <li>Facebook requires certain <a href="https://developers.facebook.com/docs/marketing-api/dynamic-product-ads/mobile-app-events#deeplinksetup">"applink treatment"</a> values to be present to change fallback behavior. We're working on adding these to our interface, but for the moment, include them in your feed source.</li>
 </ul>
 <h3 id="deep-links-arent-working">Deep links aren't working<a class="headerlink" href="#deep-links-arent-working" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Ensure you've included your deep link data. Branch will scrape any <a href="../../../pages/web/hosted-data/">Hosted Deep Link Data</a> corresponding to the Web URL in your Feed Source's <code>link</code> column for every link. Alternatively, you can include deep link data as a column in your Feed Source and then select the relevant data in Step 2 of Deep Linked creation.</li>
-<li>To see which data is getting through to your app, click the link and then view the link click in <a href="https://dashboard.branch.io/liveview/link_clicks">Live View</a> to see the data going through to your app.</li>
+<li>To see which data is getting through to your app, click the link and then view the link click in <a href="https://dashboard.branch.io/liveview/clicks">Live View</a> to see the data going through to your app.</li>
 <li>If you don't know what deep link data you need to include, ask a technical teammate to show you which data is included in a working Branch link.</li>
 </ul>
 <h3 id="feed-source-wont-upload">Feed Source won't upload<a class="headerlink" href="#feed-source-wont-upload" title="Permanent link">&para;</a></h3>
