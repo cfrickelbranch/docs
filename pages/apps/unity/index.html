@@ -2777,12 +2777,12 @@
 <ul>
 <li>
 <p>Share deep links between users and apps</p>
-<div class="codehilite"><pre><span></span><span class="n">Branch</span><span class="p">.</span><span class="n">shareLink</span><span class="p">(</span><span class="n">universalObject</span><span class="p">,</span> <span class="n">linkProperties</span><span class="p">,</span> <span class="s">&quot;Sharing link: &quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<div class="codehilite"><pre><span></span><span class="n">Branch</span><span class="p">.</span><span class="n">shareLink</span><span class="p">(</span><span class="n">universalObject</span><span class="p">,</span> <span class="n">linkProperties</span><span class="p">,</span> <span class="s">&quot;Sharing link: &quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">parameters</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">Debug</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="s">&quot;Branch.shareLink failed: &quot;</span> <span class="p">+</span> <span class="n">error</span><span class="p">);</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">&quot;Branch.shareLink shared params: &quot;</span> <span class="p">+</span> <span class="n">url</span><span class="p">);</span>
-    <span class="p">}</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">parameters</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">&quot;Branch.shareLink: &quot;</span> <span class="p">+</span> <span class="n">parameters</span><span class="p">[</span><span class="s">&quot;sharedLink&quot;</span><span class="p">].</span><span class="n">ToString</span><span class="p">()</span> <span class="p">+</span> <span class="s">&quot; &quot;</span> <span class="p">+</span> <span class="n">parameters</span><span class="p">[</span><span class="s">&quot;sharedChannel&quot;</span><span class="p">].</span><span class="n">ToString</span><span class="p">());</span>
+<span class="p">}</span>
 <span class="p">});</span>
 </pre></div>
 
