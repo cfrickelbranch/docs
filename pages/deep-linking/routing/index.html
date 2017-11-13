@@ -2484,7 +2484,7 @@
 </li>
 <li>
 <p><em>Android</em></p>
-<div class="codehilite"><pre><span></span><span class="n">JSONObject</span> <span class="n">sessionParams</span> <span class="o">=</span> <span class="n">Branch</span><span class="o">.</span><span class="na">get</span><span class="o">{%</span> <span class="k">if</span> <span class="n">page</span><span class="o">.</span><span class="na">mparticle_android</span> <span class="o">%}</span><span class="n">Auto</span><span class="o">{%</span> <span class="n">endif</span> <span class="o">%}</span><span class="n">Instance</span><span class="o">().</span><span class="na">getLatestReferringParams</span><span class="o">();</span>
+<div class="codehilite"><pre><span></span><span class="n">JSONObject</span> <span class="n">sessionParams</span> <span class="o">=</span> <span class="n">Branch</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getLatestReferringParams</span><span class="o">();</span>
 </pre></div>
 
 </li>
@@ -2506,7 +2506,7 @@
 </li>
 <li>
 <p><em>Android</em></p>
-<div class="codehilite"><pre><span></span><span class="n">JSONObject</span> <span class="n">installParams</span> <span class="o">=</span> <span class="n">Branch</span><span class="o">.</span><span class="na">get</span><span class="o">{%</span> <span class="k">if</span> <span class="n">page</span><span class="o">.</span><span class="na">mparticle_android</span> <span class="o">%}</span><span class="n">Auto</span><span class="o">{%</span> <span class="n">endif</span> <span class="o">%}</span><span class="n">Instance</span><span class="o">().</span><span class="na">getFirstReferringParams</span><span class="o">();</span>
+<div class="codehilite"><pre><span></span><span class="n">JSONObject</span> <span class="n">installParams</span> <span class="o">=</span> <span class="n">Branch</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">getFirstReferringParams</span><span class="o">();</span>
 </pre></div>
 
 </li>
