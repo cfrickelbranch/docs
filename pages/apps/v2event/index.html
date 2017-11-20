@@ -2369,14 +2369,12 @@
 </li>
 </ul>
 <h3 id="android">Android<a class="headerlink" href="#android" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><span class="n">BranchUniversalObject</span> <span class="n">buo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BranchUniversalObject</span><span class="o">();</span>
-<span class="n">buo</span><span class="o">.</span><span class="na">setCanonicalIdentifier</span><span class="o">(</span><span class="s">&quot;my_canonical_id&quot;</span><span class="o">);</span>
-<span class="n">buo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BranchUniversalObject</span><span class="o">()</span>
-<span class="o">.</span><span class="na">setCanonicalIdentifier</span><span class="o">(</span><span class="s">&quot;myprod/1234&quot;</span><span class="o">)</span>
-<span class="o">.</span><span class="na">setCanonicalUrl</span><span class="o">(</span><span class="s">&quot;https://test_canonical_url&quot;</span><span class="o">)</span>
-<span class="o">.</span><span class="na">setTitle</span><span class="o">(</span><span class="s">&quot;test_title&quot;</span><span class="o">)</span>
-<span class="o">.</span><span class="na">setContentMetadata</span><span class="o">(</span>
-    <span class="k">new</span> <span class="n">ContentMetadata</span><span class="o">()</span>
+<div class="codehilite"><pre><span></span><span class="n">BranchUniversalObject</span> <span class="n">buo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BranchUniversalObject</span><span class="o">()</span>
+    <span class="o">.</span><span class="na">setCanonicalIdentifier</span><span class="o">(</span><span class="s">&quot;myprod/1234&quot;</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">setCanonicalUrl</span><span class="o">(</span><span class="s">&quot;https://test_canonical_url&quot;</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">setTitle</span><span class="o">(</span><span class="s">&quot;test_title&quot;</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">setContentMetadata</span><span class="o">(</span>
+        <span class="k">new</span> <span class="n">ContentMetadata</span><span class="o">()</span>
         <span class="o">.</span><span class="na">addCustomMetadata</span><span class="o">(</span><span class="s">&quot;custom_metadata_key1&quot;</span><span class="o">,</span> <span class="s">&quot;custom_metadata_val1&quot;</span><span class="o">)</span>
         <span class="o">.</span><span class="na">addCustomMetadata</span><span class="o">(</span><span class="s">&quot;custom_metadata_key1&quot;</span><span class="o">,</span> <span class="s">&quot;custom_metadata_val1&quot;</span><span class="o">)</span>
         <span class="o">.</span><span class="na">addImageCaptions</span><span class="o">(</span><span class="s">&quot;image_caption_1&quot;</span><span class="o">,</span> <span class="s">&quot;image_caption2&quot;</span><span class="o">,</span> <span class="s">&quot;image_caption3&quot;</span><span class="o">)</span>
@@ -2392,8 +2390,8 @@
         <span class="o">.</span><span class="na">setQuantity</span><span class="o">(</span><span class="mf">1.5</span><span class="o">)</span>
         <span class="o">.</span><span class="na">setSku</span><span class="o">(</span><span class="s">&quot;test_sku&quot;</span><span class="o">)</span>
         <span class="o">.</span><span class="na">setContentSchema</span><span class="o">(</span><span class="n">BranchContentSchema</span><span class="o">.</span><span class="na">COMMERCE_PRODUCT</span><span class="o">))</span>
-    <span class="o">.</span><span class="na">addKeyWord</span><span class="o">(</span><span class="s">&quot;keyword1&quot;</span><span class="o">)</span>
-    <span class="o">.</span><span class="na">addKeyWord</span><span class="o">(</span><span class="s">&quot;keyword2&quot;</span><span class="o">);</span>
+        <span class="o">.</span><span class="na">addKeyWord</span><span class="o">(</span><span class="s">&quot;keyword1&quot;</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">addKeyWord</span><span class="o">(</span><span class="s">&quot;keyword2&quot;</span><span class="o">);</span>
 
 <span class="k">new</span> <span class="n">BranchEvent</span><span class="o">(</span><span class="n">BRANCH_STANDARD_EVENT</span><span class="o">.</span><span class="na">ADD_TO_CART</span><span class="o">)</span>
         <span class="o">.</span><span class="na">setAffiliation</span><span class="o">(</span><span class="s">&quot;test_affiliation&quot;</span><span class="o">)</span>
