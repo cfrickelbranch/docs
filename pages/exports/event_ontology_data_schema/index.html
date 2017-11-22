@@ -2020,55 +2020,149 @@
                 
                 <h1 id="event-ontology-data-schema">Event Ontology Data Schema<a class="headerlink" href="#event-ontology-data-schema" title="Permanent link">&para;</a></h1>
 <h2 id="products">Products<a class="headerlink" href="#products" title="Permanent link">&para;</a></h2>
-<p>The Event Ontology is shared between all of the following places:
-- Dashboard
-- Webhooks
-- Data Integrations
-- <a href="https://docs.branch.io/pages/exports/api-v3/">Exports</a></p>
+<p>The Event Ontology is shared between all of the following places:</p>
+<ul>
+<li>Dashboard</li>
+<li>Webhooks</li>
+<li>Data Integrations</li>
+<li><a href="https://docs.branch.io/pages/exports/api-v3/">Exports</a></li>
+</ul>
 <h2 id="events-included">Events Included<a class="headerlink" href="#events-included" title="Permanent link">&para;</a></h2>
 <p>As Branch transitions to our new analytics platform, we are also making it easier than ever to get your data out. Previously, we had different formats for Webhooks vs Data Integrations vs Exports. Now we have a unified format. We refer to this as Branch's "Event Ontology". </p>
-<p>We split out events into logical groupings. We now have the following distinct event groupings:
-- impressions
-- click
-- web-to-app auto redirect
-- sms sent
-- install
-- reinstall
-- open
-- web session start
-- pageview 
-- custom event
-- commerce event
-- content event
-- user lifecycle event</p>
+<p>We split out events into logical groupings. We now have the following distinct event groupings:</p>
+<ul>
+<li>impressions</li>
+<li>click</li>
+<li>web-to-app auto redirect</li>
+<li>sms sent</li>
+<li>install</li>
+<li>reinstall</li>
+<li>open</li>
+<li>web session start</li>
+<li>pageview </li>
+<li>custom event</li>
+<li>commerce event</li>
+<li>content event</li>
+<li>user lifecycle event</li>
+</ul>
 <p>The last four are groupings of multiple events. Custom events are any events you choose to track with Branch that fall outside our list of standard events. Commerce events include a short list of events such as PURCHASE that involve e-commerce. Content events include a short list of events such as VIEW_ITEM that involve content and are not directly related to e-commerce. User lifecycle events are events marking a distinct action completed by a user as they progress through your app, such as COMPLETE_REGISTRATION.</p>
 <h3 id="branch-standard-events">Branch Standard Events<a class="headerlink" href="#branch-standard-events" title="Permanent link">&para;</a></h3>
 <p>Here is a full breakdown of standard events trackable by Branch.</p>
-<p>| event grouping | events |
-| = | = |
-| commerce event | ADD_TO_CART, ADD_TO_WISHLIST, VIEW_CART, INITIATE_PURCHASE, ADD_PAYMENT_INFO, PURCHASE, SPEND_CREDITS |
-| content event | SEARCH, VIEW_ITEM, VIEW_ITEMS, RATE, SHARE |
-| user lifecycle event | COMPLETE_REGISTRATION, COMPLETE_TUTORIAL, ACHIEVE_LEVEL, UNLOCK_ACHIEVEMENT |</p>
+<table>
+<thead>
+<tr>
+<th><em>event grouping</em></th>
+<th><em>events</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>commerce event</td>
+<td>ADD_TO_CART, ADD_TO_WISHLIST, VIEW_CART, INITIATE_PURCHASE, ADD_PAYMENT_INFO, PURCHASE, SPEND_CREDITS</td>
+</tr>
+<tr>
+<td>content event</td>
+<td>SEARCH, VIEW_ITEM, VIEW_ITEMS, RATE, SHARE</td>
+</tr>
+<tr>
+<td>user lifecycle event</td>
+<td>COMPLETE_REGISTRATION, COMPLETE_TUTORIAL, ACHIEVE_LEVEL, UNLOCK_ACHIEVEMENT</td>
+</tr>
+</tbody>
+</table>
 <h2 id="fields-included">Fields included<a class="headerlink" href="#fields-included" title="Permanent link">&para;</a></h2>
 <p>On each event, we provide a considerable number of information. The following table has an overview. Several of the fields below are objects which themselves have many fields.</p>
-<p>| field | format | definition |
-| = | = | = |
-| id | string | a unique id for the event |
-| name | string | the name of the event, such as "CLICK", "INSTALL", "PURCHASE", or custom event names like "signup" |
-| timestamp | long | unix timestamp in milliseconds for the event |
-| days_from_last_attributed_touch_to_event | int | number of days between when the last touch occurred and when this event subsequently occurred |
-| last_attributed_touch_type | enum { CLICK, WEB_TO_APP_AUTO_REDIRECT, IMPRESSION } | whether the last attributed touch was an impression, a click, or a web to app auto redirect |
-| last_attributed_touch_timestamp | long | unix timestamp in milliseconds for the last attributed touch |
-| last_attributed_touch_data | object | If an impression, click, web to app auto redirect, branch cta view, or sms sent, this field contains the link data directly associated with the event. For all other events, this is the data associated with the last qualifying touch (click, impression, etc) to occur before this event. Subject to attribution windows, within which the last click or web to app auto redirect trumps a more recent impression. |
-| days_from_last_cta_view_to_event | int | number of days between when the last Branch CTA view occurred and when this event subsequently occurred (see datasource definition of cta view) |
-| last_cta_view_timestamp | long | unix timestamp in milliseconds for the last Branch CTA view |
-| last_cta_view_data | object | This is the data associated with the last qualifying Branch CTA View to occur before this event. Subject to attribution windows, within which the last click or web to app auto redirect trumps a more recent impression. |
-| first_event_for_user | boolean | if this is the first time for this persona that this event has been triggered |
-| deep_linked | boolean | true if the current app or web session resulted in the user being deep linked |
-| user_data | object | data associated with the user who triggered the event |
-| event_data | object | data associated with commerce or content events, but not specific to any one item |
-| content_items | array of object | Array of content items. A content item is any distinct item, whether a product, piece of content, restaurant, service, flight, hotel, or any kind of media (text, visual, audio) |
-| custom_data | object | partner-specified custom key-value pairs associated with an event, excluding Touches, Branch CTA view and SMS sent |</p>
+<table>
+<thead>
+<tr>
+<th><em>field</em></th>
+<th><em>format</em></th>
+<th><em>definition</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>a unique id for the event</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>the name of the event, such as "CLICK", "INSTALL", "PURCHASE", or custom event names like "signup"</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>long</td>
+<td>unix timestamp in milliseconds for the event</td>
+</tr>
+<tr>
+<td>days_from_last_attributed_touch_to_event</td>
+<td>int</td>
+<td>number of days between when the last touch occurred and when this event subsequently occurred</td>
+</tr>
+<tr>
+<td>last_attributed_touch_type</td>
+<td CLICK_="CLICK," IMPRESSION="IMPRESSION" WEB_TO_APP_AUTO_REDIRECT_="WEB_TO_APP_AUTO_REDIRECT,">enum </td>
+<td>whether the last attributed touch was an impression, a click, or a web to app auto redirect</td>
+</tr>
+<tr>
+<td>last_attributed_touch_timestamp</td>
+<td>long</td>
+<td>unix timestamp in milliseconds for the last attributed touch</td>
+</tr>
+<tr>
+<td>last_attributed_touch_data</td>
+<td>object</td>
+<td>If an impression, click, web to app auto redirect, branch cta view, or sms sent, this field contains the link data directly associated with the event. For all other events, this is the data associated with the last qualifying touch (click, impression, etc) to occur before this event. Subject to attribution windows, within which the last click or web to app auto redirect trumps a more recent impression.</td>
+</tr>
+<tr>
+<td>days_from_last_cta_view_to_event</td>
+<td>int</td>
+<td>number of days between when the last Branch CTA view occurred and when this event subsequently occurred (see datasource definition of cta view)</td>
+</tr>
+<tr>
+<td>last_cta_view_timestamp</td>
+<td>long</td>
+<td>unix timestamp in milliseconds for the last Branch CTA view</td>
+</tr>
+<tr>
+<td>last_cta_view_data</td>
+<td>object</td>
+<td>This is the data associated with the last qualifying Branch CTA View to occur before this event. Subject to attribution windows, within which the last click or web to app auto redirect trumps a more recent impression.</td>
+</tr>
+<tr>
+<td>first_event_for_user</td>
+<td>boolean</td>
+<td>if this is the first time for this persona that this event has been triggered</td>
+</tr>
+<tr>
+<td>deep_linked</td>
+<td>boolean</td>
+<td>true if the current app or web session resulted in the user being deep linked</td>
+</tr>
+<tr>
+<td>user_data</td>
+<td>object</td>
+<td>data associated with the user who triggered the event</td>
+</tr>
+<tr>
+<td>event_data</td>
+<td>object</td>
+<td>data associated with commerce or content events, but not specific to any one item</td>
+</tr>
+<tr>
+<td>content_items</td>
+<td>array of object</td>
+<td>Array of content items. A content item is any distinct item, whether a product, piece of content, restaurant, service, flight, hotel, or any kind of media (text, visual, audio)</td>
+</tr>
+<tr>
+<td>custom_data</td>
+<td>object</td>
+<td>partner-specified custom key-value pairs associated with an event, excluding Touches, Branch CTA view and SMS sent</td>
+</tr>
+</tbody>
+</table>
 <h2 id="full-list-of-fields">Full list of fields<a class="headerlink" href="#full-list-of-fields" title="Permanent link">&para;</a></h2>
 <p>If you are building an integration with Branch or simply wish to learn more about the fields we offer, please download one of the CSV files below. They provide a comprehensive list of events and fields, along with definitions and data types. </p>
 <p><a href="../webhook_export_di_export.csv">Full Event Ontology for Webhooks, Data Integrations and Exports</a></p>
