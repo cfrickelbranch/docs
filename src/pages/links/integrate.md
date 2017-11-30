@@ -183,6 +183,7 @@
         | $ios_wechat_url | | Change the redirect endpoint for WeChat on iOS devices `$ios_url` value
         | $android_wechat_url | | Change the redirect endpoint for WeChat on Android devices  `$android_url` value
         | $web_only | `false` | Force to open the `$fallback_url` instead of the app
+        | $force_strong_match | `false` | Attempt to create a strong match (`+match_guarentee=true`) after app install by exiting the app to Safari, and then auto re-opening the app immediately. This parameter will only iOS 11 with Universal Links enabled
 
 - ### Forced redirections
 

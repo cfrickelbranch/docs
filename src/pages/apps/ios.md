@@ -764,31 +764,34 @@
 
 - ### Enable 100% matching
 
-    - Use the `SFSafariViewController` to increase the attribution matching success
+    - iOS 11
 
-    - The 100% match is a bit of a misnomer, as it is only 100% match from when a user clicks from the Safari browser. According to our analysis, clicking through Safari happens about 50-75% of the time depending on the use case. For example, clicking from Facebook, Gmail or Chrome won’t trigger a 100% match here. However, it’s still beneficial to the matching accuracy, so we recommend employing it.
+        - Append `$force_strong_match=true` to your [deep link data](/pages/links/integrate/#redirections)
 
-    - When using a custom domain, add a `branch_app_domain` string key in your Info.plist with your custom domain
-    to enable 100% matching.
+        - This parameter will force the app to open Safari and auto-open the app immediately. The re-entry will cause `+match_guarentee=true` within your `Branch.initSession()` deep link data
 
-    - By default, cookie-based matching is enabled on iOS 9 and 10 if the `SafariServices.framework`
-    is included in an app's dependencies, and the app uses an app.link subdomain or sets the `branch_app_domain`
-    in the Info.plist. It can be disabled with a call to the SDK.
+    - iOS 10 and iOS 9
 
-    - Add before `initSession` [Initialize Branch](#initialize-branch)
+        - The 100% match is a bit of a misnomer, as it is only 100% match from when a user clicks from the Safari browser. According to our analysis, clicking through Safari happens about 50-75% of the time depending on the use case. For example, clicking from Facebook, Gmail or Chrome won’t trigger a 100% match here. However, it’s still beneficial to the matching accuracy, so we recommend employing it.
 
-    - *Swift 3*
+        - By default, cookie-based matching is enabled if `SafariServices.framework` is added to your app's dependencies
 
-        ```swift
-        Branch.getInstance().disableCookieBasedMatching()
-        ```
+        - When using a custom domain, add a `branch_app_domain` string key in your Info.plist with your `custom link domain`
+        to enable 100% matching
 
-    - *Objective C*
+        - Additionally, you can use the `SFSafariViewController` to increase the attribution matching success by adding the following before `Branch.initSession()` [Initialize Branch](#initialize-branch)
 
-        ```objc
-        [[Branch getInstance] disableCookieBasedMatching];
-        ```
+        - *Swift 3*
 
+            ```swift
+            Branch.getInstance().disableCookieBasedMatching()
+            ```
+
+        - *Objective C*
+
+            ```objc
+            [[Branch getInstance] disableCookieBasedMatching];
+            ```
 
 ## Troubleshoot issues
 
