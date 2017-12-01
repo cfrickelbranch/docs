@@ -3668,9 +3668,9 @@
 <ul>
 <li>
 <p>Set <code>true</code> in your <code>AndroidManifest.xml</code></p>
-<div class="codehilite"><pre><span></span><span class="nt">&lt;meta-data</span> <span class="na">android:name=</span><span class="s">&quot;io.branch.sdk.TestMode&quot;</span> <span class="na">android:value=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>
+<p><div class="codehilite"><pre><span></span><span class="nt">&lt;meta-data</span> <span class="na">android:name=</span><span class="s">&quot;io.branch.sdk.TestMode&quot;</span> <span class="na">android:value=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>
 </pre></div>
-
+        - <em>[or]</em> add <code>Branch.enableTestMode();</code> before your <code>Branch.getInstance().initSession()</code></p>
 </li>
 <li>
 <p>Do not use <code>TestMode</code> in production or in the Google Play Store</p>
@@ -3687,7 +3687,7 @@
 <p>Reinstall your app</p>
 </li>
 <li>
-<p>Read deep link data from <code>Branch.initSession()</code> for <code>+is_first_session=true</code></p>
+<p>Read deep link data from <code>Branch.getInstance().initSession()</code> for <code>+is_first_session=true</code></p>
 </li>
 </ul>
 </li>
