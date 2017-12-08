@@ -2610,8 +2610,8 @@
    <span class="o">.</span><span class="na">setContentIndexingMode</span><span class="o">(</span><span class="n">BranchUniversalObject</span><span class="o">.</span><span class="na">CONTENT_INDEX_MODE</span><span class="o">.</span><span class="na">PUBLIC</span><span class="o">)</span>
 
     <span class="c1">// Here is where you can add custom keys/values to the deep link data</span>
-   <span class="o">.</span><span class="na">addContentMetadata</span><span class="o">(</span><span class="s">&quot;property1&quot;</span><span class="o">,</span> <span class="s">&quot;blue&quot;</span><span class="o">)</span>
-   <span class="o">.</span><span class="na">addContentMetadata</span><span class="o">(</span><span class="s">&quot;property2&quot;</span><span class="o">,</span> <span class="s">&quot;red&quot;</span><span class="o">);</span>
+   <span class="o">.</span><span class="na">setContentMetadata</span><span class="o">(</span><span class="k">new</span> <span class="n">ContentMetadata</span><span class="o">().</span><span class="na">addCustomMetadata</span><span class="o">(</span><span class="s">&quot;property1&quot;</span><span class="o">,</span> <span class="s">&quot;blue&quot;</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">addCustomMetadata</span><span class="o">(</span><span class="s">&quot;property2&quot;</span><span class="o">,</span> <span class="s">&quot;red&quot;</span><span class="o">));</span>
 </pre></div>
 
 </li>
