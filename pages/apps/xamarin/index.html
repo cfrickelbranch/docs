@@ -2767,79 +2767,90 @@
 <li>Add an InitSessionComplete method for processing Branch link information (this is where deep link routing code should be located)</li>
 <li>Add a SessionRequestError method to handle situations where Branch fails to initialize</li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="k">using</span> <span class="nn">Android.App</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">Android.Widget</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">Android.OS</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">BranchXamarinSDK</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">Android.Content</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">Newtonsoft.Json</span><span class="p">;</span>
+<p>```csharp
+using Android.App;
+using Android.Widget;
+using Android.OS;
+using BranchXamarinSDK;
+using System;
+using System.Collections.Generic;
+using Android.Content;
+using Newtonsoft.Json;</p>
+<p>namespace TestAndroidApp.Droid
+{
+    [Activity(Label = "TestAndroidApp", MainLauncher = true, Icon = "@mipmap/icon", LaunchMode = Android.Content.PM.LaunchMode.SingleTask)]</p>
+<div class="codehilite"><pre><span></span><span class="cp">[</span><span class="nx">IntentFilter</span><span class="p">(</span><span class="nb">new</span><span class="err">[</span><span class="cp">]</span> <span class="p">{</span> <span class="err">&quot;android.intent.action.VIEW&quot;</span> <span class="p">}</span><span class="o">,</span>
+<span class="nt">Categories</span> <span class="o">=</span> <span class="nt">new</span><span class="cp">[]</span> <span class="p">{</span> <span class="err">&quot;android.intent.category.DEFAULT&quot;,</span> <span class="err">&quot;android.intent.category.BROWSABLE&quot;</span> <span class="p">}</span><span class="o">,</span>
+<span class="nt">DataScheme</span> <span class="o">=</span> <span class="s2">&quot;testandroidapp&quot;</span><span class="o">,</span>
+<span class="nt">DataHost</span> <span class="o">=</span> <span class="s2">&quot;open&quot;</span><span class="o">)]</span>
 
-<span class="k">namespace</span> <span class="nn">TestAndroidApp.Droid</span>
+<span class="cp">[</span><span class="nx">IntentFilter</span><span class="p">(</span><span class="nb">new</span><span class="err">[</span><span class="cp">]</span> <span class="p">{</span> <span class="err">&quot;android.intent.action.VIEW&quot;</span> <span class="p">}</span><span class="o">,</span>
+<span class="nt">Categories</span> <span class="o">=</span> <span class="nt">new</span><span class="cp">[]</span> <span class="p">{</span> <span class="err">&quot;android.intent.category.DEFAULT&quot;,</span> <span class="err">&quot;android.intent.category.BROWSABLE&quot;</span> <span class="p">}</span><span class="o">,</span>
+<span class="nt">DataScheme</span> <span class="o">=</span> <span class="s2">&quot;https&quot;</span><span class="o">,</span>
+<span class="nt">DataHost</span> <span class="o">=</span> <span class="s2">&quot;testandroidapp.app.link&quot;</span><span class="o">)]</span>
+
+<span class="cp">[</span><span class="nx">IntentFilter</span><span class="p">(</span><span class="nb">new</span><span class="err">[</span><span class="cp">]</span> <span class="p">{</span> <span class="err">&quot;android.intent.action.VIEW&quot;</span> <span class="p">}</span><span class="o">,</span>
+<span class="nt">Categories</span> <span class="o">=</span> <span class="nt">new</span><span class="cp">[]</span> <span class="p">{</span> <span class="err">&quot;android.intent.category.DEFAULT&quot;,</span> <span class="err">&quot;android.intent.category.BROWSABLE&quot;</span> <span class="p">}</span><span class="o">,</span>
+<span class="nt">DataScheme</span> <span class="o">=</span> <span class="s2">&quot;https&quot;</span><span class="o">,</span>
+<span class="nt">DataHost</span> <span class="o">=</span> <span class="s2">&quot;testandroidapp-alternate.app.link&quot;</span><span class="o">)]</span>
+
+<span class="nt">public</span> <span class="nt">class</span> <span class="nt">MainActivity</span> <span class="o">:</span> <span class="nt">Activity</span><span class="o">,</span> <span class="nt">IBranchSessionInterface</span>
 <span class="p">{</span>
-<span class="na">    [Activity(Label = &quot;TestAndroidApp&quot;, MainLauncher = true, Icon = &quot;@mipmap/icon&quot;, LaunchMode = Android.Content.PM.LaunchMode.SingleTask)]</span>
 
-<span class="na">    [IntentFilter(new[]</span> <span class="p">{</span> <span class="s">&quot;android.intent.action.VIEW&quot;</span> <span class="p">},</span>
-    <span class="n">Categories</span> <span class="p">=</span> <span class="k">new</span><span class="p">[]</span> <span class="p">{</span> <span class="s">&quot;android.intent.category.DEFAULT&quot;</span><span class="p">,</span> <span class="s">&quot;android.intent.category.BROWSABLE&quot;</span> <span class="p">},</span>
-    <span class="n">DataScheme</span> <span class="p">=</span> <span class="s">&quot;testandroidapp&quot;</span><span class="p">,</span>
-    <span class="n">DataHost</span> <span class="p">=</span> <span class="s">&quot;open&quot;</span><span class="p">)]</span>
+    <span class="err">protected</span> <span class="err">override</span> <span class="err">void</span> <span class="err">OnCreate(Bundle</span> <span class="err">savedInstanceState)</span>
+    <span class="err">{</span>
+        <span class="err">base.OnCreate(savedInstanceState)</span><span class="p">;</span>
 
-<span class="na">    [IntentFilter(new[]</span> <span class="p">{</span> <span class="s">&quot;android.intent.action.VIEW&quot;</span> <span class="p">},</span>
-    <span class="n">Categories</span> <span class="p">=</span> <span class="k">new</span><span class="p">[]</span> <span class="p">{</span> <span class="s">&quot;android.intent.category.DEFAULT&quot;</span><span class="p">,</span> <span class="s">&quot;android.intent.category.BROWSABLE&quot;</span> <span class="p">},</span>
-    <span class="n">DataScheme</span> <span class="p">=</span> <span class="s">&quot;https&quot;</span><span class="p">,</span>
-    <span class="n">DataHost</span> <span class="p">=</span> <span class="s">&quot;testandroidapp.app.link&quot;</span><span class="p">)]</span>
-
-<span class="na">    [IntentFilter(new[]</span> <span class="p">{</span> <span class="s">&quot;android.intent.action.VIEW&quot;</span> <span class="p">},</span>
-    <span class="n">Categories</span> <span class="p">=</span> <span class="k">new</span><span class="p">[]</span> <span class="p">{</span> <span class="s">&quot;android.intent.category.DEFAULT&quot;</span><span class="p">,</span> <span class="s">&quot;android.intent.category.BROWSABLE&quot;</span> <span class="p">},</span>
-    <span class="n">DataScheme</span> <span class="p">=</span> <span class="s">&quot;https&quot;</span><span class="p">,</span>
-    <span class="n">DataHost</span> <span class="p">=</span> <span class="s">&quot;testandroidapp-alternate.app.link&quot;</span><span class="p">)]</span>
-
-    <span class="k">public</span> <span class="k">class</span> <span class="nc">MainActivity</span> <span class="p">:</span> <span class="n">Activity</span><span class="p">,</span> <span class="n">IBranchSessionInterface</span>
-    <span class="p">{</span>
-
-        <span class="k">protected</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">OnCreate</span><span class="p">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="k">base</span><span class="p">.</span><span class="n">OnCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">);</span>
-
-            <span class="n">BranchAndroid</span><span class="p">.</span><span class="n">Init</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n">Resources</span><span class="p">.</span><span class="n">GetString</span><span class="p">(</span><span class="n">Resource</span><span class="p">.</span><span class="n">String</span><span class="p">.</span><span class="n">branch_key</span><span class="p">),</span> <span class="k">this</span><span class="p">);</span>
-        <span class="p">}</span>
-
-        <span class="c1">// Ensure we get the updated link identifier when the app becomes active</span>
-        <span class="c1">// due to a Branch link click after having been in the background</span>
-        <span class="k">protected</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">OnNewIntent</span><span class="p">(</span><span class="n">Intent</span> <span class="n">intent</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="k">this</span><span class="p">.</span><span class="n">Intent</span> <span class="p">=</span> <span class="n">intent</span><span class="p">;</span>
-        <span class="p">}</span>
-
-        <span class="k">public</span> <span class="k">void</span> <span class="nf">InitSessionComplete</span><span class="p">(</span><span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">object</span><span class="p">&gt;</span> <span class="n">data</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="kt">var</span> <span class="n">intent</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Intent</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="k">typeof</span><span class="p">(</span><span class="n">BranchActivity</span><span class="p">));</span>
-            <span class="n">intent</span><span class="p">.</span><span class="n">PutExtra</span><span class="p">(</span><span class="s">&quot;BranchData&quot;</span><span class="p">,</span> <span class="n">JsonConvert</span><span class="p">.</span><span class="n">SerializeObject</span><span class="p">(</span><span class="n">data</span><span class="p">));</span>
-
-            <span class="n">StartActivity</span><span class="p">(</span><span class="n">intent</span><span class="p">);</span>
-        <span class="p">}</span>
-
-        <span class="k">public</span> <span class="k">void</span> <span class="nf">SessionRequestError</span><span class="p">(</span><span class="n">BranchError</span> <span class="n">error</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Branch session initialization error: &quot;</span> <span class="p">+</span> <span class="n">error</span><span class="p">.</span><span class="n">ErrorCode</span><span class="p">);</span>
-            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">error</span><span class="p">.</span><span class="n">ErrorMessage</span><span class="p">);</span>
-
-            <span class="kt">var</span> <span class="n">intent</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Intent</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="k">typeof</span><span class="p">(</span><span class="n">BranchErrorActivity</span><span class="p">));</span>
-            <span class="n">intent</span><span class="p">.</span><span class="n">PutExtra</span><span class="p">(</span><span class="s">&quot;ErrorCode&quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">.</span><span class="n">ErrorCode</span><span class="p">);</span>
-            <span class="n">intent</span><span class="p">.</span><span class="n">PutExtra</span><span class="p">(</span><span class="s">&quot;ErrorMessage&quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">.</span><span class="n">ErrorMessage</span><span class="p">);</span>
-
-            <span class="n">StartActivity</span><span class="p">(</span><span class="n">intent</span><span class="p">);</span>
-        <span class="p">}</span>
+        <span class="err">BranchAndroid.Init(this,</span> <span class="err">Resources.GetString(Resource.String.branch_key),</span> <span class="err">this)</span><span class="p">;</span>
     <span class="p">}</span>
-<span class="p">}</span>
+
+    <span class="o">//</span> <span class="nt">Ensure</span> <span class="nt">we</span> <span class="nt">get</span> <span class="nt">the</span> <span class="nt">updated</span> <span class="nt">link</span> <span class="nt">identifier</span> <span class="nt">when</span> <span class="nt">the</span> <span class="nt">app</span> <span class="nt">becomes</span> <span class="nt">active</span>
+    <span class="o">//</span> <span class="nt">due</span> <span class="nt">to</span> <span class="nt">a</span> <span class="nt">Branch</span> <span class="nt">link</span> <span class="nt">click</span> <span class="nt">after</span> <span class="nt">having</span> <span class="nt">been</span> <span class="nt">in</span> <span class="nt">the</span> <span class="nt">background</span>
+    <span class="nt">protected</span> <span class="nt">override</span> <span class="nt">void</span> <span class="nt">OnNewIntent</span><span class="o">(</span><span class="nt">Intent</span> <span class="nt">intent</span><span class="o">)</span>
+    <span class="p">{</span>
+        <span class="err">this.Intent</span> <span class="err">=</span> <span class="err">intent</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nt">public</span> <span class="nt">void</span> <span class="nt">InitSessionComplete</span><span class="o">(</span><span class="nt">Dictionary</span><span class="o">&lt;</span><span class="nt">string</span><span class="o">,</span> <span class="nt">object</span><span class="o">&gt;</span> <span class="nt">data</span><span class="o">)</span>
+    <span class="p">{</span>
+        <span class="err">//Handle</span> <span class="err">custom</span> <span class="err">logic</span> <span class="err">based</span> <span class="err">on</span> <span class="err">deep</span> <span class="err">link</span> <span class="err">data</span> <span class="err">in</span> <span class="err">InitSessionComplete</span>
+
+        <span class="err">//View</span> <span class="err">all</span> <span class="err">the</span> <span class="err">link</span> <span class="err">data</span> <span class="err">in</span> <span class="err">the</span> <span class="err">console</span>
+        <span class="err">Console.WriteLine(&quot;My</span> <span class="err">Link</span> <span class="n">Data</span><span class="p">:</span> <span class="err">&quot;</span> <span class="o">+</span> <span class="n">JsonConvert</span><span class="o">.</span><span class="nf">SerializeObject</span><span class="p">(</span><span class="n">data</span><span class="p">));</span>
 </pre></div>
 
+
 </li>
 </ul>
 </li>
 </ul>
 </li>
+</ul>
+<p>//Preferred method: use BranchActivity created previously to handle the link data
+                        //Will need to update BranchActivity with desired custom logic, to open the correct page in the app
+                        (this, typeof(BranchActivity));
+                        intent.PutExtra("BranchData", JsonConvert.SerializeObject(data));</p>
+<div class="codehilite"><pre><span></span>                    <span class="nt">StartActivity</span><span class="o">(</span><span class="nt">intent</span><span class="o">);</span><span class="nt">var</span> <span class="nt">intent</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">Intent</span>
+                <span class="err">}</span>
+
+                <span class="nt">public</span> <span class="nt">void</span> <span class="nt">SessionRequestError</span><span class="o">(</span><span class="nt">BranchError</span> <span class="nt">error</span><span class="o">)</span>
+                <span class="p">{</span>
+                    <span class="err">Console.WriteLine(&quot;Branch</span> <span class="err">session</span> <span class="err">initialization</span> <span class="n">error</span><span class="p">:</span> <span class="s2">&quot; + error.ErrorCode);</span>
+<span class="s2">                    Console.WriteLine(error.ErrorMessage);</span>
+
+<span class="s2">                    var intent = new Intent(this, typeof(BranchErrorActivity));</span>
+<span class="s2">                    intent.PutExtra(&quot;</span><span class="n">ErrorCode</span><span class="s2">&quot;, error.ErrorCode);</span>
+<span class="s2">                    intent.PutExtra(&quot;</span><span class="n">ErrorMessage</span><span class="err">&quot;</span><span class="p">,</span> <span class="n">error</span><span class="o">.</span><span class="n">ErrorMessage</span><span class="p">);</span>
+
+                    <span class="err">StartActivity(intent)</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="err">}</span>
+        <span class="err">}</span>
+        <span class="err">```</span>
+</pre></div>
+
+
+<ul>
 <li>
 <h3 id="configure-branch-with-xamarin-forms">Configure Branch with Xamarin Forms<a class="headerlink" href="#configure-branch-with-xamarin-forms" title="Permanent link">&para;</a></h3>
 <ul>

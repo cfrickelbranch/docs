@@ -569,6 +569,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#sync-with-mixpanel" title="Sync with Mixpanel" class="md-nav__link">
+    Sync with Mixpanel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#simulate-an-install" title="Simulate an install" class="md-nav__link">
     Simulate an install
   </a>
@@ -2429,6 +2436,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#sync-with-mixpanel" title="Sync with Mixpanel" class="md-nav__link">
+    Sync with Mixpanel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#simulate-an-install" title="Simulate an install" class="md-nav__link">
     Simulate an install
   </a>
@@ -3273,6 +3287,20 @@
 
 </li>
 </ul>
+</li>
+<li>
+<h3 id="sync-with-mixpanel">Sync with Mixpanel<a class="headerlink" href="#sync-with-mixpanel" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Sync Branch withh Mixpanel if the plugin is installed </p>
+</li>
+<li>
+<p>Add before <code>Branch.initSession();</code> (<a href="#initialize-branch-features">Initialize Branch Features</a>)</p>
+</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="nx">Branch</span><span class="p">.</span><span class="nx">setRequestMetadata</span><span class="p">(</span><span class="s2">&quot;$mixpanel_distinct_id&quot;</span><span class="p">,</span> <span class="s2">&quot;123&quot;</span><span class="p">)</span>
+</pre></div>
+
 </li>
 <li>
 <h3 id="simulate-an-install">Simulate an install<a class="headerlink" href="#simulate-an-install" title="Permanent link">&para;</a></h3>
