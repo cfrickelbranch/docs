@@ -714,8 +714,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#expected-redirect-behavior" title="Expected redirect behavior" class="md-nav__link">
-    Expected redirect behavior
+  <a href="#your-app-is-not-installed" title="Your app is not installed" class="md-nav__link">
+    Your app is not installed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#your-app-is-installed" title="Your app is installed" class="md-nav__link">
+    Your app is installed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expected-link-behavior" title="Expected link behavior" class="md-nav__link">
+    Expected link behavior
   </a>
   
 </li>
@@ -1324,8 +1338,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../emails/appboy/" title="Appboy" class="md-nav__link">
-      Appboy
+    <a href="../../emails/braze/" title="Braze (formerly Appboy)" class="md-nav__link">
+      Braze (formerly Appboy)
     </a>
   </li>
 
@@ -2262,8 +2276,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#expected-redirect-behavior" title="Expected redirect behavior" class="md-nav__link">
-    Expected redirect behavior
+  <a href="#your-app-is-not-installed" title="Your app is not installed" class="md-nav__link">
+    Your app is not installed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#your-app-is-installed" title="Your app is installed" class="md-nav__link">
+    Your app is installed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#expected-link-behavior" title="Expected link behavior" class="md-nav__link">
+    Expected link behavior
   </a>
   
 </li>
@@ -2528,52 +2556,41 @@
 <h3 id="default-link-behavior">Default link behavior<a class="headerlink" href="#default-link-behavior" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
-<p>Your app is not installed</p>
+<h4 id="your-app-is-not-installed">Your app is not installed<a class="headerlink" href="#your-app-is-not-installed" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
 <p>User <code>clicks</code> on a Branch deep link</p>
 </li>
 <li>
-<p>Device <code>navigates</code> to the <a href="#fallback-to-a-specific-url">fallback</a> (e.g. an app store or website)</p>
+<p>Device <code>navigates</code> to the <a href="#custom-link-behavior">fallback</a> (e.g. an app store or website)</p>
 </li>
 <li>
-<p>User <code>installs</code> and <code>opens</code> app</p>
+<p>User <code>installs</code> and <code>opens</code> your app</p>
 </li>
 <li>
-<p>Branch passes deep link <code>data</code> into app</p>
+<p>Branch passes deep link <code>data</code> into your app</p>
 </li>
 </ul>
 </li>
 <li>
-<p>Your app is installed</p>
+<h4 id="your-app-is-installed">Your app is installed<a class="headerlink" href="#your-app-is-installed" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
 <p>User <code>clicks</code> on a Branch deep link</p>
 </li>
 <li>
-<p>Device <code>opens</code> app</p>
+<p>Device <code>opens</code> your app or navigates to <a href="#expected-link-behavior">expected link behavior</a></p>
 </li>
 <li>
-<p>Branch passes deep link <code>data</code> into app</p>
-</li>
-</ul>
+<p>Branch passes deep link <code>data</code> into your app</p>
 </li>
 </ul>
 </li>
 <li>
-<h4 id="expected-redirect-behavior">Expected redirect behavior<a class="headerlink" href="#expected-redirect-behavior" title="Permanent link">&para;</a></h4>
+<h4 id="expected-link-behavior">Expected link behavior<a class="headerlink" href="#expected-link-behavior" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
-<p>Your app is not installed</p>
-<ul>
-<li>Device <code>navigates</code> to the <a href="#fallback-to-a-specific-url">fallback</a> (e.g. an app store or website)</li>
-</ul>
-</li>
-<li>
-<p>Your app is installed</p>
-<ul>
-<li>
-<p>If the app supports deep linking, then your app will open or navigate to the <a href="#fallback-to-a-specific-url">fallback</a></p>
+<p>Expected link behavior is depdentent on whether or not the app supports deep linking</p>
 </li>
 <li>
 <p><code>*Able to force app open</code> using <a href="#forced-redirections"><code>$uri_redirect_mode</code></a> or enabling a <a href="../../../pages/web/deep-views/">Deepview</a></p>
@@ -2774,7 +2791,7 @@
 <h3 id="custom-link-behavior">Custom link behavior<a class="headerlink" href="#custom-link-behavior" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
-<h5 id="pass-data-from-link-to-app">Pass data from link to app<a class="headerlink" href="#pass-data-from-link-to-app" title="Permanent link">&para;</a></h5>
+<h4 id="pass-data-from-link-to-app">Pass data from link to app<a class="headerlink" href="#pass-data-from-link-to-app" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
 <p>Add <a href="#configure-deep-links">link data</a> to each deep link</p>
@@ -2788,7 +2805,7 @@
 </ul>
 </li>
 <li>
-<h5 id="fallback-to-a-specific-url">Fallback to a specific URL<a class="headerlink" href="#fallback-to-a-specific-url" title="Permanent link">&para;</a></h5>
+<h4 id="fallback-to-a-specific-url">Fallback to a specific URL<a class="headerlink" href="#fallback-to-a-specific-url" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
 <p>Determine where a deep link will navigate to if either</p>
@@ -2816,10 +2833,10 @@
 </ul>
 </li>
 <li>
-<h5 id="open-web-instead-of-app">Open web instead of app<a class="headerlink" href="#open-web-instead-of-app" title="Permanent link">&para;</a></h5>
+<h4 id="open-web-instead-of-app">Open web instead of app<a class="headerlink" href="#open-web-instead-of-app" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Your app is not installed<ul>
-<li>Device <code>navigates</code> to the <a href="#fallback-to-a-specific-url">fallback</a> (e.g. an app store or website)</li>
+<li>Device <code>navigates</code> to the <a href="#custom-link-behavior">fallback</a> (e.g. an app store or website)</li>
 </ul>
 </li>
 <li>Your app is installed<ul>
@@ -2853,7 +2870,7 @@
 </li>
 <li>Use <a href="">Deep Views</a> to display content as a website<ul>
 <li>Increases <a href="https://branch.io/deepview/">install attribution</a></li>
-<li>Completes deep linking experience in <a href="#expected-redirect-behavior">certain apps</a></li>
+<li>Completes deep linking experience in <a href="#default-link-behavior">certain apps</a></li>
 </ul>
 </li>
 </ul>
@@ -3709,7 +3726,7 @@
 <li>Make sure you have <a href="../../../pages/dashboard/integrate/">configure your dashboard</a> and <a href="#dialog-code">configure your app</a></li>
 <li>Make sure the <code>Branch key</code> <a href="#dialog-code">in your app</a> matches the <code>Branch key</code> <a href="#view-deep-link-data">in your deep link</a></li>
 <li>Make sure you have not <a href="../../../pages/apps/ios/#re-enable-universal-linking">disabled universal linking on iOS</a></li>
-<li>Make sure you understand the <a href="#expected-redirect-behavior">expected behavior of deep links</a></li>
+<li>Make sure you understand the <a href="#default-link-behavior">expected behavior of deep links</a></li>
 <li>Make sure the deep link domain matches your <a href="https://dashboard.branch.io/link-settings">link domain</a> (e.g. link domain = <code>example.app.link</code>, deep link = <code>https://example.app.link/fzmLEhobLD</code>)</li>
 </ul>
 </li>
