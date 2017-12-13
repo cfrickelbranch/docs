@@ -521,6 +521,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#handle-links-in-your-own-app" title="Handle links in your own app" class="md-nav__link">
+    Handle links in your own app
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#enable-100-matching" title="Enable 100% matching" class="md-nav__link">
     Enable 100% matching
   </a>
@@ -2445,6 +2452,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#handle-links-in-your-own-app" title="Handle links in your own app" class="md-nav__link">
+    Handle links in your own app
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#enable-100-matching" title="Enable 100% matching" class="md-nav__link">
     Enable 100% matching
   </a>
@@ -3649,6 +3663,38 @@
 </li>
 </ul>
 </li>
+<li>
+<h3 id="handle-links-in-your-own-app">Handle links in your own app<a class="headerlink" href="#handle-links-in-your-own-app" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Allows you to deep link into your own app from your app itself by launching a Chrome intent</p>
+</li>
+<li>
+<p><em>Java</em></p>
+<div class="codehilite"><pre><span></span><span class="n">Intent</span> <span class="n">intent</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Intent</span><span class="o">(</span><span class="n">Intent</span><span class="o">.</span><span class="na">ACTION_VIEW</span><span class="o">,</span> <span class="n">Uri</span><span class="o">.</span><span class="na">parse</span><span class="o">((</span><span class="n">String</span><span class="o">)</span> <span class="s">&quot;https://example.app.link/u3fzDwyyjF&quot;</span><span class="o">));</span>
+<span class="n">intent</span><span class="o">.</span><span class="na">addFlags</span><span class="o">(</span><span class="n">Intent</span><span class="o">.</span><span class="na">FLAG_ACTIVITY_NEW_TASK</span><span class="o">);</span>
+<span class="n">intent</span><span class="o">.</span><span class="na">setPackage</span><span class="o">(</span><span class="s">&quot;com.android.chrome&quot;</span><span class="o">);</span>
+<span class="n">startActivity</span><span class="o">(</span><span class="n">intent</span><span class="o">);</span>
+</pre></div>
+
+</li>
+<li>
+<p><em>Kotlin</em></p>
+<div class="codehilite"><pre><span></span><span class="n">val</span> <span class="n">intent</span> <span class="o">=</span> <span class="n">Intent</span><span class="o">(</span><span class="n">Intent</span><span class="o">.</span><span class="na">ACTION_VIEW</span><span class="o">,</span> <span class="n">Uri</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">&quot;https://9wlb.app.link/hRXAHkUlxH&quot;</span><span class="o">))</span>
+<span class="n">intent</span><span class="o">.</span><span class="na">addFlags</span><span class="o">(</span><span class="n">Intent</span><span class="o">.</span><span class="na">FLAG_ACTIVITY_NEW_TASK</span><span class="o">)</span>
+<span class="n">intent</span><span class="o">.</span><span class="err">`</span><span class="n">package</span><span class="err">`</span> <span class="o">=</span> <span class="s">&quot;com.android.chrome&quot;</span>
+<span class="n">startActivity</span><span class="o">(</span><span class="n">intent</span><span class="o">)</span>
+</pre></div>
+
+</li>
+</ul>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Handling a new deep link in your app will clear the current session data and a new referred "open" will be attributed.</p>
+</div>
+<ul>
 <li>
 <h3 id="enable-100-matching">Enable 100% matching<a class="headerlink" href="#enable-100-matching" title="Permanent link">&para;</a></h3>
 <ul>

@@ -535,6 +535,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#handle-links-in-your-own-app" title="Handle links in your own app" class="md-nav__link">
+    Handle links in your own app
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#track-apple-search-ads" title="Track Apple Search Ads" class="md-nav__link">
     Track Apple Search Ads
   </a>
@@ -2480,6 +2487,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#handle-links-in-your-own-app" title="Handle links in your own app" class="md-nav__link">
+    Handle links in your own app
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#track-apple-search-ads" title="Track Apple Search Ads" class="md-nav__link">
     Track Apple Search Ads
   </a>
@@ -3477,6 +3491,32 @@ target <span class="s1">&#39;APP_NAME&#39;</span> <span class="k">do</span>
 </li>
 </ul>
 </li>
+<li>
+<h3 id="handle-links-in-your-own-app">Handle links in your own app<a class="headerlink" href="#handle-links-in-your-own-app" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Allows you to deep link into your own from your app itself</p>
+</li>
+<li>
+<p><em>Swift 3</em></p>
+<div class="codehilite"><pre><span></span><span class="n">Branch</span><span class="p">.</span><span class="n">getInstance</span><span class="p">().</span><span class="n">handleDeepLink</span><span class="p">(</span><span class="n">withNewSession</span><span class="p">:</span> <span class="n">URL</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="s">&quot;https://example.app.link/u3fzDwyyjF&quot;</span><span class="p">))</span>
+</pre></div>
+
+</li>
+<li>
+<p><em>Objective C</em></p>
+<div class="codehilite"><pre><span></span><span class="p">[[</span><span class="n">Branch</span> <span class="n">getInstance</span><span class="p">]</span> <span class="nl">handleDeepLinkWithNewSession</span><span class="p">:[</span><span class="bp">NSURL</span> <span class="nl">URLWithString</span><span class="p">:</span><span class="s">@&quot;https://example.app.link/u3fzDwyyjF&quot;</span><span class="p">]];</span>
+</pre></div>
+
+</li>
+</ul>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Handling a new deep link in your app will clear the current session data and a new referred "open" will be attributed.</p>
+</div>
+<ul>
 <li>
 <h3 id="track-apple-search-ads">Track Apple Search Ads<a class="headerlink" href="#track-apple-search-ads" title="Permanent link">&para;</a></h3>
 <ul>
