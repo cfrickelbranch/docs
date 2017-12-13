@@ -7,7 +7,7 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
-        <meta name="description" content="A guide to setting up App Conversion Events in Adwords with Branch links">
+        <meta name="description" content="Branch documentation for mobile deep linking">
       
       
         <link rel="canonical" href="https://docs.branch.io/pages/deep-linked-ads/google-conversions/">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Google Adwords Conversions Setup</title>
+        <title>Google Adwords Conversion Setup - Branch documentation</title>
       
     
     
@@ -1965,92 +1965,6 @@
   
   
   
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" title="Overview" class="md-nav__link">
-    Overview
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#setup" title="Setup" class="md-nav__link">
-    Setup
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#conversions-setup" title="Conversions Setup" class="md-nav__link">
-    Conversions Setup
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#enable-adwords-conversions" title="Enable Adwords Conversions" class="md-nav__link">
-    Enable Adwords Conversions
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#purchase-and-custom-event" title="Purchase and custom event" class="md-nav__link">
-    Purchase and custom event
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" title="Troubleshooting" class="md-nav__link">
-    Troubleshooting
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#faq-debugging" title="FAQ / Debugging" class="md-nav__link">
-    FAQ / Debugging
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-        <li class="md-nav__item">
-          <a href="#__source" title="Source" class="md-nav__link md-nav__link--active">
-            Source
-          </a>
-        </li>
-      
-      
-        <li class="md-nav__item">
-          <a href="#__comments" title="Comments" class="md-nav__link md-nav__link--active">
-            Comments
-          </a>
-        </li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -2066,122 +1980,8 @@
                 
                   <h1>Google Adwords Conversion Setup</h1>
                 
-                <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>If you're using Google Adwords with Branch links, setting up conversion events in Adwords will allow Branch to send app install conversion information to Adwords for verification. We recommend setting this up to help minimize discrepancies between Adwords and Branch conversion values.</p>
-<p>Note: Conversions measured here are <strong>app installs</strong>, purchases and custom events.</p>
-<div class="admonition note">
-<p>Looking for other Google Ad campaign types? Please check out our <a href="../../../pages/deep-linked-ads/google-ads-overview">Google Ads Overview guide</a>.</p>
-</div>
-<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
-<p>Setting up Adwords conversion events with Branch allows Branch to get direct confirmation from Google for which conversion events were driven by an Adwords advertisement and allows Adwords to collect accurate conversion data for your app.</p>
-<div class="admonition warning">
-<p class="admonition-title">Prerequisites</p>
-<ul class="task-list">
-<li class="task-list-item"><input type="checkbox" disabled checked> To track installs from Google Ads you should <a href="../../../pages/apps/ios/#integrate-branch">integrate the Branch SDK</a> into your app.</li>
-<li class="task-list-item"><input type="checkbox" disabled checked> If you want to deep link from your ads directly to content, you should <a href="../../../pages/deep-linking/routing/">configure deep link routing</a>.</li>
-<li class="task-list-item"><input type="checkbox" disabled checked> Ads is a premium product priced on Monthly Active Users. Sign up for the Ads product to enable this functionality.</li>
-</ul>
-</div>
-<h4 id="conversions-setup">Conversions Setup<a class="headerlink" href="#conversions-setup" title="Permanent link">&para;</a></h4>
-<p>Set up Google as an Ad Partner and conversion tracking from Adwords on the Branch dashboard. If you already have Google enabled as an ad partner, continue with the <em>Enable Adwords Conversions</em> instructions.</p>
-<ol>
-<li>
-<p>Navigate to the <a href="https://dashboard.branch.io/ads/partner-management" target="_blank">Partner Management tab</a>.</p>
-<p><img alt="Ads Partner Management" src="../../../img/ingredients/deep-linked-ads/enable-google-ad-partner/ads-partner-management.png" /></p>
-</li>
-<li>
-<p>Search for <strong>Google AdWords</strong>.</p>
-<p><img alt="Find Google Adwords in Partner Manager" src="../../../img/ingredients/deep-linked-ads/enable-google-ad-partner/find-google-partner.png" /></p>
-</li>
-<li>
-<p>We will now fill in the conversion ID and Label fields.</p>
-</li>
-</ol>
-<h4 id="enable-adwords-conversions">Enable Adwords Conversions<a class="headerlink" href="#enable-adwords-conversions" title="Permanent link">&para;</a></h4>
-<ol>
-<li>Go to your <a href="https://adwords.google.com/cm/CampaignMgmt" target="_blank">Adwords dashboard</a>.</li>
-<li>
-<p>In the top nav bar, click into <code>Tools</code> &gt; <code>Conversions</code>.</p>
-<p><img src="/img/pages/deep-linked-ads/google-conversions/adwords-tools-conversion.png" alt="Conversion Menu" class="center half"></p>
-</li>
-<li>
-<p>Click <code>+ Add a Conversion</code> button.</p>
-</li>
-<li>
-<p>Select <code>App</code> from the cards.</p>
-<p><img src="/img/pages/deep-linked-ads/google-conversions/adwords-conversion-install.png" alt="Conversion Menu" class="center half"></p>
-</li>
-<li>
-<p>Select <code>First opens and in-app actions</code>.</p>
-</li>
-<li>Select the appropriate platform (iOS or Android).</li>
-<li>
-<p>Select <code>App installs (first-open)</code> or <code>In-app actions</code>. Please note that iOS actions are only available for ads that show on the Display Network.</p>
-<p><img src="/img/pages/deep-linked-ads/google-conversions/adwords-app-conversion-card.png" alt="Conversion IDs" class="center three-quarters"></p>
-</li>
-<li>
-<p>Now fill out the conversion action page:</p>
-</li>
-<li>Give it a name like <code>Branch Android/iOS Conversion</code></li>
-<li>Under <code>Value</code> assign a value (or select “Don’t assign a value to this install”)</li>
-<li>Under <code>Mobile app</code> input your application details</li>
-<li>Select <code>Include in "Conversions"</code> to have the conversion events appear in your Adwords columns</li>
-<li>Click <code>Save and continue</code>.</li>
-<li>Select the option to have a server report conversions: <code>Set up a server-to-server conversion feed...</code>.</li>
-<li>
-<p>Note your <code>Conversion ID</code> &amp; <code>Conversion label</code> as shown in the screenshot below.</p>
-<p><img alt="Conversion IDs" src="../../../img/pages/deep-linked-ads/google-conversions/adwords-conversions.png" /></p>
-</li>
-<li>
-<p>Head to the <a href="https://dashboard.branch.io/ads/partner-management/a_google_adwords?tab=settings" target="_blank">Branch Dashboard Adwords Settings</a>.</p>
-</li>
-<li>Paste in the <code>Conversion ID</code> and <code>Conversion label</code> from your Adwords dashboard into the appropriate fields for either iOS or Android. If you plan on using custom events, please add the conversion ID for your account into the <code>Purchase or Custom Event Conversion ID</code> field.</li>
-<li>
-<p>Click the <code>Save and Enable</code> button in the lower right hand corner.</p>
-<p><img alt="Save and Enable Google Adwords in Partner Manager" src="../../../img/ingredients/deep-linked-ads/enable-google-ad-partner/save-and-enable-google.png" /></p>
-</li>
-<li>
-<p>Google AdWords is now enabled as an ad partner.</p>
-</li>
-<li>Click <code>Done</code> in your Adwords dashboard.</li>
-</ol>
-<h5 id="purchase-and-custom-event">Purchase and custom event<a class="headerlink" href="#purchase-and-custom-event" title="Permanent link">&para;</a></h5>
-<ol>
-<li>
-<p>To add Purchase and other custom event conversions in Google, first <a href="../../../pages/deep-linked-ads/google-conversions/">enable the conversions in AdWords</a>.</p>
-</li>
-<li>
-<p>Under the Account Settings tab, ensure you have pasted in the <em>Conversion ID</em> you generated earlier for the purchase or other event, into the <code>Purchase or Custom Event Conversion ID</code> field.</p>
-</li>
-<li>
-<p>Then, navigate to the Postback Config tab and add your <em>Conversion Label</em> into the Goal ID field.</p>
-</li>
-</ol>
-<p><img alt="AdWords Goal IDs" src="../../../img/pages/deep-linked-ads/google-conversions/aw-custom-goal-ids.png" />.</p>
-<p>You're all setup to confirm app install conversions between Branch and Adwords!</p>
-<div class="admonition note">
-<p class="admonition-title">Conversion Windows</p>
-<p>Adwords has a default 30 day conversion window for app install actions which can't be changed. To minimize discrepancies between Branch and Adwords conversion values, we recommend setting your Branch attribution window to the same value.
-Navigate to <code>Link Settings</code> &gt; <code>Attribution Windows</code> and set the <strong>Click to conversion event</strong> to 30 days.</p>
-<p><strong>By default, the window is set to 30 days in the Branch dashboard.</strong></p>
-</div>
-<p><img alt="Branch Conversion Window" src="../../../img/pages/deep-linked-ads/google-conversions/attribution-window.png" /></p>
-<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
-<h4 id="faq-debugging">FAQ / Debugging<a class="headerlink" href="#faq-debugging" title="Permanent link">&para;</a></h4>
-<p><strong>Q: I'm getting discrepancy between conversion counts in Branch and Google Adwords</strong></p>
-<p><strong>A:</strong> While we should always expect around a 5% discrepancy due to time zone differences and the like, if you are seeing significant discrepancies, it could be an indication of a broader problem.</p>
-<p><strong>Q: My campaign is reporting a number of conversions much higher than the number of conversions shown in the conversion table in Adwords</strong></p>
-<p><strong>A:</strong> When viewing a campaign, it shows the sum of all conversion events that apply to it. To view by conversion, navigate to <code>Segment</code> &gt; <code>Conversions</code> &gt; <code>Conversion name</code>, in order to clearly see the breakdown of your campaign's conversions.</p>
-<p><img src="/img/pages/deep-linked-ads/google-conversions/conversion-segment.png" alt="Adwords Conversion Segment" class="center"></p>
                 
-                  
-                    <h2 id="__source">Source</h2>
-                    
-                    
-                      <a href="https://github.com/branchmetrics/docs/tree/master/src/pages/deep-linked-ads/google-conversions.md" title="google-conversions.md" class="md-source-file">
-                        google-conversions.md
-                      </a>
-                    
+                
                   
                 
               
