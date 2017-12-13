@@ -645,15 +645,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#track-content-properties" title="Track content properties" class="md-nav__link">
-    Track content properties
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#track-commerce" title="Track commerce" class="md-nav__link">
-    Track commerce
+  <a href="#standard-events" title="Standard events" class="md-nav__link">
+    Standard events
   </a>
   
 </li>
@@ -2469,15 +2462,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#track-content-properties" title="Track content properties" class="md-nav__link">
-    Track content properties
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#track-commerce" title="Track commerce" class="md-nav__link">
-    Track commerce
+  <a href="#standard-events" title="Standard events" class="md-nav__link">
+    Standard events
   </a>
   
 </li>
@@ -3049,17 +3035,8 @@ react-native-git-upgrade
 <h3 id="import-branch">Import Branch<a class="headerlink" href="#import-branch" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
-<p>In any React Native source file that uses the Branch SDK. You can import
-only the symbols you are using.</p>
-<div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="nx">branch</span><span class="p">,</span> <span class="p">{</span>
-  <span class="nx">AddToCartEvent</span><span class="p">,</span>
-  <span class="nx">AddToWishlistEvent</span><span class="p">,</span>
-  <span class="nx">PurchasedEvent</span><span class="p">,</span>
-  <span class="nx">PurchaseInitiatedEvent</span><span class="p">,</span>
-  <span class="nx">RegisterViewEvent</span><span class="p">,</span>
-  <span class="nx">ShareCompletedEvent</span><span class="p">,</span>
-  <span class="nx">ShareInitiatedEvent</span>
-<span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react-native-branch&#39;</span>
+<p>In any React Native source file that uses the Branch SDK.</p>
+<div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="nx">branch</span><span class="p">,</span> <span class="p">{</span> <span class="nx">BranchEvent</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react-native-branch&#39;</span>
 </pre></div>
 
 </li>
@@ -3077,10 +3054,17 @@ only the symbols you are using.</p>
 </ul>
 <div class="codehilite"><pre><span></span><span class="c1">// only canonicalIdentifier is required</span>
 <span class="kd">let</span> <span class="nx">branchUniversalObject</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">branch</span><span class="p">.</span><span class="nx">createBranchUniversalObject</span><span class="p">(</span><span class="s1">&#39;canonicalIdentifier&#39;</span><span class="p">,</span> <span class="p">{</span>
-    <span class="nx">automaticallyListOnSpotlight</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="nx">metadata</span><span class="o">:</span> <span class="p">{</span><span class="nx">prop1</span><span class="o">:</span> <span class="s1">&#39;test&#39;</span><span class="p">,</span> <span class="nx">prop2</span><span class="o">:</span> <span class="s1">&#39;abc&#39;</span><span class="p">},</span>
-    <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Cool Content!&#39;</span><span class="p">,</span>
-    <span class="nx">contentDescription</span><span class="o">:</span> <span class="s1">&#39;Cool Content Description&#39;</span><span class="p">})</span>
+  <span class="nx">locallyIndex</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Cool Content!&#39;</span><span class="p">,</span>
+  <span class="nx">contentDescription</span><span class="o">:</span> <span class="s1">&#39;Cool Content Description&#39;</span><span class="p">}),</span>
+  <span class="nx">contentMetadata</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">ratingAverage</span><span class="o">:</span> <span class="mf">4.2</span><span class="p">,</span>
+    <span class="nx">customMetadata</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">prop1</span><span class="o">:</span> <span class="s1">&#39;test&#39;</span><span class="p">,</span>
+      <span class="nx">prop2</span><span class="o">:</span> <span class="s1">&#39;abc&#39;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">})</span>
 </pre></div>
 
 </li>
@@ -3235,22 +3219,14 @@ only the symbols you are using.</p>
 <li>
 <p>Listing on Spotlight requires adding <code>CoreSpotlight.framework</code> to your Xcode project.</p>
 </li>
-<li>
-<p>Recommended</p>
-</li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nx">branchUniversalObject</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">branch</span><span class="p">.</span><span class="nx">createBranchUniversalObject</span><span class="p">(</span><span class="s1">&#39;canonicalIdentifier&#39;</span><span class="p">,</span> <span class="p">{</span>
-  <span class="nx">automaticallyListOnSpotlight</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+<div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="nx">branch</span><span class="p">,</span> <span class="p">{</span> <span class="nx">BranchEvent</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react-native-branch&#39;</span>
+<span class="kd">let</span> <span class="nx">branchUniversalObject</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">branch</span><span class="p">.</span><span class="nx">createBranchUniversalObject</span><span class="p">(</span><span class="s1">&#39;canonicalIdentifier&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">locallyIndex</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
   <span class="c1">// other properties</span>
 <span class="p">})</span>
 
-<span class="nx">branchUniversalObject</span><span class="p">.</span><span class="nx">userCompletedAction</span><span class="p">(</span><span class="nx">RegisterViewEvent</span><span class="p">)</span>
-</pre></div>
-
-<ul>
-<li>Alternate method</li>
-</ul>
-<div class="codehilite"><pre><span></span><span class="nx">branchUniversalObject</span><span class="p">.</span><span class="nx">listOnSpotlight</span><span class="p">()</span>
+<span class="nx">branchUniversalObject</span><span class="p">.</span><span class="nx">logEvent</span><span class="p">(</span><span class="nx">BranchEvent</span><span class="p">.</span><span class="nx">ViewItem</span><span class="p">)</span>
 </pre></div>
 
 </li>
@@ -3270,8 +3246,8 @@ only the symbols you are using.</p>
 <p>Validate with the <a href="https://dashboard.branch.io/liveview/content">Branch Dashboard</a></p>
 </li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="nx">branch</span><span class="p">,</span> <span class="p">{</span> <span class="nx">RegisterViewEvent</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react-native-branch&#39;</span>
-<span class="nx">branchUniversalObject</span><span class="p">.</span><span class="nx">userCompletedAction</span><span class="p">(</span><span class="nx">RegisterViewEvent</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">BranchEvent</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react-native-branch&#39;</span>
+<span class="nx">branchUniversalObject</span><span class="p">.</span><span class="nx">logEvent</span><span class="p">(</span><span class="nx">BranchEvent</span><span class="p">.</span><span class="nx">ViewItem</span><span class="p">)</span>
 </pre></div>
 
 </li>
@@ -3294,7 +3270,7 @@ only the symbols you are using.</p>
 <h3 id="track-events">Track events<a class="headerlink" href="#track-events" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
-<p>Track custom events</p>
+<p>Track standard and custom events</p>
 </li>
 <li>
 <p>Events named <code>open</code>, <code>close</code>, <code>install</code>, and <code>referred session</code> are Branch restricted</p>
@@ -3309,61 +3285,116 @@ only the symbols you are using.</p>
 <p>Validate with the <a href="https://dashboard.branch.io/liveview/events">Branch Dashboard</a></p>
 </li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="nx">branchUniversalObject</span><span class="p">.</span><span class="nx">userCompletedAction</span><span class="p">(</span><span class="s1">&#39;Custom Action&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">key</span><span class="o">:</span> <span class="s1">&#39;value&#39;</span> <span class="p">})</span>
+<div class="codehilite"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">BranchEvent</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react-native-branch&#39;</span>
+
+<span class="c1">// Associate one or more content items with an event</span>
+<span class="k">new</span> <span class="nx">BranchEvent</span><span class="p">(</span><span class="nx">BranchEvent</span><span class="p">.</span><span class="nx">ViewItems</span><span class="p">,</span> <span class="p">[</span><span class="nx">buo1</span><span class="p">,</span> <span class="nx">buo2</span><span class="p">]).</span><span class="nx">logEvent</span><span class="p">()</span>
+
+<span class="c1">// Log a standard event with parameters</span>
+<span class="k">new</span> <span class="nx">BranchEvent</span><span class="p">(</span><span class="nx">BranchEvent</span><span class="p">.</span><span class="nx">Purchase</span><span class="p">,</span> <span class="nx">buo</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">revenue</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+  <span class="nx">shipping</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+  <span class="nx">tax</span><span class="o">:</span> <span class="mf">1.6</span><span class="p">,</span>
+  <span class="nx">currency</span><span class="o">:</span> <span class="s1">&#39;USD&#39;</span>
+<span class="p">}).</span><span class="nx">logEvent</span><span class="p">()</span>
+
+<span class="c1">// Set parameters after initialization</span>
+<span class="kd">let</span> <span class="nx">event</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BranchEvent</span><span class="p">(</span><span class="nx">BranchEvent</span><span class="p">.</span><span class="nx">Search</span><span class="p">)</span>
+<span class="nx">event</span><span class="p">.</span><span class="nx">searchQuery</span> <span class="o">=</span> <span class="s2">&quot;tennis rackets&quot;</span>
+<span class="nx">event</span><span class="p">.</span><span class="nx">logEvent</span><span class="p">()</span>
+
+<span class="c1">// Log a custom event</span>
+<span class="k">new</span> <span class="nx">BranchEvent</span><span class="p">(</span><span class="s2">&quot;UserScannedItem&quot;</span><span class="p">,</span> <span class="nx">buo</span><span class="p">).</span><span class="nx">logEvent</span><span class="p">()</span>
+</pre></div>
+
+<ul>
+<li>When logging an event with a single Branch Universal Object, use the
+    convenient logEvent method</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="nx">buo</span><span class="p">.</span><span class="nx">logEvent</span><span class="p">(</span><span class="nx">BranchEvent</span><span class="p">.</span><span class="nx">ViewItem</span><span class="p">)</span>
+<span class="nx">buo</span><span class="p">.</span><span class="nx">logEvent</span><span class="p">(</span><span class="nx">BranchEvent</span><span class="p">.</span><span class="nx">Purchase</span><span class="p">,</span> <span class="p">{</span> <span class="nx">revenue</span><span class="o">:</span> <span class="mi">20</span> <span class="p">})</span>
 </pre></div>
 
 </li>
 <li>
-<h3 id="track-content-properties">Track content properties<a class="headerlink" href="#track-content-properties" title="Permanent link">&para;</a></h3>
+<h3 id="standard-events">Standard events<a class="headerlink" href="#standard-events" title="Permanent link">&para;</a></h3>
+</li>
+</ul>
 <table>
 <thead>
 <tr>
-<th>Event</th>
+<th>Event constant</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>RegisterViewEvent</td>
-<td>User viewed the object</td>
+<td>BranchEvent.AddToCart</td>
+<td>Standard Add to Cart event</td>
 </tr>
 <tr>
-<td>AddToWishlistEvent</td>
-<td>User added the object to their wishlist</td>
+<td>BranchEvent.AddToWishlist</td>
+<td>Standard Add to Wishlist event</td>
 </tr>
 <tr>
-<td>AddToCartEvent</td>
-<td>User added object to cart</td>
+<td>BranchEvent.ViewCart</td>
+<td>Standard View Cart event</td>
 </tr>
 <tr>
-<td>PurchaseInitiatedEvent</td>
-<td>User started to check out</td>
+<td>BranchEvent.InitiatePurchase</td>
+<td>Standard Initiate Purchase event</td>
 </tr>
 <tr>
-<td>PurchasedEvent</td>
-<td>User purchased the item</td>
+<td>BranchEvent.AddPaymentInfo</td>
+<td>Standard Add Payment Info event</td>
 </tr>
 <tr>
-<td>ShareInitiatedEvent</td>
-<td>User started to share the object</td>
+<td>BranchEvent.Purchase</td>
+<td>Standard Purchase event</td>
 </tr>
 <tr>
-<td>ShareCompletedEvent</td>
-<td>User completed a share</td>
+<td>BranchEvent.SpendCredits</td>
+<td>Standard Spend Credits event</td>
+</tr>
+<tr>
+<td>BranchEvent.Search</td>
+<td>Standard Search event</td>
+</tr>
+<tr>
+<td>BranchEvent.ViewItem</td>
+<td>Standard View Item event for a single Branch Universal Object</td>
+</tr>
+<tr>
+<td>BranchEvent.ViewItems</td>
+<td>Standard View Items event for multiple Branch Universal Objects</td>
+</tr>
+<tr>
+<td>BranchEvent.Rate</td>
+<td>Standard Rate event</td>
+</tr>
+<tr>
+<td>BranchEvent.Share</td>
+<td>Standard Share event</td>
+</tr>
+<tr>
+<td>BranchEvent.CompleteRegistration</td>
+<td>Standard Complete Registration event</td>
+</tr>
+<tr>
+<td>BranchEvent.CompleteTutorial</td>
+<td>Standard Complete Tutorial event</td>
+</tr>
+<tr>
+<td>BranchEvent.AchieveLevel</td>
+<td>Standard Achieve Level event</td>
+</tr>
+<tr>
+<td>BranchEvent.AchievementUnlocked</td>
+<td>Standard Unlock Achievement event</td>
 </tr>
 </tbody>
 </table>
-</li>
-<li>
-<h3 id="track-commerce">Track commerce<a class="headerlink" href="#track-commerce" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Use the <code>branch.sendCommerceEvent</code> method to record commerce events</li>
-</ul>
-<div class="codehilite"><pre><span></span><span class="nx">branch</span><span class="p">.</span><span class="nx">sendCommerceEvent</span><span class="p">(</span><span class="s2">&quot;20.00&quot;</span><span class="p">)</span>
-<span class="nx">branch</span><span class="p">.</span><span class="nx">sendCommerceEvent</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="p">{</span><span class="nx">key1</span><span class="o">:</span> <span class="s2">&quot;value1&quot;</span><span class="p">,</span> <span class="nx">key2</span><span class="o">:</span> <span class="s2">&quot;value2&quot;</span><span class="p">})</span>
-</pre></div>
-
-</li>
 <li>
 <h3 id="handle-referrals">Handle referrals<a class="headerlink" href="#handle-referrals" title="Permanent link">&para;</a></h3>
 <ul>
