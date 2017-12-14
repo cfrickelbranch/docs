@@ -2693,6 +2693,10 @@
                   <h1>iOS</h1>
                 
                 <h2 id="integrate-branch">Integrate Branch<a class="headerlink" href="#integrate-branch" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">iOS 11.2 Universal Linking Issue</p>
+</div>
+<p>With iOS 11.2 Apple introduced an issue causing AASA file to not always be updated after the application is installed through the App Store. This breaks Universal Links, causing links to resolve into the App Store, instead of opening the app. We are currently monitoring the issue. Please utilize our <a href="https://docs.branch.io/pages/links/integrate/#forced-redirections">forced uri redirect mode</a> to assure deep linking into the application. View <a href="http://www.openradar.me/radar?id=4999496467480576">the Apple Bug report for the issue here</a>.</p>
 <ul>
 <li>
 <h3 id="configure-branch">Configure Branch<a class="headerlink" href="#configure-branch" title="Permanent link">&para;</a></h3>
