@@ -85,18 +85,6 @@
      <changefreq>daily</changefreq>
     </url>
         
-    <url>
-     <loc>https://docs.branch.io/pages/apps/v2event/</loc>
-     <lastmod>2017-12-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>https://docs.branch.io/pages/dashboard/unified-analytics/</loc>
-     <lastmod>2017-12-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
     
 
     
@@ -228,85 +216,7 @@
     </url>
         
     <url>
-     <loc>https://docs.branch.io/pages/deep-linked-ads/google-search-install-ads/</loc>
-     <lastmod>2017-12-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>https://docs.branch.io/pages/deep-linked-ads/google-search-engagement-ads/</loc>
-     <lastmod>2017-12-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>https://docs.branch.io/pages/deep-linked-ads/google-display-install-ads/</loc>
-     <lastmod>2017-12-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>https://docs.branch.io/pages/deep-linked-ads/google-display-engagement-ads/</loc>
-     <lastmod>2017-12-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>https://docs.branch.io/pages/deep-linked-ads/google-uac/</loc>
-     <lastmod>2017-12-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>https://docs.branch.io/pages/deep-linked-ads/google-xplatform-search-ads/</loc>
-     <lastmod>2017-12-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>https://docs.branch.io/pages/deep-linked-ads/google-xplatform-display-ads/</loc>
-     <lastmod>2017-12-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>https://docs.branch.io/pages/deep-linked-ads/google-conversions/</loc>
-     <lastmod>2017-12-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>https://docs.branch.io/pages/deep-linked-ads/google-video-ads/</loc>
-     <lastmod>2017-12-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
      <loc>https://docs.branch.io/pages/deep-linked-ads/facebook-ads-overview/</loc>
-     <lastmod>2017-12-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>https://docs.branch.io/pages/deep-linked-ads/facebook-app-install-ads/</loc>
-     <lastmod>2017-12-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>https://docs.branch.io/pages/deep-linked-ads/facebook-traffic-conversion-ads/</loc>
-     <lastmod>2017-12-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>https://docs.branch.io/pages/deep-linked-ads/facebook-platform-ads/</loc>
-     <lastmod>2017-12-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>https://docs.branch.io/pages/deep-linked-ads/facebook-dynamic-ads/</loc>
      <lastmod>2017-12-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -531,32 +441,6 @@
      <changefreq>daily</changefreq>
     </url>
         
-    <url>
-     <loc>https://docs.branch.io/pages/exports/api/</loc>
-     <lastmod>2017-12-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>https://docs.branch.io/pages/exports/webhooks/</loc>
-     <lastmod>2017-12-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>https://docs.branch.io/pages/exports/event_ontology_data_schema/</loc>
-     <lastmod>2017-12-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
-    
-    <url>
-     <loc>https://docs.branch.io/pages/dashboard/sso/</loc>
-     <lastmod>2017-12-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
     
 
     
@@ -581,6 +465,130 @@
      <lastmod>2017-12-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
+    
+
+    
+        
+    <url>
+     <loc>https://docs.branch.io/pages/deep-linked-ads/google-search-install-ads/</loc>
+     <lastmod>2017-12-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.branch.io/pages/deep-linked-ads/google-search-engagement-ads/</loc>
+     <lastmod>2017-12-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.branch.io/pages/deep-linked-ads/google-display-install-ads/</loc>
+     <lastmod>2017-12-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.branch.io/pages/deep-linked-ads/google-display-engagement-ads/</loc>
+     <lastmod>2017-12-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.branch.io/pages/deep-linked-ads/google-uac/</loc>
+     <lastmod>2017-12-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.branch.io/pages/deep-linked-ads/google-xplatform-search-ads/</loc>
+     <lastmod>2017-12-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.branch.io/pages/deep-linked-ads/google-xplatform-display-ads/</loc>
+     <lastmod>2017-12-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.branch.io/pages/deep-linked-ads/google-conversions/</loc>
+     <lastmod>2017-12-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.branch.io/pages/deep-linked-ads/google-video-ads/</loc>
+     <lastmod>2017-12-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.branch.io/pages/deep-linked-ads/facebook-app-install-ads/</loc>
+     <lastmod>2017-12-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.branch.io/pages/deep-linked-ads/facebook-traffic-conversion-ads/</loc>
+     <lastmod>2017-12-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.branch.io/pages/deep-linked-ads/facebook-platform-ads/</loc>
+     <lastmod>2017-12-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.branch.io/pages/deep-linked-ads/facebook-dynamic-ads/</loc>
+     <lastmod>2017-12-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.branch.io/pages/apps/v2event/</loc>
+     <lastmod>2017-12-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.branch.io/pages/dashboard/unified-analytics/</loc>
+     <lastmod>2017-12-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.branch.io/pages/dashboard/sso/</loc>
+     <lastmod>2017-12-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.branch.io/pages/exports/api/</loc>
+     <lastmod>2017-12-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.branch.io/pages/exports/webhooks/</loc>
+     <lastmod>2017-12-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.branch.io/pages/exports/event_ontology_data_schema/</loc>
+     <lastmod>2017-12-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.branch.io/pages/integrations/faq/</loc>
+     <lastmod>2017-12-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
 </urlset>
