@@ -22,7 +22,7 @@
     
     
       
-        <title>Webhooks for Unified Analytics - Branch documentation</title>
+        <title>Webhooks - Branch documentation</title>
       
     
     
@@ -132,8 +132,12 @@
                     Export Branch data
                   </span>
                 
+                  <span class="md-header-nav__parent">
+                    Data Feeds
+                  </span>
+                
               
-              Webhooks for Unified Analytics
+              Webhooks
             
           </span>
         </div>
@@ -1601,6 +1605,26 @@
         
         
           
+            
+            
+            
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-16-1" type="checkbox" id="nav-16-1" checked>
+    
+    <label class="md-nav__link" for="nav-16-1">
+      Data Feeds
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-16-1">
+        Data Feeds
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
         
           
             
@@ -1609,8 +1633,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../webhooks/" title="Legacy Webhooks" class="md-nav__link">
-      Legacy Webhooks
+    <a href="../data-feeds/" title="Get Started" class="md-nav__link">
+      Get Started
     </a>
   </li>
 
@@ -1620,234 +1644,35 @@
             
             
             
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        Webhooks for Unified Analytics
-      </label>
-    
-    <a href="./" title="Webhooks for Unified Analytics" class="md-nav__link md-nav__link--active">
-      Webhooks for Unified Analytics
-    </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" title="Overview" class="md-nav__link">
-    Overview
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#setup" title="Setup" class="md-nav__link">
-    Setup
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#register-webhook" title="Register webhook" class="md-nav__link">
-    Register webhook
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configure-webhook-criteria" title="Configure webhook criteria" class="md-nav__link">
-    Configure webhook criteria
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#basic-filtering" title="Basic filtering" class="md-nav__link">
-    Basic filtering
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#testing" title="Testing" class="md-nav__link">
-    Testing
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#unified-analytics-data-format" title="Unified Analytics Data Format" class="md-nav__link">
-    Unified Analytics Data Format
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#sample-webhook-post-body-syntax" title="Sample webhook POST body syntax" class="md-nav__link">
-    Sample webhook POST body syntax
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#advanced-filtering" title="Advanced Filtering" class="md-nav__link">
-    Advanced Filtering
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#templating-your-postback-url" title="Templating your Postback URL" class="md-nav__link">
-    Templating your Postback URL
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#getting-started-with-templates" title="Getting started with templates" class="md-nav__link">
-    Getting started with templates
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#freemarker-expressions" title="Freemarker expressions" class="md-nav__link">
-    Freemarker expressions
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#authenticating-webhook-events" title="Authenticating webhook events" class="md-nav__link">
-    Authenticating webhook events
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#support" title="Support" class="md-nav__link">
-    Support
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#faqs" title="FAQs" class="md-nav__link">
-    FAQs
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#why-is-my-webhook-not-firing" title="Why is my webhook not firing?" class="md-nav__link">
-    Why is my webhook not firing?
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-        <li class="md-nav__item">
-          <a href="#__comments" title="Comments" class="md-nav__link md-nav__link--active">
-            Comments
-          </a>
-        </li>
-      
-    </ul>
-  
-</nav>
-    
-  </li>
-
-          
-        
-          
-        
-          
-        
-      </ul>
-    </nav>
-  </li>
-
-      
-    
-      
-      
-      
-      
-        
-      
-        
-      
-        
-      
-        
-      
-      
-        
 
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-17" type="checkbox" id="nav-17">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-16-1-2" type="checkbox" id="nav-16-1-2">
     
-    <label class="md-nav__link" for="nav-17">
-      Send data to other tools
+    <label class="md-nav__link" for="nav-16-1-2">
+      Data Integrations
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-17">
-        Send data to other tools
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-16-1-2">
+        Data Integrations
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
+        
+          
+            
+            
+            
+
+
+  <li class="md-nav__item">
+    <a href="../../integrations/data-integrations/" title="Get Started" class="md-nav__link">
+      Get Started
+    </a>
+  </li>
+
+          
         
           
             
@@ -2037,6 +1862,245 @@
     </nav>
   </li>
 
+          
+        
+          
+            
+            
+            
+
+
+  <li class="md-nav__item">
+    <a href="../api-v3/" title="Data Export API" class="md-nav__link">
+      Data Export API
+    </a>
+  </li>
+
+          
+        
+          
+            
+            
+            
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Webhooks
+      </label>
+    
+    <a href="./" title="Webhooks" class="md-nav__link md-nav__link--active">
+      Webhooks
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" title="Overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup" title="Setup" class="md-nav__link">
+    Setup
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#register-webhook" title="Register webhook" class="md-nav__link">
+    Register webhook
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-webhook-criteria" title="Configure webhook criteria" class="md-nav__link">
+    Configure webhook criteria
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-filtering" title="Basic filtering" class="md-nav__link">
+    Basic filtering
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing" title="Testing" class="md-nav__link">
+    Testing
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unified-analytics-data-format" title="Unified Analytics Data Format" class="md-nav__link">
+    Unified Analytics Data Format
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sample-webhook-post-body-syntax" title="Sample webhook POST body syntax" class="md-nav__link">
+    Sample webhook POST body syntax
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-filtering" title="Advanced Filtering" class="md-nav__link">
+    Advanced Filtering
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#templating-your-postback-url" title="Templating your Postback URL" class="md-nav__link">
+    Templating your Postback URL
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getting-started-with-templates" title="Getting started with templates" class="md-nav__link">
+    Getting started with templates
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#freemarker-expressions" title="Freemarker expressions" class="md-nav__link">
+    Freemarker expressions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authenticating-webhook-events" title="Authenticating webhook events" class="md-nav__link">
+    Authenticating webhook events
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#support" title="Support" class="md-nav__link">
+    Support
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#faqs" title="FAQs" class="md-nav__link">
+    FAQs
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-is-my-webhook-not-firing" title="Why is my webhook not firing?" class="md-nav__link">
+    Why is my webhook not firing?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="Comments" class="md-nav__link md-nav__link--active">
+            Comments
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+          
+        
+      </ul>
+    </nav>
+  </li>
+
+          
+        
+          
+        
+          
+        
+          
+        
+      </ul>
+    </nav>
+  </li>
+
+      
+    
+      
+      
+      
+      
+        
+      
+        
+      
+        
+      
+        
+      
       
     
       
@@ -2053,20 +2117,6 @@
           <li class="md-nav__item md-nav__link branch-nav-header">
             Resources
           </li>
-        
-      
-      
-    
-      
-      
-      
-      
-        
-      
-        
-      
-        
-      
         
       
       
@@ -2318,13 +2368,18 @@
                   <a href="https://github.com/branchmetrics/docs/edit/master/src/pages/exports/ua-webhooks.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>Webhooks for Unified Analytics</h1>
+                  <h1>Webhooks</h1>
                 
                 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p>Branch’s new webhook system for Unified Analytics allows you to export install and down-funnel event data as it occurs. You can import this data into your internal systems for analysis. You simply need to specify a URL for the POST or GET requests.</p>
 <p>If you are looking for postback integrations for ad networks, please visit our <a href="../../../pages/deep-linked-ads/universal-ads">Universal Ads documentation</a>. For pre-configured integrations into popular analytics tools, please visit our <a href="../../../pages/integrations/amplitude/">Data Integrations documentation</a>.</p>
 <p>The webhook system is highly customizable. You can register to only receive notifications for specific events, as well as specific subsections of events, filtered by link data, user data or event properties.</p>
 <p>Our new webhook infrastructure supports for all Branch events. The data is formatted according to our updated event naming and metadata format which will get you through implementation and onto analysis in no time.</p>
+<div class="admonition note">
+<p class="admonition-title">Data Feeds is a premium solution</p>
+<p>The Webhooks are included in Branch’s <a href="../../../pages/exports/data-feeds/">Data Feeds</a> offering, which can be purchased according to Branch’s <a href="https://branch.io/pricing/" target="_blank">pricing schedule</a>, and is available at no additional charge to customers who are on MAU plans for <a href="https://branch.io/journeys/" target="_blank">Journeys</a>, <a href="https://branch.io/email/" target="_blank">Deep Linked Email</a>, or <a href="https://branch.io/attribution/" target="_blank">Universal Ads</a>. Without Data Feeds, you can still export Branch data in CSV form directly from the Branch dashboard via <a href="https://dashboard.branch.io/sources" target="_blank">Sources</a> or <a href="https://dashboard.branch.io/data-import-export/csv-exports" target="_blank">CSV Exports</a>.</p>
+<p><strong>If you are looking for legacy webhooks</strong>, please see <a href="../../../pages/exports/webhooks">these docs</a>.</p>
+</div>
 <h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
 <h3 id="register-webhook">Register webhook<a class="headerlink" href="#register-webhook" title="Permanent link">&para;</a></h3>
 <ol>
