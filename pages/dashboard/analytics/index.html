@@ -22,7 +22,7 @@
     
     
       
-        <title>Track analytics - Branch documentation</title>
+        <title>Dashboard analytics - Branch documentation</title>
       
     
     
@@ -128,8 +128,12 @@
             
               
                 
+                  <span class="md-header-nav__parent">
+                    Track analytics
+                  </span>
+                
               
-              Track analytics
+              Dashboard analytics
             
           </span>
         </div>
@@ -696,17 +700,39 @@
   
 
 
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" checked>
+    
+    <label class="md-nav__link" for="nav-8">
+      Track analytics
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Track analytics
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+            
+            
+            
+
+  
+
+
   <li class="md-nav__item md-nav__item--active">
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
     
       <label class="md-nav__link md-nav__link--active" for="toc">
-        Track analytics
+        Dashboard analytics
       </label>
     
-    <a href="./" title="Track analytics" class="md-nav__link md-nav__link--active">
-      Track analytics
+    <a href="./" title="Dashboard analytics" class="md-nav__link md-nav__link--active">
+      Dashboard analytics
     </a>
     
       
@@ -930,26 +956,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#troubleshoot-issues" title="Troubleshoot issues" class="md-nav__link">
-    Troubleshoot issues
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#time-zone" title="Time Zone" class="md-nav__link">
-    Time Zone
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
       
       
         <li class="md-nav__item">
@@ -962,6 +968,26 @@
   
 </nav>
     
+  </li>
+
+          
+        
+          
+            
+            
+            
+
+
+  <li class="md-nav__item">
+    <a href="../timezone/" title="Time zone support" class="md-nav__link">
+      Time zone support
+    </a>
+  </li>
+
+          
+        
+      </ul>
+    </nav>
   </li>
 
       
@@ -2445,26 +2471,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#troubleshoot-issues" title="Troubleshoot issues" class="md-nav__link">
-    Troubleshoot issues
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#time-zone" title="Time Zone" class="md-nav__link">
-    Time Zone
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
       
       
         <li class="md-nav__item">
@@ -2488,7 +2494,7 @@
                   <a href="https://github.com/branchmetrics/docs/edit/master/src/pages/dashboard/analytics.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>Track analytics</h1>
+                  <h1>Dashboard analytics</h1>
                 
                 <h2 id="understand-tracking">Understand tracking<a class="headerlink" href="#understand-tracking" title="Permanent link">&para;</a></h2>
 <ul>
@@ -2770,35 +2776,6 @@ The <a href="https://dashboard.branch.io/referrals/analytics">Analytics</a> page
 <ul>
 <li><a href="https://dashboard.branch.io/account-settings/app">Dashboard Account Setting</a> is where you find your <code>Branch Keys</code>, <code>User information</code>, <code>Billing</code>, and <code>Team</code></li>
 <li>Find more information in <a href="../../../pages/dashboard/integrate/#advance-integration">Configure your dashboard</a></li>
-</ul>
-</li>
-</ul>
-<h2 id="troubleshoot-issues">Troubleshoot issues<a class="headerlink" href="#troubleshoot-issues" title="Permanent link">&para;</a></h2>
-<ul>
-<li>
-<h3 id="time-zone">Time Zone<a class="headerlink" href="#time-zone" title="Permanent link">&para;</a></h3>
-<ul>
-<li>
-<p>The dashboard's time zone ensures that data in the Branch dashboard is always presented consistently, no matter where in the world you may be when viewing your data. International teams can settle upon a fixed time zone and see Branch data in that time zone.</p>
-</li>
-<li>
-<p>The time zone setting also allows you to import data from third parties, like Facebook and Google, and ensure that Branch data matches up with external sources.</p>
-</li>
-<li>
-<p>The time zone can be set in <a href="https://dashboard.branch.io/account-settings/app">Account Settings</a>. </p>
-<ul>
-<li>
-<p>Select your time zone from the dropdown</p>
-</li>
-<li>
-<p>Scroll down until you see the <strong>Save Settings</strong> button. Click <strong>Save Settings</strong> to save your time zone.</p>
-<div class="admonition caution">
-<p class="admonition-title">Changing time zone</p>
-<p>Branch allows you to change your time zone. Changing your time zone will take effect after a page refresh, and will set your dashboard to use your new time zone. <strong>However</strong> we do not recommend changing time zone unless you have to, as it can cause discrepancies between previously exported data and the data in your dashboard. In the future, changing time zone may not be possible as we may store data in your specified time zone.</p>
-</div>
-</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>

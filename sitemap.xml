@@ -142,11 +142,19 @@
     
 
     
+        
     <url>
      <loc>https://docs.branch.io/pages/dashboard/analytics/</loc>
      <lastmod>2017-12-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
+    <url>
+     <loc>https://docs.branch.io/pages/dashboard/timezone/</loc>
+     <lastmod>2017-12-15</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
     
