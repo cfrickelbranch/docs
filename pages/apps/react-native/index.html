@@ -2636,6 +2636,9 @@
 <h3 id="install-branch">Install Branch<a class="headerlink" href="#install-branch" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
+<p>Option 1: Pure React Native App</p>
+<ul>
+<li>
 <p>Install the module</p>
 <ul>
 <li>
@@ -2659,21 +2662,27 @@
     on the branch.json file.</p>
 </li>
 <li>
-<p>In a pure React Native app using <code>react-native link</code></p>
-<div class="codehilite"><pre><span></span>react-native link react-native-branch
+<p>Run <code>react-native link react-native-branch</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Option 2: Native iOS app with React pod</p>
+<ul>
+<li>
+<p>Add these lines to your <code>Podfile</code></p>
+<div class="codehilite"><pre><span></span><span class="n">pod</span> <span class="s1">&#39;react-native-branch&#39;</span><span class="p">,</span> <span class="ss">path</span><span class="p">:</span> <span class="s1">&#39;../node_modules/react-native-branch&#39;</span>
+<span class="n">pod</span> <span class="s1">&#39;Branch-SDK&#39;</span><span class="p">,</span> <span class="ss">path</span><span class="p">:</span> <span class="s1">&#39;../node_modules/react-native-branch/ios&#39;</span>
 </pre></div>
 
 </li>
 <li>
-<p>In a native iOS app using the <code>React</code> pod</p>
-<p>This configuration is for native apps that include a React Native component as
-described in the <a href="https://facebook.github.io/react-native/docs/integration-with-existing-apps.html#configuring-cocoapods-dependencies">React Native docs</a>.</p>
-<p>Add these lines to your <code>Podfile</code>:
-<div class="codehilite"><pre><span></span><span class="n">pod</span> <span class="s1">&#39;react-native-branch&#39;</span><span class="p">,</span> <span class="ss">path</span><span class="p">:</span> <span class="s1">&#39;../node_modules/react-native-branch&#39;</span>
-<span class="n">pod</span> <span class="s1">&#39;Branch-SDK&#39;</span><span class="p">,</span> <span class="ss">path</span><span class="p">:</span> <span class="s1">&#39;../node_modules/react-native-branch/ios&#39;</span>
-</pre></div></p>
-<p>Then run <code>pod install</code> to regenerate the <code>Pods</code> project with the new dependencies.
-Note that the location of <code>node_modules</code> relative to your <code>Podfile</code> may vary.</p>
+<p>Run <code>pod install</code> to regenerate the <code>Pods</code> project with the new dependencies. Note that the location of <code>node_modules</code> relative to your <code>Podfile</code> may vary.</p>
+</li>
+<li>
+<p>(Optional) Add a branch.json file to the root of your app (next to package.json). See <a href="https://rnbranch.app.link/branch-json">https://rnbranch.app.link/branch-json</a>.</p>
+</li>
+</ul>
 </li>
 </ul>
 </li>
