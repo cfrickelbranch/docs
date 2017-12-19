@@ -19,12 +19,12 @@ and their usage.
 
 ## Creating a custom theme
 
-The bare minimum required for a custom theme is a `main.html` [Jinja2
-template] file. This should be placed in a directory which will be the
-`theme_dir` and it should be created next to the `mkdocs.yml` configuration
-file. Within `mkdocs.yml`, specify the `theme_dir` option and set it to the
-name of the directory containing `main.html`. For example, given this example
-project layout:
+The bare minimum required for a custom theme is a `main.html` [Jinja2 template]
+file. This should be placed in a directory which will be the `theme_dir` and it
+should be created next to the `mkdocs.yml` configuration file. Within
+`mkdocs.yml`, specify the theme `custom_dir` option and set it to the name of
+the directory containing `main.html`. For example, given this example project
+layout:
 
     mkdocs.yml
     docs/
@@ -37,23 +37,24 @@ project layout:
 You would include the following settings in `mkdocs.yml` to use the custom theme
 directory:
 
-    theme: null
-    theme_dir: 'custom_theme'
+    theme:
+        name: null
+        custom_dir: 'custom_theme'
 
 !!! Note
 
-    Generally, when building your own custom theme, the `theme` configuration
-    setting would be set to `null`. However, if used in combination with the
-    `theme_dir` configuration value a custom theme can be used to replace only
-    specific parts of a built-in theme. For example, with the above layout and
-    if you set `theme: "mkdocs"` then the `main.html` file in the `theme_dir`
-    would replace that in the theme but otherwise the `mkdocs` theme would
-    remain the same. This is useful if you want to make small adjustments to an
-    existing theme.
+    Generally, when building your own custom theme, the theme `name`
+    configuration setting would be set to `null`. However, if used in
+    combination with the `custom_dir` configuration value a custom theme can be
+    used to replace only specific parts of a built-in theme. For example, with
+    the above layout and if you set `name: "mkdocs"` then the `main.html` file
+    in the `custom_dir` would replace that in the theme but otherwise the
+    `mkdocs` theme would remain the same. This is useful if you want to make
+    small adjustments to an existing theme.
 
     For more specific information, see [styling your docs].
 
-[styling your docs]: ./styling-your-docs.md#using-the-theme_dir
+[styling your docs]: ./styling-your-docs.md#using-the-theme-custom_dir
 
 ## Basic theme
 
@@ -84,7 +85,7 @@ the [built-in themes] and modify it accordingly.
     power of Jinja, including [template inheritance]. You may notice that the
     themes included with MkDocs make extensive use of template inheritance and
     blocks, allowing users to easily override small bits and pieces of the
-    templates from the [theme_dir]. Therefore, the built-in themes are
+    templates from the theme [custom_dir]. Therefore, the built-in themes are
     implemented in a `base.html` file, which `main.html` extends. Although not
     required, third party template authors are encouraged to follow a similar
     pattern and may want to define the same [blocks] as are used in the built-in
@@ -318,35 +319,73 @@ And then displayed with this HTML in the custom theme.
 
 ## Search and themes
 
-As of MkDocs `0.13` client side search support has been added to MkDocs with
-[Lunr.js].
+As of MkDocs `0.17` client side search support has been added to MkDocs via the
+`search` plugin. A theme needs to provide a few things for the plugin to work
+with the theme.
 
-Search can either be added to every page in the theme or to a dedicated
-template which must be named `search.html`. The search template will be built
-with the same name and can be viewable with `mkdocs serve` at
-`http://localhost:8000/search.html`. An example of the two different
-approaches can be seen by comparing the `mkdocs` and `readthedocs` themes.
+While the `search` plugin is activated by default, users can disable the plugin
+and themes should acount for this. It is recomended that theme templates wrap
+search specific markup with a check for the plugin:
 
-The following HTML needs to be added to the theme so the JavaScript is loaded
-for Lunr.js.
+```django
+{% if 'search' in config['plugins'] %}
+    search stuff here...
+{% endif %}
+```
+
+At its most basic functionality, the search plugin will simply provide an index
+file which is no more than a JSON file containing the content of all pages.
+The theme would need to implement its own search functionality client-side.
+However, with a few settings and the necessary templates, the plugin can provide
+a complete functioning client-side search tool based on [lunr.js].
+
+The following options can be set in the [theme's configuration file],
+`mkdocs_theme.yml`:
+
+### include_search_page
+
+Determines whether the search plugin expects the theme to provide a dedicated
+search page via a template located at `search/search.html`.
+
+When `include_search_page` is set to `true`, the search template will be built
+and available at `search/search.html`. This method is used by the `readthedocs`
+theme.
+
+When `include_search_page` is set to `false` or not defined, it is expected that
+the theme provide some other mechanisms for displaying search results. For
+example, the `mkdocs` theme displays results on any page via a modal.
+
+### search_index_only
+
+Determines whether the search plugin should only generate a search index or a
+complete search solution.
+
+When `search_index_only` is set to `true` or not defined, the search plugin
+makes no modifications to the Jinja environment. A complete solution using the
+provided index file is the responsability of the theme.
+
+When `search_index_only` is set to `false`, then the search plugin modifies the
+Jinja environment by adding its own `templates` directory (with a lower
+precedence than the theme) and adds its scripts to the `extra_javascript` config
+setting.
+
+The following HTML needs to be added to the theme so that the provided
+JavaScript is able to properly load Lunr.js and make relative links to the
+search results from the current page.
 
 ```django
 <script>var base_url = '{{ base_url }}';</script>
-<script data-main="{{ base_url }}/mkdocs/js/search.js" src="{{ base_url }}/mkdocs/js/require.js"></script>
 ```
 
 !!! note
 
-    The above JavaScript will download the search index, for larger
+    The provided JavaScript will download the search index. For larger
     documentation projects this can be a heavy operation. In those cases, it
-    is suggested that you either use the `search.html` approach to only
-    include search on one page or load the JavaScript on an event like a form
-    submit.
+    is suggested that you either use `search_index_only: true` to only include
+    search on one page or load the JavaScript on an event like a form submit.
 
-This loads the JavaScript and sets a global variable `base_url` which allows
-the JavaScript to make the links relative to the current page. The above
-JavaScript, with the following HTML in a `search.html` template will add a
-full search implementation to your theme.
+The following HTML in a `search/search.html` template will add a full search
+implementation to your theme.
 
 ```django
 <h1 id="search">Search Results</h1>
@@ -360,12 +399,14 @@ full search implementation to your theme.
 </div>
 ```
 
-This works by looking for the specific ID's used in the above HTML. The input
-for the user to type the search query must have the ID `mkdocs-search-query`
-and `mkdocs-search-results` is the directory where the results will be placed.
+The JavaScript in the plugin works by looking for the specific ID's used in the
+above HTML. The input for the user to type the search query must have the ID
+`mkdocs-search-query` and `mkdocs-search-results` is the div where the results
+will be placed.
 
 [Jinja2 template]: http://jinja.pocoo.org/docs/dev/
 [built-in themes]: https://github.com/mkdocs/mkdocs/tree/master/mkdocs/themes
+[theme's configuration file]: #theme-configuration
 [lunr.js]: http://lunrjs.com/
 
 ## Packaging Themes
@@ -380,11 +421,11 @@ Bootswatch theme].
 !!! Note
 
     It is not strictly necessary to package a theme, as the entire theme
-    can be contained in the `theme_dir`. If you have created a "one-off theme,"
-    that should be sufficent. However, if you intend to distribute your theme
+    can be contained in the `custom_dir`. If you have created a "one-off theme,"
+    that should be sufficient. However, if you intend to distribute your theme
     for others to use, packaging the theme has some advantages. By packaging
-    your theme, your users can more easily install it and they can them take
-    advantage of the [theme_dir] to make tweaks to your theme to better suit
+    your theme, your users can more easily install it and they can then take
+    advantage of the [custom_dir] to make tweaks to your theme to better suit
     their needs.
 
 [Python packaging]: https://packaging.python.org/en/latest/
@@ -394,14 +435,16 @@ Bootswatch theme].
 ### Package Layout
 
 The following layout is recommended for themes. Two files at the top level
-directory called `MANIFEST.in` amd `setup.py` beside the theme directory which
-contains an empty `__init__.py` file and your template and media files.
+directory called `MANIFEST.in` and `setup.py` beside the theme directory which
+contains an empty `__init__.py` file, a theme configuration file
+(`mkdocs-theme.yml`), and your template and media files.
 
 ```no-highlight
 .
 |-- MANIFEST.in
 |-- theme_name
 |   |-- __init__.py
+|   |-- mkdocs-theme.yml
 |   |-- main.html
 |   |-- styles.css
 `-- setup.py
@@ -462,6 +505,61 @@ it includes a `main.html` for the theme. It **must** also include a
 `__init__.py` file which should be empty, this file tells Python that the
 directory is a package.
 
+### Theme Configuration
+
+A packaged theme is required to include a configuration file named
+`mkdocs_theme.yml` which is placed in the root of your template files. The file
+should contain default configuration options for the theme. However, if the
+theme offers no configuration options, the file is still required and can be
+left blank.
+
+The theme author is free to define any arbitrary options deemed necessary and
+those options will be made available in the templates to control behavior.
+For example, a theme might want to make a sidebar optional and include the
+following in the `mkdocs_theme.yml` file:
+
+```yaml
+show_sidebar: true
+```
+
+Then in a template, that config option could be referenced:
+
+```django
+{% if config.theme.show_sidebar %}
+<div id="sidebar">...</div>
+{% endif %}
+```
+
+And the user could override the default in their project's `mkdocs.yml` config
+file:
+
+```yaml
+theme:
+    name: themename
+    show_sidebar: false
+```
+
+In addition to arbitrary options defined by the theme, MkDocs defines a few
+special options which alters its behavior:
+
+!!! block ""
+
+    #### static_templates
+
+    This option mirrors the [theme] config option of the same name and allows
+    some defaults to be set by the theme. Note that while the user can add
+    templates to this list, the user cannot remove templates included in the
+    theme's config.
+
+    #### extends
+
+    Defines a parent theme that this theme inherits from. The value should be
+    the string name of the parent theme. Normal Jinja inheritance rules apply.
+
+Plugins may also define some options which allow the theme to inform a plugin
+about which set of plugin options it expects. See the documentation for any
+plugins you may wish to support in your theme.
+
 ### Distributing Themes
 
 With the above changes, your theme should now be ready to install. This can be
@@ -481,3 +579,4 @@ For a much more detailed guide, see the official Python packaging
 documentation for [Packaging and Distributing Projects].
 
 [Packaging and Distributing Projects]: https://packaging.python.org/en/latest/distributing/
+[theme]: ./configuration/#theme

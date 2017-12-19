@@ -21,6 +21,168 @@ The current and past members of the MkDocs team.
 * [@d0ugal](https://github.com/d0ugal/)
 * [@waylan](https://github.com/waylan/)
 
+## Version 0.17.2 (2017-11-15)
+
+* Bugfix: Correct `extra_*` config setting regressions (#1335 & #1336).
+
+## Version 0.17.1 (2017-10-30)
+
+* Bugfix: Support `repo_url` with missing ending slash. (#1321).
+* Bugfix: Add length support to `mkdocs.toc.TableOfContext` (#1325).
+* Bugfix: Add some theme specific settings to the search plugin for third party
+  themes (#1316).
+* Bugfix: Override `site_url` with `dev_addr` on local server (#1317).
+
+## Version 0.17.0 (2017-10-19)
+
+### Major Additions to Version 0.17.0
+
+#### Plugin API. (#206)
+
+A new [Plugin API] has been added to MkDocs which allows users to define their
+own custom behaviors. See the included documentation for a full explanation of
+the API.
+
+The previously built-in search functionality has been removed and wrapped in a
+plugin (named "search") with no changes in behavior. When MkDocs builds, the
+search index is now written to `search/search_index.json` instead of
+`mkdocs/search_index.json`. If no plugins setting is defined in the config,
+then the `search` plugin will be included by default. See the
+[configuration][plugin_config] documentation for information on overriding the
+default.
+
+[Plugin API]: ../user-guide/plugins.md
+[plugin_config]: ../user-guide/configuration.md#plugins
+
+#### Theme Customization. (#1164)
+
+Support had been added to provide theme specific customizations. Theme authors
+can define default options as documented in [Theme Configuration]. A theme can
+now inherit from another theme, define various static templates to be rendered,
+and define arbitrary default variables to control behavior in the templates.
+The theme configuration is defined in a configuruation file named
+`mkdocs_theme.yml` which should be placed at the root of your template files. A
+warning will be raised if no configuration file is found and an error will be
+raised in a future release.
+
+Users can override those defaults under the [theme] configuration option of
+their `mkdocs.yml` configuration file, which now accepts nested options. One
+such nested option is the [custom_dir] option, which replaces the now deprecated
+`theme_dir` option. If users had previously set the `theme_dir` option, a
+warning will be issued, with an error expected in a future release.
+
+If a configuration previously defined a `theme_dir` like this:
+
+```yaml
+theme: mkdocs
+theme_dir: custom
+```
+
+Then the configuration should be adjusted as follows:
+
+```yaml
+theme:
+    name: mkdocs
+    custom_dir: custom
+```
+
+See the [theme] configuration option documentation for details.
+
+[Theme Configuration]: ../user-guide/custom-themes.md#theme-configuration
+[theme]: ../user-guide/configuration.md#theme
+[custom_dir]: ../user-guide/configuration.md#custom_dir
+
+#### Previously deprecated Template variables removed. (#1168)
+
+##### Page Template
+
+The primary entry point for page templates has been changed from `base.html` to
+`main.html`. This allows `base.html` to continue to exist while allowing users
+to override `main.html` and extend `base.html`. For version 0.16, `base.html`
+continued to work if no `main.html` template existed, but it raised a
+deprecation warning. In version 1.0, a build will fail if no `main.html`
+template exists.
+
+##### Context Variables
+
+Page specific variable names in the template context have been refactored as
+defined in [Custom Themes](../user-guide/custom-themes/#page). The
+old variable names issued a warning in version 0.16, but have been removed in
+version 1.0.
+
+Any of the following old page variables should be updated to the new ones in
+user created and third-party templates:
+
+| Old Variable Name | New Variable Name   |
+| ----------------- | ------------------- |
+| current_page      | [page]              |
+| page_title        | [page.title]        |
+| content           | [page.content]      |
+| toc               | [page.toc]          |
+| meta              | [page.meta]         |
+| canonical_url     | [page.canonical_url]|
+| previous_page     | [page.previous_page]|
+| next_page         | [page.next_page]    |
+
+[page]: ../user-guide/custom-themes/#page
+[page.title]: ../user-guide/custom-themes/#pagetitle
+[page.content]: ../user-guide/custom-themes/#pagecontent
+[page.toc]: ../user-guide/custom-themes/#pagetoc
+[page.meta]: ../user-guide/custom-themes/#pagemeta
+[page.canonical_url]: ../user-guide/custom-themes/#pagecanonical_url
+[page.previous_page]: ../user-guide/custom-themes/#pageprevious_page
+[page.next_page]: ../user-guide/custom-themes/#pagenext_page
+
+Additionally, a number of global variables have been altered and/or removed
+and user created and third-party templates should be updated as outlined below:
+
+| Old Variable Name | New Variable Name or Expression        |
+| ----------------- | -------------------------------------- |
+| current_page      | page                                   |
+| include_nav       | nav&#124;length&gt;1                   |
+| include_next_prev | (page.next_page or page.previous_page) |
+| site_name         | config.site_name                       |
+| site_author       | config.site_author                     |
+| page_description  | config.site_description                |
+| repo_url          | config.repo_url                        |
+| repo_name         | config.repo_name                       |
+| site_url          | config.site_url                        |
+| copyright         | config.copyright                       |
+| google_analytics  | config.google_analytics                |
+| homepage_url      | nav.homepage.url                       |
+| favicon           | {{ base_url }}/img/favicon.ico         |
+
+#### Auto-Populated extra_css and extra_javascript Fully Deprecated. (#986)
+
+In previous versions of MkDocs, if the `extra_css` or `extra_javascript` config
+settings were empty, MkDocs would scan the `docs_dir` and auto-populate each
+setting with all of the CSS and JavaScript files found. On version 0.16 this
+behavior was deprecated and a warning was issued. In 1.0 any unlisted CSS and
+JavaScript files will not be included in the HTML templates, however, a warning
+will be issued. In other words, they will still be copied to the `site-dir`, but
+they will not have any effect on the theme if they are not explicitly listed.
+
+All CSS and javaScript files in the `docs_dir` should be explicitly listed in
+the `extra_css` or `extra_javascript` config settings going forward.
+
+### Other Changes and Additions to Version 0.17.0
+
+* Add "edit Link" support to MkDocs theme (#1129)
+* Open files with `utf-8-sig` to account for BOM (#1186)
+* Symbolic links are now followed consistently (#1134)
+* Support for keyboard navigation shortcuts added to included themes (#1095)
+* Some refactoring and improvements to config_options (#1296)
+* Officially added support for Python 3.6 (#1296)
+* 404 Error page added to readthedocs theme (#1296))
+* Internal refactor of Markdown processing (#713)
+* Removed special error message for mkdocs-bootstrap and mkdocs-bootswatch
+  themes (#1168)
+* The legacy pages config is no longer supported (#1168)
+* The deprecated `json` command has been removed (#481)
+* Support for Python 2.6 has been dropped (#165)
+* File permissions are no longer copied during build (#1292)
+* Support query and fragment strings in `edit_uri` (#1224 & #1273)
+
 ## Version 0.16.3 (2017-04-04)
 
 * Fix error raised by autoscrolling in the readthedocs theme (#1177)
@@ -282,7 +444,7 @@ they will be installable with pip: `pip install mkdocs-bootstrap` and `pip
 install mkdocs-bootswatch`
 
 See the documentation for [Styling your docs] for more information about using
-and customising themes and [Custom themes] for creating and distributing new
+and customizing themes and [Custom themes] for creating and distributing new
 themes
 
 [Styling your docs]: /user-guide/styling-your-docs.md
@@ -315,9 +477,9 @@ themes
 
 * Improve Unicode handling by ensuring that all config strings are loaded as
   Unicode. (#592)
-* Remove dependancy on the six library. (#583)
-* Remove dependancy on the ghp-import library. (#547)
-* Add `--quiet` and `--verbose` options to all subcommands. (#579)
+* Remove dependency on the six library. (#583)
+* Remove dependency on the ghp-import library. (#547)
+* Add `--quiet` and `--verbose` options to all sub-commands. (#579)
 * Add short options (`-a`) to most command line options. (#579)
 * Add copyright footer for readthedocs theme. (#568)
 * If the requested port in `mkdocs serve` is already in use, don't show the
@@ -440,7 +602,7 @@ documentation.
 * Add support for custom commit messages in a `mkdocs gh-deploy` (#516)
 * Bugfix: Fix linking to media within the same directory as a markdown file
   called index.md (#535)
-* Bugfix: Fix errors with unicode filenames (#542).
+* Bugfix: Fix errors with Unicode filenames (#542).
 
 [extra config]: /user-guide/configuration.md#extra
 [Markdown extension configuration options]: /user-guide/configuration.md#markdown_extensions
@@ -465,13 +627,13 @@ documentation.
 * Add Google analytics support to all themes. (#333)
 * Add build date and MkDocs version to the ReadTheDocs and MkDocs theme
   outputs. (#382)
-* Standardise highlighting across all themes and add missing languages. (#387)
+* Standardize highlighting across all themes and add missing languages. (#387)
 * Add a verbose flag. (-v) to show more details about what the build. (#147)
 * Add the option to specify a remote branch when deploying to GitHub. This
   enables deploying to GitHub pages on personal and repo sites. (#354)
 * Add favicon support to the ReadTheDocs theme HTML. (#422)
 * Automatically refresh the browser when files are edited. (#163)
-* Bugfix: Never re-write URL's in code blocks. (#240)
+* Bugfix: Never re-write URLs in code blocks. (#240)
 * Bugfix: Don't copy ditfiles when copying media from the `docs_dir`. (#254)
 * Bugfix: Fix the rendering of tables in the ReadTheDocs theme. (#106)
 * Bugfix: Add padding to the bottom of all bootstrap themes. (#255)
@@ -479,7 +641,7 @@ documentation.
   configuration. (#276)
 * Bugfix: Fix a URL parsing error with GitHub enterprise. (#284)
 * Bugfix: Don't error if the mkdocs.yml is completely empty. (#288)
-* Bugfix: Fix a number of problems with relative urls and Markdown files. (#292)
+* Bugfix: Fix a number of problems with relative URLs and Markdown files. (#292)
 * Bugfix: Don't stop the build if a page can't be found, continue with other
   pages. (#150)
 * Bugfix: Remove the site_name from the page title, this needs to be added
@@ -503,12 +665,12 @@ documentation.
 * Bugfix: Add nicer CSS classes to the HTML tables in bootswatch themes. (#295)
 * Bugfix: Fix an error when passing in a specific config file with
   `mkdocs serve`. (#341)
-* Bugfix: Don't overwrite index.md diles with the `mkdocs new` command. (#412)
+* Bugfix: Don't overwrite index.md files with the `mkdocs new` command. (#412)
 * Bugfix: Remove bold and italic from code in the ReadTheDocs theme. (#411)
 * Bugfix: Display images inline in the MkDocs theme. (#415)
 * Bugfix: Fix problems with no-highlight in the ReadTheDocs theme. (#319)
 * Bugfix: Don't delete hidden files when using `mkdocs build --clean`. (#346)
-* Bugfix: Don't block newer verions of Python-markdown on Python >= 2.7. (#376)
+* Bugfix: Don't block newer versions of Python-markdown on Python >= 2.7. (#376)
 * Bugfix: Fix encoding issues when opening files across platforms. (#428)
 
 ## Version 0.11.1 (2014-11-20)
@@ -547,7 +709,7 @@ documentation.
 * Bugfix: Relaxed required python package versions to avoid clashes. (#104)
 * Bugfix: Fix issue rendering the table of contents with some configs. (#146)
 * Bugfix: Fix path for embedded images in sub pages. (#138)
-* Bugfix: Fix `use_directory_urls` config behaviour. (#63)
+* Bugfix: Fix `use_directory_urls` config behavior. (#63)
 * Bugfix: Support `extra_javascript` and `extra_css` in all themes. (#90)
 * Bugfix: Fix path-handling under Windows. (#121)
 * Bugfix: Fix the menu generation in the readthedocs theme. (#110)
