@@ -3687,8 +3687,7 @@ in the Info.plist. It can be disabled with a call to the SDK.</p>
 <p>Modify your native app code.</p>
 <p><strong>Android</strong></p>
 <p>Simulated installs may be enabled on Android by adding <code>&lt;meta-data android:name="io.branch.sdk.TestMode" android:value="true"/&gt;</code> to the <code>application</code> element of your Android manifest. Use this in a build type
-such as <code>debug</code> or a product flavor, or be sure to remove it from your manifest before releasing to prod.
-See <a href="https://docs.branch.io/pages/apps/android/#simulate-an-install">https://docs.branch.io/pages/apps/android/#simulate-an-install</a> for full details.</p>
+such as <code>debug</code> or a product flavor, or be sure to remove it from your manifest before releasing to prod. <a href="../../../pages/apps/android/#simulate-an-install">Click here</a> for more details.</p>
 <p>Alternately, add <code>RNBranchModule.setDebug();</code> in your MainActivity before the call to <code>initSession</code>. Be sure to remove it
 before releasing to prod.</p>
 <div class="codehilite"><pre><span></span>    <span class="c1">// Remove before prod release</span>
@@ -3777,8 +3776,8 @@ launch to check for an initial link. Use <code>branch.subscribe</code> to handle
 <h3 id="general-troubleshooting">General troubleshooting<a class="headerlink" href="#general-troubleshooting" title="Permanent link">&para;</a></h3>
 <p>See the troubleshooting guide for each native SDK:</p>
 <ul>
-<li><a href="https://docs.branch.io/pages/apps/ios/#troubleshoot-issues">iOS</a></li>
-<li><a href="https://docs.branch.io/pages/apps/android/#troubleshoot-issues">Android</a></li>
+<li><a href="../../../pages/apps/ios/#troubleshoot-issues">iOS</a></li>
+<li><a href="../../../pages/apps/android/#troubleshoot-issues">Android</a></li>
 </ul>
 </li>
 <li>
