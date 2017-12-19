@@ -49,10 +49,13 @@ def _livereload(host, port, config, builder, site_dir):
     server.watch(config['docs_dir'], builder)
     server.watch(config['config_file_path'], builder)
 
-    for d in config['theme_dir']:
+    for d in config['theme'].dirs:
         server.watch(d, builder)
 
-    server.serve(root=site_dir, host=host, port=int(port), restart_delay=0)
+    # Run `serve` plugin events.
+    server = config['plugins'].run_event('serve', server, config=config)
+
+    server.serve(root=site_dir, host=host, port=port, restart_delay=0)
 
 
 def _static_server(host, port, site_dir):
@@ -68,7 +71,7 @@ def _static_server(host, port, site_dir):
             "default_filename": "index.html"
         }),
     ])
-    application.listen(port=int(port), address=host)
+    application.listen(port=port, address=host)
 
     log.info('Running at: http://%s:%s/', host, port)
     log.info('Hold ctrl+c to quit.')
@@ -100,18 +103,21 @@ def serve(config_file=None, dev_addr=None, strict=None, theme=None,
             theme=theme,
             theme_dir=theme_dir
         )
+        # Override a few config settings after validation
         config['site_dir'] = tempdir
+        config['site_url'] = 'http://{0}/'.format(config['dev_addr'])
+
         live_server = livereload in ['dirty', 'livereload']
         dirty = livereload == 'dirty'
         build(config, live_server=live_server, dirty=dirty)
         return config
 
-    # Perform the initial build
-    config = builder()
-
-    host, port = config['dev_addr'].split(':', 1)
-
     try:
+        # Perform the initial build
+        config = builder()
+
+        host, port = config['dev_addr']
+
         if livereload in ['livereload', 'dirty']:
             _livereload(host, port, config, builder, tempdir)
         else:

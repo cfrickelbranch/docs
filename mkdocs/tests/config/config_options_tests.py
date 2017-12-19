@@ -1,7 +1,6 @@
 from __future__ import unicode_literals
 
 import os
-import tempfile
 import unittest
 
 import mkdocs
@@ -76,6 +75,73 @@ class TypeTest(unittest.TestCase):
                           option.validate, "Testing Long")
 
 
+class IpAddressTest(unittest.TestCase):
+
+    def test_valid_address(self):
+        addr = '127.0.0.1:8000'
+
+        option = config_options.IpAddress()
+        value = option.validate(addr)
+        self.assertEqual(utils.text_type(value), addr)
+        self.assertEqual(value.host, '127.0.0.1')
+        self.assertEqual(value.port, 8000)
+
+    def test_valid_IPv6_address(self):
+        addr = '[::1]:8000'
+
+        option = config_options.IpAddress()
+        value = option.validate(addr)
+        self.assertEqual(utils.text_type(value), addr)
+        self.assertEqual(value.host, '[::1]')
+        self.assertEqual(value.port, 8000)
+
+    def test_named_address(self):
+        addr = 'localhost:8000'
+
+        option = config_options.IpAddress()
+        value = option.validate(addr)
+        self.assertEqual(utils.text_type(value), addr)
+        self.assertEqual(value.host, 'localhost')
+        self.assertEqual(value.port, 8000)
+
+    def test_default_address(self):
+        addr = '127.0.0.1:8000'
+
+        option = config_options.IpAddress(default=addr)
+        value = option.validate(None)
+        self.assertEqual(utils.text_type(value), addr)
+        self.assertEqual(value.host, '127.0.0.1')
+        self.assertEqual(value.port, 8000)
+
+    def test_invalid_address_format(self):
+        option = config_options.IpAddress()
+        self.assertRaises(
+            config_options.ValidationError,
+            option.validate, '127.0.0.18000'
+        )
+
+    def test_invalid_address_type(self):
+        option = config_options.IpAddress()
+        self.assertRaises(
+            config_options.ValidationError,
+            option.validate, 123
+        )
+
+    def test_invalid_address_port(self):
+        option = config_options.IpAddress()
+        self.assertRaises(
+            config_options.ValidationError,
+            option.validate, '127.0.0.1:foo'
+        )
+
+    def test_invalid_address_missing_port(self):
+        option = config_options.IpAddress()
+        self.assertRaises(
+            config_options.ValidationError,
+            option.validate, '127.0.0.1'
+        )
+
+
 class URLTest(unittest.TestCase):
 
     def test_valid_url(self):
@@ -144,7 +210,15 @@ class RepoURLTest(unittest.TestCase):
         option = config_options.RepoURL()
         config = {'repo_url': "https://launchpad.net/python-tuskarclient"}
         option.post_validation(config, 'repo_url')
-        self.assertEqual(config.get('edit_uri'), None)
+        self.assertEqual(config.get('edit_uri'), '')
+
+    def test_repo_name_custom_and_empty_edit_uri(self):
+
+        option = config_options.RepoURL()
+        config = {'repo_url': "https://github.com/mkdocs/mkdocs",
+                  'repo_name': 'mkdocs'}
+        option.post_validation(config, 'repo_url')
+        self.assertEqual(config.get('edit_uri'), 'edit/master/docs/')
 
 
 class DirTest(unittest.TestCase):
@@ -264,70 +338,89 @@ class SiteDirTest(unittest.TestCase):
 
 class ThemeTest(unittest.TestCase):
 
-    def test_theme(self):
+    def test_theme_as_string(self):
 
         option = config_options.Theme()
         value = option.validate("mkdocs")
-        self.assertEqual("mkdocs", value)
+        self.assertEqual({'name': 'mkdocs'}, value)
 
-    def test_theme_invalid(self):
+    def test_uninstalled_theme_as_string(self):
 
         option = config_options.Theme()
         self.assertRaises(config_options.ValidationError,
                           option.validate, "mkdocs2")
 
-
-class ExtrasTest(unittest.TestCase):
-
-    def test_provided(self):
-
-        option = config_options.Extras(utils.is_markdown_file)
-        value = option.validate([])
-        self.assertEqual([], value)
-
-        option.post_validation({'extra_stuff': []}, 'extra_stuff')
-
-    def test_empty(self):
-
-        option = config_options.Extras(utils.is_template_file)
+    def test_theme_default(self):
+        option = config_options.Theme(default='mkdocs')
         value = option.validate(None)
-        self.assertEqual(None, value)
+        self.assertEqual({'name': 'mkdocs'}, value)
 
-    def test_invalid(self):
+    def test_theme_as_simple_config(self):
 
-        option = config_options.Extras(utils.is_html_file)
+        config = {
+            'name': 'mkdocs'
+        }
+        option = config_options.Theme()
+        value = option.validate(config)
+        self.assertEqual(config, value)
+
+    def test_theme_as_complex_config(self):
+
+        config = {
+            'name': 'mkdocs',
+            'custom_dir': 'custom',
+            'static_templates': ['sitemap.html'],
+            'show_sidebar': False
+        }
+        option = config_options.Theme()
+        value = option.validate(config)
+        self.assertEqual(config, value)
+
+    def test_theme_name_is_none(self):
+
+        config = {
+            'name': None
+        }
+        option = config_options.Theme()
+        value = option.validate(config)
+        self.assertEqual(config, value)
+
+    def test_theme_config_missing_name(self):
+
+        config = {
+            'custom_dir': 'custom',
+        }
+        option = config_options.Theme()
         self.assertRaises(config_options.ValidationError,
-                          option.validate, {})
+                          option.validate, config)
 
-    def test_walk(self):
+    def test_uninstalled_theme_as_config(self):
 
-        option = config_options.Extras(utils.is_markdown_file)
+        config = {
+            'name': 'mkdocs2'
+        }
+        option = config_options.Theme()
+        self.assertRaises(config_options.ValidationError,
+                          option.validate, config)
 
-        tmp_dir = tempfile.mkdtemp()
+    def test_theme_invalid_type(self):
 
-        f1 = os.path.join(tmp_dir, 'file1.md')
-        f2 = os.path.join(tmp_dir, 'file2.md')
-
-        open(f1, 'a').close()
-
-        # symlink isn't available on Python 2 on Windows.
-        if hasattr(os, 'symlink'):
-            os.symlink('/path/that/doesnt/exist', f2)
-
-        files = list(option.walk_docs_dir(tmp_dir))
-
-        self.assertEqual(['file1.md', ], files)
+        config = ['mkdocs2']
+        option = config_options.Theme()
+        self.assertRaises(config_options.ValidationError,
+                          option.validate, config)
 
 
 class PagesTest(unittest.TestCase):
 
-    def test_provided(self):
+    def test_old_format(self):
 
         option = config_options.Pages()
-        value = option.validate([['index.md', ], ])
-        self.assertEqual(['index.md', ], value)
-
-        option.post_validation({'extra_stuff': []}, 'extra_stuff')
+        self.assertRaises(
+            config_options.ValidationError,
+            option.validate,
+            [['index.md', ], ]
+        )
 
     def test_provided_dict(self):
 
@@ -359,61 +452,6 @@ class PagesTest(unittest.TestCase):
         option = config_options.Pages()
         self.assertRaises(config_options.ValidationError,
                           option.validate, [[], 1])
-
-
-class NumPagesTest(unittest.TestCase):
-
-    def test_one_page(self):
-
-        option = config_options.NumPages()
-        config = {
-            'key': None,
-            'pages': [1, ]
-        }
-        option.post_validation(config, 'key')
-        self.assertEqual({
-            'key': False,
-            'pages': [1, ]
-        }, config)
-
-    def test_many_pages(self):
-
-        option = config_options.NumPages()
-        config = {
-            'key': None,
-            'pages': [1, 2, 3]
-        }
-        option.post_validation(config, 'key')
-        self.assertEqual({
-            'key': True,
-            'pages': [1, 2, 3]
-        }, config)
-
-    def test_invalid_pages(self):
-
-        option = config_options.NumPages()
-        config = {
-            'key': None,
-            'pages': None
-        }
-        option.post_validation(config, 'key')
-        self.assertEqual({
-            'key': False,
-            'pages': None
-        }, config)
-
-    def test_provided(self):
-
-        option = config_options.NumPages()
-        config = {
-            'key': True,
-            'pages': None
-        }
-        option.post_validation(config, 'key')
-        self.assertEqual({
-            'key': True,
-            'pages': None
-        }, config)
 
 
 class PrivateTest(unittest.TestCase):

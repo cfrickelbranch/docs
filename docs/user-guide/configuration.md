@@ -54,51 +54,66 @@ domains, otherwise `null`
 
 Path from the base `repo_url` to the docs directory when directly viewing a
 page, accounting for specifics of the repository host (e.g. GitHub, Bitbucket,
-etc), the branch, and the docs directory itself. Mkdocs concatenates `repo_url`
+etc), the branch, and the docs directory itself. MkDocs concatenates `repo_url`
 and `edit_uri`, and appends the input path of the page.
 
-When set, provides a link directly to the page in your source repository. This
-makes it easier to find and edit the source for the page. If `repo_url` is not
-set, this option is ignored.
+When set, and if your theme supports it, provides a link directly to the page in
+your source repository. This makes it easier to find and edit the source for the
+page. If `repo_url` is not set, this option is ignored. On some themes, setting
+this option may cause an edit link to be used in place of a repository link.
+Other themes may show both links.
 
-For example, for a GitHub-hosted repository, the `edit_uri` would be as follows.
-(Note the `edit` path and `master` branch...)
-
-```yaml
-edit_uri: edit/master/docs/
-```
-
-For a Bitbucket-hosted repository, the equivalent `edit_uri` would be as
-follows. (Note the `src` path and `default` branch...)
-
-```yaml
-edit_uri: src/default/docs/
-```
-
-The `edit_uri` also supports query ('?') and fragment ('#') characters. For
-reposotiry hosts that use a query or a fragment to access the files, the
-`edit_uri` would be as follows. (Note the `?` and `#` in the uri...)
+The `edit_uri` supports query ('?') and fragment ('#') characters. For
+repository hosts that use a query or a fragment to access the files, the
+`edit_uri` might be set as follows. (Note the `?` and `#` in the URI...)
 
 ```yaml
 # Query string example
 edit_uri: '?query=root/path/docs/'
+```
 
+```yaml
 # Hash fragment example
 edit_uri: '#root/path/docs/'
 ```
 
-For other repository hosts, `edit_uri` works the same way. Simply specify the
-relative path to the docs directory.
+For other repository hosts, simply specify the relative path to the docs
+directory.
+
+```yaml
+# Query string example
+edit_uri: root/path/docs/
+```
+
+!!! note
+    On a few known hosts (specifically GitHub and Bitbucket), the `edit_uri` is
+    derived from the 'repo_url' and does not need to be set manually. Simply
+    defining a `repo_url` will automatically populate the `edit_uri` config
+    setting.
+
+    For example, for a GitHub-hosted repository, the `edit_uri` would be
+    automatically set as `edit/master/docs/` (Note the `edit` path and `master`
+    branch).
+
+    For a Bitbucket-hosted repository, the equivalent `edit_uri` would be
+    automatically set as `src/default/docs/` (note the `src` path and `default`
+    branch).
+
+    To use a different URI than the default (for example a different branch),
+    simply set the `edit_uri` to your desired string. If you do not want any
+    "edit URL link" displayed on your pages, then set `edit_uri` to an empty
+    string to disable the automatic setting.
+
+!!! warning
+    On GitHub, the default "edit" path (`edit/master/docs/`) opens the page in
+    the online GitHub editor. This functionality requires that the user have and
+    be logged in to a GitHub account. Otherwise, the user will be redirected to
+    a login/signup page. Alternatively, use the "blob" path
+    (`blob/master/docs/`) to open a read-only view, which supports anonymous
+    access.
 
 **default**: `edit/master/docs/` or `src/default/docs/` for GitHub or Bitbucket
 repos, respectively, if `repo_url` matches those domains, otherwise `null`
-
-!!! note "Note:"
-    On GitHub, the `edit` path opens the page in the online GitHub editor. This
-    functionality requires that the user have and be logged in to a GitHub
-    account. Otherwise, the user will be redirected to a login/signup page.
-    Alternatively, use the `blob` path to open a read-only view, which supports
-    anonymous access. E.g. `blob/master/docs/`
 
 ### site_description
 
@@ -170,24 +185,56 @@ sub-directories. If none are found it will be `[]` (an empty list).
 
 ### theme
 
-Sets the theme of your documentation site, for a list of available themes visit
-[styling your docs].
+Sets the theme and theme specific configuration of your documentation site.
+May be either a string or a set of key/value pairs.
+
+If a string, it must be the string name of a known installed theme. For a list
+of available themes visit [styling your docs].
+
+An example set of key/value pairs might look something like this:
+
+```yaml
+theme:
+    name: mkdocs
+    custom_dir: my_theme_customizations/
+    static_templates:
+        - sitemap.html
+    include_sidebar: false
+```
+
+If a set of key/value pairs, the following nested keys can be defined:
+
+!!! block ""
+
+    #### name:
+
+    The string name of a known installed theme. For a list of available themes
+    visit [styling your docs].
+
+    #### custom_dir:
+
+    A directory to custom a theme. This can either be a relative directory, in
+    which case it is resolved relative to the directory containing your
+    configuration file, or it can be an absolute directory path.
+
+    See [styling your docs][theme_dir] for details if you would like to tweak an
+    existing theme.
+
+    See [custom themes] if you would like to build your own theme from the
+    ground up.
+
+    #### static_templates:
+
+    A list of templates to render as static pages. The templates must be located
+    in either the theme's template directory or in the `custom_dir` defined in
+    the theme configuration.
+
+    #### (theme specific keywords)
+
+    Any additional keywords supported by the theme can also be defined. See the
+    documentation for the theme you are using for details.
 
 **default**: `'mkdocs'`
-
-### theme_dir
-
-Lets you set a directory to a custom theme. This can either be a relative
-directory, in which case it is resolved relative to the directory containing
-your configuration file, or it can be an absolute directory path.
-
-See [styling your docs][theme_dir] for details if you would like to tweak an
-existing theme.
-
-See [custom themes] if you would like to build your own theme from the ground
-up.
-
-**default**: `null`
 
 ### docs_dir
 
@@ -274,13 +321,13 @@ documentation.
 The following table demonstrates how the URLs used on the site differ when
 setting `use_directory_urls` to `true` or `false`.
 
-Source file  | Generated HTML       | use_directory_urls=true  | use_directory_urls=false
+Source file  | Generated HTML       | use_directory_urls: true  | use_directory_urls: false
 ------------ | -------------------- | ------------------------ | ------------------------
 index.md     | index.html           | /                        | /index.html
 api-guide.md | api-guide/index.html | /api-guide/              | /api-guide/index.html
 about.md     | about/index.html     | /about/                  | /about/index.html
 
-The default style of `use_directory_urls=true` creates more user friendly URLs,
+The default style of `use_directory_urls: true` creates more user friendly URLs,
 and is usually what you'll want to use.
 
 The alternate style can occasionally be useful if you want your documentation to
@@ -300,16 +347,11 @@ true to halt processing when a broken link is found, false prints a warning.
 
 ### dev_addr
 
-Determines the address used when running `mkdocs serve`. Setting this allows you
-to use another port, or allows you to make the service accessible over your
-local network by using the `0.0.0.0` address.
+Determines the address used when running `mkdocs serve`. Must be of the format
+`IP:PORT`.
 
-As with all settings, you can set this from the command line, which can be
-useful, for example:
-
-```bash
-mkdocs serve --dev-addr=0.0.0.0:80  # Run on port 80, on the local network.
-```
+Allows a custom default to be set without the need to pass it through the
+`--dev_addr` option every time the `mkdocs serve` command is called.
 
 **default**: `'127.0.0.1:8000'`
 
@@ -377,16 +419,41 @@ markdown_extensions:
     the documentation provided by those extensions for installation instructions
     and available configuration options.
 
-**default**: `[]`
+**default**: `[]` (an empty list).
+
+### plugins
+
+A list of plugins (with optional configuration settings) to use when building
+the site . See the [Plugins] documentation for full details.
+
+If the `plugins` config setting is defined in the `mkdocs.yml` config file, then
+any defaults (such as `search`) are ignored and you need to explicitly re-enable
+the defaults if you would like to continue using them:
+
+```yaml
+plugins:
+    - search
+    - your_other_plugin
+```
+
+To completely disable all plugins, including any defaults, set the `plugins`
+setting to an empty list:
+
+```yaml
+plugins: []
+```
+
+**default**: `['search']` (the "search" plugin included with MkDocs).
 
 [custom themes]: custom-themes.md
 [variables that are available]: custom-themes.md#template-variables
-[pymdk-extensions]: https://pythonhosted.org/Markdown/extensions/index.html
-[pymkd]: https://pythonhosted.org/Markdown/
-[smarty]: https://pythonhosted.org/Markdown/extensions/smarty.html
-[exts]:https://pythonhosted.org/Markdown/extensions/index.html
-[3rd]: https://github.com/waylan/Python-Markdown/wiki/Third-Party-Extensions
+[pymdk-extensions]: https://python-markdown.github.io/extensions/
+[pymkd]: https://python-markdown.github.io/
+[smarty]: https://python-markdown.github.io/extensions/smarty/
+[exts]: https://python-markdown.github.io/extensions/
+[3rd]: https://github.com/Python-Markdown/markdown/wiki/Third-Party-Extensions
 [configuring pages and navigation]: writing-your-docs.md#configure-pages-and-navigation
 [theme_dir]: styling-your-docs.md#using-the-theme_dir
 [styling your docs]: styling-your-docs.md
 [extra_css]: #extra_css
+[Plugins]: plugins.md
