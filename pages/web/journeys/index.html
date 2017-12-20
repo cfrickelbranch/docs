@@ -1062,8 +1062,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#is-viewing-a-page-with-hosted-deeplink-data-key" title="Is viewing a page with hosted deeplink data key" class="md-nav__link">
-    Is viewing a page with hosted deeplink data key
+  <a href="#is-viewing-a-page-with-metadata-key" title="Is viewing a page with metadata key" class="md-nav__link">
+    Is viewing a page with metadata key
   </a>
   
 </li>
@@ -2984,8 +2984,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#is-viewing-a-page-with-hosted-deeplink-data-key" title="Is viewing a page with hosted deeplink data key" class="md-nav__link">
-    Is viewing a page with hosted deeplink data key
+  <a href="#is-viewing-a-page-with-metadata-key" title="Is viewing a page with metadata key" class="md-nav__link">
+    Is viewing a page with metadata key
   </a>
   
 </li>
@@ -3732,10 +3732,28 @@ You can target a user based on the last touch point before they entered your web
 <p>A user is grouped into "Has clicked on Email" when they've clicked a link from <a href="https://dashboard.branch.io/email">Deep Linked Email</a>.</p>
 <p>Use this to target users who have been part of an email campaign; maybe with a specific call to action to get them download the app if they don't have it and they've landed on mobile web.</p>
 <p>The technical definition is that they've clicked on a link with an Email Service Provider's custom <code>$3p</code> value in link data, but you just need to consider the way the link is created - in this case, through a Deep Linked Email integration.</p>
-<h4 id="is-viewing-a-page-with-hosted-deeplink-data-key">Is viewing a page with hosted deeplink data key<a class="headerlink" href="#is-viewing-a-page-with-hosted-deeplink-data-key" title="Permanent link">&para;</a></h4>
-<p>Use this filter to target users viewing web pages with certain <a href="../../../pages/web/hosted-data/#add-metatags-to-your-site">Branch-specific metatags</a> on them (in the form of the HTML <code>&lt;meta&gt;</code> tag).</p>
-<p>For example, you could target users on pages containing the metadata key “foo” and value “bar” by adding this tag to the HTML: <code>&lt;meta name="branch:deeplink:foo" content="bar" /&gt;</code>. Only metadata in this format will be targetable.</p>
-<p>Once metadata has been added to a webpage, you can target users on that page using the “Is viewing a page with hosted deeplink data key” audience filter.</p>
+<h4 id="is-viewing-a-page-with-metadata-key">Is viewing a page with metadata key<a class="headerlink" href="#is-viewing-a-page-with-metadata-key" title="Permanent link">&para;</a></h4>
+<p>Use this filter to target users viewing web pages with certain metadata specified. This data can be specified in HTML <code>&lt;meta&gt;</code> tags on a webpage, passed in as options in the <code>init()</code> call that you use to initialize the Branch web SDK, or passed in using the <code>track()</code> call in Branch’s web SDK. Note that if you opt to use HTML <code>&lt;meta&gt;</code> tags, your tags should be formatted as <a href="https://docs.branch.io/pages/web/hosted-data/#add-metatags-to-your-site">Branch hosted deep link data</a>.</p>
+<p>For example, you could target users on pages containing the metadata key “foo” and value “bar” by adding this tag to the page’s HTML: <code>&lt;meta name="branch:deeplink:foo" content="bar" /&gt;</code></p>
+<p>Or by initializing Branch’s web SDK with the following options object:</p>
+<div class="codehilite"><pre><span></span><span class="nx">branch</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span> <span class="s1">&#39;BRANCH_KEY&#39;</span><span class="p">,</span>
+    <span class="p">{</span>
+        <span class="nx">metadata</span> <span class="o">:</span> <span class="p">{</span>
+            <span class="s1">&#39;foo&#39;</span> <span class="o">:</span> <span class="s1">&#39;bar&#39;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+</pre></div>
+
+<p>Or, finally, by using the track() call to <a href="https://branchmetrics.github.io/docs/pages/web/journeys/#trigger-a-journey-to-show-by-firing-an-event">programmatically trigger a Journey to show</a>:</p>
+<div class="codehilite"><pre><span></span><span class="nx">branch</span><span class="p">.</span><span class="nx">track</span><span class="p">(</span><span class="err">‘</span><span class="nx">pageview</span><span class="err">’</span><span class="p">,</span>
+    <span class="p">{</span>
+        <span class="err">‘</span><span class="nx">foo</span><span class="err">’</span> <span class="o">:</span> <span class="err">‘</span><span class="nx">bar</span><span class="err">’</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+</pre></div>
+
+<p>Once metadata has been specified on a page in any or all of the three locations specified above, you can target users on that page using the “Is viewing a page with metadata key” audience filter. If metadata with the same key has been specified in either <code>init()</code> or <code>track()</code> <em>and</em> in an HTML <code>meta</code> tag, the metadata passed into either <code>init()</code> or <code>track()</code> will take precedence.</p>
 <h3 id="set-up-split-testing">Set up split testing<a class="headerlink" href="#set-up-split-testing" title="Permanent link">&para;</a></h3>
 <p>Note that if you are planning on just using the free banner, you can skip this section. This feature allows you to run A/B tests by designing multiple templates and assigning a percentage of your audience to each one.</p>
 <ol>
