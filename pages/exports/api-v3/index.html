@@ -2213,7 +2213,7 @@
                   <h1>Data Export API</h1>
                 
                 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>Branch’s new Data Export API for <a href="../../../pages/dashboard/persona-based-attribution/">Persona-Based Attribution</a> can be used to pull granular Branch event data directly. A few important notes for this API:</p>
+<p>Branch’s new Data Export API for <a href="../../../pages/dashboard/people-based-attribution/">People-Based Attribution</a> can be used to pull granular Branch event data directly. A few important notes for this API:</p>
 <ul>
 <li>The data will only be retrievable for 7 days</li>
 <li>The data will only appear after end of day since it's processed every 24 hours</li>
@@ -2262,7 +2262,7 @@
 }
 </pre></div>
 
-<p>All exports via Data Feeds are powered by Branch's <a href="../../../pages/dashboard/persona-based-attribution">Persona-Based Attribution</a>. For an exhaustive list of events included in these exports and more detailed definitions of each event, please see the <a href="../../../pages/exports/event_ontology_data_schema/">Event Ontology Data Schema</a>.</p>
+<p>All exports via Data Feeds are powered by Branch's <a href="../../../pages/dashboard/people-based-attribution">People-Based Attribution</a>. For an exhaustive list of events included in these exports and more detailed definitions of each event, please see the <a href="../../../pages/exports/event_ontology_data_schema/">Event Ontology Data Schema</a>.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>A full day's files will be available on our S3 bucket at that location to download around 8:00am UTC. It will return a blank array from s3 for any empty files until the UTC day is over and the data has been transfered to s3, therefore it is recommended you schedule any ETLs to fetch the data for the previous day around 8:00am UTC.</p>
