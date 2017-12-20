@@ -152,7 +152,9 @@
 
     - readme http://www.mkdocs.org/about/contributing/
 
-    - update to repo `git subtree add --prefix lib/mkdocs https://github.com/mkdocs/mkdocs master --squash`
+    - add to repo `git subtree add --prefix lib/mkdocs https://github.com/mkdocs/mkdocs master --squash`
+
+    - update to repo `git subtree pull --prefix lib/mkdocs https://github.com/mkdocs/mkdocs master --squash`
 
     - add locally `pip install --editable lib/mkdocs`
 
