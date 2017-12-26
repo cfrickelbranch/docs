@@ -7,10 +7,10 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
-        <meta name="description" content="A guide to using Branch in Adwords Search Network App Engagement Campaigns.">
+        <meta name="description" content="Branch documentation for mobile deep linking">
       
       
-        <link rel="canonical" href="https://docs.branch.io/pages/deep-linked-ads/google-search-engagement-ads/">
+        <link rel="canonical" href="https://docs.branch.io/pages/dashboard/unified-analytics/">
       
       
         <meta name="author" content="Branch">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Google Search App Engagement Ads</title>
+        <title>Dashboard unified-analytics - Branch documentation</title>
       
     
     
@@ -129,11 +129,11 @@
               
                 
                   <span class="md-header-nav__parent">
-                    Hidden
+                    Track analytics
                   </span>
                 
               
-              Google Search App Engagement Ads
+              Dashboard unified-analytics
             
           </span>
         </div>
@@ -291,7 +291,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../dashboard/integrate/" title="Configure your dashboard" class="md-nav__link">
+    <a href="../integrate/" title="Configure your dashboard" class="md-nav__link">
       Configure your dashboard
     </a>
   </li>
@@ -697,10 +697,12 @@
       
         
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" checked>
     
     <label class="md-nav__link" for="nav-8">
       Track analytics
@@ -719,7 +721,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../dashboard/analytics/" title="Dashboard analytics" class="md-nav__link">
+    <a href="../analytics/" title="Dashboard analytics" class="md-nav__link">
       Dashboard analytics
     </a>
   </li>
@@ -731,11 +733,290 @@
             
             
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../dashboard/unified-analytics/" title="Dashboard unified-analytics" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Dashboard unified-analytics
+      </label>
+    
+    <a href="./" title="Dashboard unified-analytics" class="md-nav__link md-nav__link--active">
       Dashboard unified-analytics
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" title="Overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-mapping" title="Data Mapping" class="md-nav__link">
+    Data Mapping
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-changed" title="What's changed?" class="md-nav__link">
+    What's changed?
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deep-linking" title="Deep Linking" class="md-nav__link">
+    Deep Linking
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attribution-windows" title="Attribution Windows" class="md-nav__link">
+    Attribution Windows
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unique-behavior" title="Unique behavior" class="md-nav__link">
+    Unique behavior
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cutoff-date" title="Cutoff date" class="md-nav__link">
+    Cutoff date
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#differences-from-cutoff-date" title="Differences From Cutoff Date" class="md-nav__link">
+    Differences From Cutoff Date
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changes-to-the-branch-dashboard" title="Changes to the Branch Dashboard" class="md-nav__link">
+    Changes to the Branch Dashboard
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#branch-summary-analytics" title="Branch Summary Analytics" class="md-nav__link">
+    Branch Summary Analytics
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-summary-section" title="Install Summary Section" class="md-nav__link">
+    Install Summary Section
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#click-flow-section" title="Click Flow Section" class="md-nav__link">
+    Click Flow Section
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quick-link-analytics" title="Quick Link Analytics" class="md-nav__link">
+    Quick Link Analytics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#source-analytics" title="Source Analytics" class="md-nav__link">
+    Source Analytics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#journeys" title="Journeys" class="md-nav__link">
+    Journeys
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#universal-ads" title="Universal Ads" class="md-nav__link">
+    Universal Ads
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changes-to-exported-data" title="Changes to exported data" class="md-nav__link">
+    Changes to exported data
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#liveview" title="Liveview" class="md-nav__link">
+    Liveview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-integrations" title="Data Integrations" class="md-nav__link">
+    Data Integrations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#webhooks" title="Webhooks" class="md-nav__link">
+    Webhooks
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#faq" title="FAQ" class="md-nav__link">
+    FAQ
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-speed" title="Data Speed" class="md-nav__link">
+    Data Speed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unique-counts" title="Unique Counts" class="md-nav__link">
+    Unique Counts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#differing-installs" title="Differing Installs" class="md-nav__link">
+    Differing Installs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-dashboard-accounts" title="New Dashboard Accounts" class="md-nav__link">
+    New Dashboard Accounts
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#support" title="Support" class="md-nav__link">
+    Support
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#discrepancies" title="Discrepancies" class="md-nav__link">
+    Discrepancies
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sdk-version" title="SDK Version" class="md-nav__link">
+    SDK Version
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="Comments" class="md-nav__link md-nav__link--active">
+            Comments
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
           
@@ -747,7 +1028,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../dashboard/timezone/" title="Time zone support" class="md-nav__link">
+    <a href="../timezone/" title="Time zone support" class="md-nav__link">
       Time zone support
     </a>
   </li>
@@ -907,7 +1188,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../dynamic-product-feeds/" title="Dynamic Product Feeds" class="md-nav__link">
+    <a href="../../deep-linked-ads/dynamic-product-feeds/" title="Dynamic Product Feeds" class="md-nav__link">
       Dynamic Product Feeds
     </a>
   </li>
@@ -921,7 +1202,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../branch-universal-ads/" title="Branch Universal Ads" class="md-nav__link">
+    <a href="../../deep-linked-ads/branch-universal-ads/" title="Branch Universal Ads" class="md-nav__link">
       Branch Universal Ads
     </a>
   </li>
@@ -935,7 +1216,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../apple/" title="Apple Search" class="md-nav__link">
+    <a href="../../deep-linked-ads/apple/" title="Apple Search" class="md-nav__link">
       Apple Search
     </a>
   </li>
@@ -949,7 +1230,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../doubleclick/" title="Doubleclick" class="md-nav__link">
+    <a href="../../deep-linked-ads/doubleclick/" title="Doubleclick" class="md-nav__link">
       Doubleclick
     </a>
   </li>
@@ -963,7 +1244,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../google-ads-overview/" title="Google" class="md-nav__link">
+    <a href="../../deep-linked-ads/google-ads-overview/" title="Google" class="md-nav__link">
       Google
     </a>
   </li>
@@ -977,7 +1258,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../facebook-ads-overview/" title="Facebook" class="md-nav__link">
+    <a href="../../deep-linked-ads/facebook-ads-overview/" title="Facebook" class="md-nav__link">
       Facebook
     </a>
   </li>
@@ -991,7 +1272,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../twitter/" title="Twitter" class="md-nav__link">
+    <a href="../../deep-linked-ads/twitter/" title="Twitter" class="md-nav__link">
       Twitter
     </a>
   </li>
@@ -2033,12 +2314,128 @@
     Overview
   </a>
   
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-mapping" title="Data Mapping" class="md-nav__link">
+    Data Mapping
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-changed" title="What's changed?" class="md-nav__link">
+    What's changed?
+  </a>
+  
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#os-support-and-major-differences" title="OS Support and Major Differences" class="md-nav__link">
-    OS Support and Major Differences
+  <a href="#deep-linking" title="Deep Linking" class="md-nav__link">
+    Deep Linking
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attribution-windows" title="Attribution Windows" class="md-nav__link">
+    Attribution Windows
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unique-behavior" title="Unique behavior" class="md-nav__link">
+    Unique behavior
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cutoff-date" title="Cutoff date" class="md-nav__link">
+    Cutoff date
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#differences-from-cutoff-date" title="Differences From Cutoff Date" class="md-nav__link">
+    Differences From Cutoff Date
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changes-to-the-branch-dashboard" title="Changes to the Branch Dashboard" class="md-nav__link">
+    Changes to the Branch Dashboard
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#branch-summary-analytics" title="Branch Summary Analytics" class="md-nav__link">
+    Branch Summary Analytics
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-summary-section" title="Install Summary Section" class="md-nav__link">
+    Install Summary Section
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#click-flow-section" title="Click Flow Section" class="md-nav__link">
+    Click Flow Section
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quick-link-analytics" title="Quick Link Analytics" class="md-nav__link">
+    Quick Link Analytics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#source-analytics" title="Source Analytics" class="md-nav__link">
+    Source Analytics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#journeys" title="Journeys" class="md-nav__link">
+    Journeys
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#universal-ads" title="Universal Ads" class="md-nav__link">
+    Universal Ads
   </a>
   
 </li>
@@ -2049,64 +2446,30 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#setup" title="Setup" class="md-nav__link">
-    Setup
+  <a href="#changes-to-exported-data" title="Changes to exported data" class="md-nav__link">
+    Changes to exported data
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#enable-google-as-an-ad-partner" title="Enable Google as an Ad Partner" class="md-nav__link">
-    Enable Google as an Ad Partner
+  <a href="#liveview" title="Liveview" class="md-nav__link">
+    Liveview
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#android" title="Android" class="md-nav__link">
-    Android
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#create-an-ad-link" title="Create an Ad Link" class="md-nav__link">
-    Create an Ad Link
+  <a href="#data-integrations" title="Data Integrations" class="md-nav__link">
+    Data Integrations
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#configure-an-ad" title="Configure an Ad" class="md-nav__link">
-    Configure an Ad
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#create-your-campaign" title="Create Your Campaign" class="md-nav__link">
-    Create Your Campaign
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ad-creation" title="Ad Creation" class="md-nav__link">
-    Ad Creation
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#view-your-data" title="View Your Data" class="md-nav__link">
-    View Your Data
+  <a href="#webhooks" title="Webhooks" class="md-nav__link">
+    Webhooks
   </a>
   
 </li>
@@ -2117,16 +2480,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#troubleshooting" title="Troubleshooting" class="md-nav__link">
-    Troubleshooting
+  <a href="#faq" title="FAQ" class="md-nav__link">
+    FAQ
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#faq-debugging" title="FAQ / Debugging" class="md-nav__link">
-    FAQ / Debugging
+  <a href="#data-speed" title="Data Speed" class="md-nav__link">
+    Data Speed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unique-counts" title="Unique Counts" class="md-nav__link">
+    Unique Counts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#differing-installs" title="Differing Installs" class="md-nav__link">
+    Differing Installs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-dashboard-accounts" title="New Dashboard Accounts" class="md-nav__link">
+    New Dashboard Accounts
   </a>
   
 </li>
@@ -2136,12 +2520,39 @@
   
 </li>
       
-      
         <li class="md-nav__item">
-          <a href="#__source" title="Source" class="md-nav__link md-nav__link--active">
-            Source
-          </a>
-        </li>
+  <a href="#support" title="Support" class="md-nav__link">
+    Support
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#discrepancies" title="Discrepancies" class="md-nav__link">
+    Discrepancies
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sdk-version" title="SDK Version" class="md-nav__link">
+    SDK Version
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
         <li class="md-nav__item">
@@ -2162,174 +2573,120 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/branchmetrics/docs/edit/master/src/pages/deep-linked-ads/google-search-engagement-ads.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/branchmetrics/docs/edit/master/src/pages/dashboard/unified-analytics.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="google-search-app-engagement-ads">Google Search App Engagement Ads<a class="headerlink" href="#google-search-app-engagement-ads" title="Permanent link">&para;</a></h1>
+                <h1 id="people-based-attribution">People-Based Attribution<a class="headerlink" href="#people-based-attribution" title="Permanent link">&para;</a></h1>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>If you're running Google AdWords Search Mobile Engagement Campaigns, you'll find everything you need right here.</p>
-<p>This documentation supports the following Google Campaign types:</p>
-<table>
-<thead>
-<tr>
-<th>Google Campaign</th>
-<th>Campaign Type/Objective</th>
-<th>Branch Ad Format</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Search Network</td>
-<td>Mobile App Engagement</td>
-<td>App Only: Engagement</td>
-</tr>
-</tbody>
-</table>
-<h4 id="os-support-and-major-differences">OS Support and Major Differences<a class="headerlink" href="#os-support-and-major-differences" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th>Operating System</th>
-<th>Supported by AdWords Search Engagement Ads?</th>
-<th>Key differences</th>
-<th>Documentation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>iOS</td>
-<td>No</td>
-<td>The Search Mobile Engagement Campaign type currently does not support iOS</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>Android</td>
-<td>Yes</td>
-<td>Uses Final URL with ValueTrack Parameters, no tracking template</td>
-<td><a href="../../../pages/deep-linked-ads/google-search-engagement-ads/#android">link</a></td>
-</tr>
-</tbody>
-</table>
-<div class="admonition note">
-<p>Looking for other Google Ad campaign types? Please check out our <a href="../../../pages/deep-linked-ads/google-ads-overview">Google Ads Overview guide</a>.</p>
+<p>Branch is introducing a new and improved analytics platform for you to preview.</p>
+<p>While the most visible impact of this change is our new and visually improved Summary Graph, it is important to understand that we have fundamentally changed the underlying model we use for counting events. This is the result of consistent feedback from Branch partners who have requested we provide deeper insights and clarity around campaigns powered by Branch links. As you want to understand the events associated with clicks on Branch links beyond the course of one user session and across all types of Branch links, we developed a new attribution engine to accurately attribute user events across interaction platforms and across channels.</p>
+<p>The biggest change is that we decoupled deep linking and attribution. Now you can measure the impact of events that are not directly associated with the user session in which the click occurred and this means you will now see different numbers on your Branch dashboard.</p>
+<p>In some cases, a user may click a link and only open the app several hours or days later. With this new analytics platform, we are still able to attribute both the open and any subsequent events, even though we did not deep link the user.
+Also and from now on, anytime you analyze data in the Branch dashboard, or export it out, you will see consistency in naming across all our reports and products, for all events.</p>
+<p>This document highlights each of the section where you can expect to see differences between our old analytics and new People-Based Attribution.</p>
+<div class="admonition protip">
+<p class="admonition-title">No changes required</p>
+<p>We've changed the entire back-end of analytics without requiring any code or implementation changes on your end.</p>
 </div>
-<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
-<div class="admonition warning">
-<p class="admonition-title">Prerequisites</p>
-<ul class="task-list">
-<li class="task-list-item"><input type="checkbox" disabled checked> To track installs from Google Ads you should <a href="../../../pages/apps/android/#integrate-branch">integrate the Branch SDK</a> into your app.</li>
-<li class="task-list-item"><input type="checkbox" disabled checked> If you want to deep link from your ads directly to content, you should <a href="../../../pages/deep-linking/routing/">configure deep link routing</a>.</li>
-<li class="task-list-item"><input type="checkbox" disabled checked> Ensure you have entered your Android application's URI scheme under <code>Link Settings &gt; Android URI Scheme</code> in your Branch dashboard.</li>
-<li class="task-list-item"><input type="checkbox" disabled checked> Ads is a premium product priced on Monthly Active Users. Sign up for the Ads product to enable this functionality.</li>
-</ul>
-</div>
-<h4 id="enable-google-as-an-ad-partner">Enable Google as an Ad Partner<a class="headerlink" href="#enable-google-as-an-ad-partner" title="Permanent link">&para;</a></h4>
-<p>If you haven't enabled Google as an Ad Partner on the Branch dashboard follow this section to do so.</p>
+<h2 id="data-mapping">Data Mapping<a class="headerlink" href="#data-mapping" title="Permanent link">&para;</a></h2>
+<p>From now, Branch provides you a well defined standard to keep track of and categorize events.</p>
+<p>This is different than previous behavior from when you integrated the Branch SDK. Once you created and clicked links, we automatically tracked clicks, installs, opens, and web session starts and pageviews (if you installed the web SDK). If you enabled Deepviews or Journeys, we counted clicks when a click didn't actually occur, such as when a Deepview displayed, a Journey automatically opened the app without any physical click. This caused confusion on our dashboard, as users would noticed clicks occurring without anyone ever clicking a link! Fortunately, thanks to a well-defined standard and categorization of events, this will no longer be the case.</p>
+<p>Below is the new classification of events. Think of when you track when a user adds payment info, and initiates a purchase, and finally completes a purchase: those are all <em>commerce</em> events. Similarly, we now have <em>content</em> events and <em>user lifecycle</em> events.</p>
 <ul>
-<li>Navigate to the <a href="https://dashboard.branch.io/ads/partner-management" target="_blank">Partner Management tab</a>.</li>
+<li>impression</li>
+<li>click</li>
+<li>Branch CTA view</li>
+<li>web to app auto redirect</li>
+<li>SMS sent</li>
+<li>install</li>
+<li>open</li>
+<li>reinstall</li>
+<li>pageview</li>
+<li>web session start</li>
+<li>commerce event</li>
+<li>content event</li>
+<li>user lifecycle event</li>
+<li>custom event</li>
 </ul>
-<p><img alt="Ads Partner Management" src="../../../img/ingredients/deep-linked-ads/enable-google-ad-partner/ads-partner-management.png" /></p>
-<ul>
-<li>Search for <strong>Google AdWords</strong>.</li>
-</ul>
-<p><img alt="Find Google Adwords in Partner Manager" src="../../../img/ingredients/deep-linked-ads/enable-google-ad-partner/find-google-partner.png" /></p>
-<ul>
-<li>
-<p>Enter values for the <strong>conversion IDs and labels</strong>. You can put in placeholders for now, but we recommend setting up install conversion tracking in AdWords before launching your campaign. For setup instructions on conversion tracking, check out <a href="../../../pages/deep-linked-ads/google-conversions/">Google Conversion Setup</a>.</p>
-</li>
-<li>
-<p>Click the <code>Save and Enable</code> button in the lower right hand corner.</p>
-</li>
-</ul>
-<p><img alt="Save and Enable Google Adwords in Partner Manager" src="../../../img/ingredients/deep-linked-ads/enable-google-ad-partner/save-and-enable-google.png" /></p>
-<ul>
-<li>
-<p>Google AdWords is now enabled as an ad partner.</p>
-</li>
-<li>
-<p>Finally, to create a Google ads link click the <code>Create Google AdWords Link</code> button in the top right hand corner.</p>
-</li>
-</ul>
-<p><img alt="Create Google Adwords Link" src="../../../img/ingredients/deep-linked-ads/enable-google-ad-partner/create-google-link.png" /></p>
-<h3 id="android">Android<a class="headerlink" href="#android" title="Permanent link">&para;</a></h3>
-<h4 id="create-an-ad-link">Create an Ad Link<a class="headerlink" href="#create-an-ad-link" title="Permanent link">&para;</a></h4>
-<ul>
-<li>Create a Branch Ad link from the <a href="https://dashboard.branch.io/ads/partner-management" target="_blank">Partner Management page</a>'s <code>Create Google Adwords Link</code> button under the Google Adwords Partner and select <code>App Install or Engagement</code></li>
-</ul>
-<p><img alt="image" src="../../../img/pages/deep-linked-ads/reusable-images/create-link-install-engagement.png" /></p>
+<h2 id="whats-changed">What's changed?<a class="headerlink" href="#whats-changed" title="Permanent link">&para;</a></h2>
+<h3 id="deep-linking">Deep Linking<a class="headerlink" href="#deep-linking" title="Permanent link">&para;</a></h3>
+<p>The biggest change is the analytics associated with deep linking. Previously, when a user clicked your Branch links, and installed within a two hour window, they were deep linked <em>and</em> attributed. This means that their first time experience included your deep linked data, and we counted an install. If they installed four hours after clicking instead of two, they would not receive deep link data, and we would <em>not</em> attribute this user's install.</p>
+<p>Now, we've separated this concept. Deep linking windows remain two hours, but attribution windows are adjustable. Going with the previous example, if someone clicks your link, and installs the app after 4 hours, they will <em>not</em> receive deep link data, but will be counted as an install.</p>
+<p>Note: no code changes are needed, and if you want to change the deep linking window, you can do so. Read the <a href="#attribution-windows">attribution window</a> section for more information.</p>
+<h3 id="attribution-windows">Attribution Windows<a class="headerlink" href="#attribution-windows" title="Permanent link">&para;</a></h3>
+<p>Now that deep linking and attribution analytics are separate, we have attribution windows for analytics. As a reminder, an attribution window simply defines the window of time for  when an eligible attribution or deep link can occur. In order to make changes, navigate to the <a href="https://dashboard.branch.io/link-settings">link settings</a> page, and scroll down to "Attribution Window".</p>
+<p><img alt="image" src="../../../img/pages/dashboard/people-based-attribution/attribution-windows.png" /></p>
 <ul>
 <li>
-<p>Under the Define Section, pick a Link Name for later reference</p>
+<p><code>Deep Linking Duration</code> refers to the duration of time someone is eligible to receive deep link data. This includes anyone clicking a Branch link, or being automatically redirected to the app through a Branch Web SDK call. Measured in minutes.</p>
 </li>
 <li>
-<p>Configure the link with the Ad Format set to <strong>App Only</strong>, the Ad Partner set to <strong>Google Adwords</strong>, and the Secondary Ad Format set to <strong>Google Search App Engagement Android</strong>.</p>
-</li>
-</ul>
-<p><img alt="Create Ad Link" src="../../../img/pages/deep-linked-ads/google-search-engagement-ads/android/ad-link-setup.png" /></p>
-<ul>
-<li>Under the Analytics Tags sub section additional tags can be set. It is recommended to fill in these fields as they can be used as filters in Branch's Ads Analytics view. To best connect your ad link with your Adwords Campaign, set the channel field to Google Adwords and set the campaign field to the same ad campaign name used in Adwords.</li>
-</ul>
-<p><img alt="Analytics Tags" src="../../../img/pages/deep-linked-ads/reusable-images/adwords-analytics-tags.png" /></p>
-<div class="admonition tip">
-<p class="admonition-title">Setting Attribution Windows</p>
-<p>You can specify the attribution windows for your links either at an overall account or per link level. Use these windows to accurately measure attribution data for your Branch links. Refer to <a href="../../../pages/deep-linked-ads/branch-universal-ads/#change-attribution-windows">Changing attribution windows</a> for instructions.</p>
-</div>
-<h4 id="configure-an-ad">Configure an Ad<a class="headerlink" href="#configure-an-ad" title="Permanent link">&para;</a></h4>
-<p>To set up a Search Network Mobile App Engagement Campaign on Android, you will need to first create your campaign and then setup a tracking template on the ad. Adwords campaign creation documentation is available <strong><a href="https://support.google.com/adwords/answer/6310671?hl=en" target="_blank">here</a></strong>.</p>
-<h4 id="create-your-campaign">Create Your Campaign<a class="headerlink" href="#create-your-campaign" title="Permanent link">&para;</a></h4>
-<ul>
-<li>Select <code>Search Network only</code> on Adwords</li>
-</ul>
-<p><img alt="image" src="../../../img/pages/deep-linked-ads/reusable-images/adwords-search-network.png" /></p>
-<ul>
-<li>For the type of Search campaign select <code>Mobile app engagement</code></li>
-</ul>
-<p><img alt="Adwords Setup" src="../../../img/pages/deep-linked-ads/google-search-engagement-ads/adwords-search-engagement.png" /></p>
-<ul>
-<li>Continue setting the campaign and ad group parameters</li>
-</ul>
-<h4 id="ad-creation">Ad Creation<a class="headerlink" href="#ad-creation" title="Permanent link">&para;</a></h4>
-<ul>
-<li>Copy the Branch Ad link from the first section and ensure that it is in the format <em>App URI://open?link_click_id=link-...</em>. Refer to the <a href="#create-an-ad-link">Create A Branch Ad Link</a> section if the link is not in this format to ensure the link creation was setup properly.</li>
-</ul>
-<p><img alt="Example Link" src="../../../img/pages/deep-linked-ads/google-search-engagement-ads/android/full-branch-link.png" /></p>
-<ul>
-<li>
-<p>In the Ad creator, locate the <strong>Scheme</strong> field and enter the scheme portion of the Branch Ad link. This should be the portion of the link before the <strong>://</strong> symbol.</p>
+<p><code>Click to x</code> refers to events that occur after someone clicks a Branch link. If someone clicks and installs from a link, and comes back 10 days later to purchase, we would count that as a conversion, and it would surface in our dashboard. Measured in days.</p>
 </li>
 <li>
-<p>Now locate the <strong>Host and path</strong> field and enter the rest of your Branch Ad link following the <strong>://</strong> symbol.</p>
+<p><code>Impression to x</code> refers to events that occur after someone views a Branch impression link. Measured in days.</p>
 </li>
 </ul>
-<p><img alt="Example Ad" src="../../../img/pages/deep-linked-ads/google-search-engagement-ads/android/adwords-configuration.png" /></p>
-<h3 id="view-your-data">View Your Data<a class="headerlink" href="#view-your-data" title="Permanent link">&para;</a></h3>
-<p>The <a href="https://dashboard.branch.io/ads/analytics" target="_blank">Ads Analytics Page</a> on the Branch dashboard provides an interactive time series graph and table to view the performance of your Ad campaigns.</p>
-<p><img alt="Example Ads Analytics Graph" src="../../../img/ingredients/deep-linked-ads/view-ad-link-data/analytics-graph.png" /></p>
-<p>The table shows summary data on the performance of each Ad campaign. On the right top side of the table you can find a <strong>download button</strong> to retrieve the chart's content as a CSV file.</p>
-<p><img alt="Example Ads Table" src="../../../img/ingredients/deep-linked-ads/view-ad-link-data/analytics-table.png" /></p>
-<div class="admonition note">
-<p class="admonition-title">Interacting with your data</p>
-<p>Breakdown and compare aspects of your Ad campaigns' performance by using the <code>Compare by +</code> button to add a parameter to split the data displayed data by.</p>
-<p>Then use the <code>and +</code> button to refine the data displayed to gain deeper insight into the performance of your Ad campaigns.</p>
-</div>
-<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
-<h4 id="faq-debugging">FAQ / Debugging<a class="headerlink" href="#faq-debugging" title="Permanent link">&para;</a></h4>
-<p><strong>Q: Why is my advertisement being disapproved on Adwords?</strong></p>
-<p><strong>A:</strong> For App Install/Engagement Campaigns, sometimes your ad may be disapproved if the Branch link does not re-direct to Google Play or App Store when clicked on a desktop. Please ensure that for the Branch link you're using to track installs, Deepviews are disabled and a desktop redirect is set to either the App / Play store.</p>
-<p><strong>Q: Can I run a Adwords Search Network Mobile Engagement Campaign for iOS?</strong></p>
-<p><strong>A:</strong> As of June 2017, Google Adwords currently does not support this campaign type. We'll update our documentation if the campaign type gets supported in the future!</p>
-<p><strong>Q: How can I test the Branch Ad link?</strong></p>
-<p><strong>A:</strong> On the Adwords Ad creator page or the when editing your ad, locate and click the <code>Test this app URI</code> button. With an Android phone that has your mobile app installed, use a QR code reader application to read the generated QR code to simulate a click on your Ad. Now you can verify that your Branch Ad link works and deep linked data is passed through to the app.</p>
-<p><img alt="image" src="../../../img/pages/deep-linked-ads/google-search-engagement-ads/android/debug-uri.png" /></p>
+<p>Using the default value of 2 hours for deep linking and attribution under the old system, and 2 hours for deep linking with 7 days for install attribution, here's what you can expect.</p>
+<!--
+Behavior | Old Analytics | new People-Based Attribution
+| --- | --- | --- |
+| User clicks link in
+-->
+
+<h3 id="unique-behavior">Unique behavior<a class="headerlink" href="#unique-behavior" title="Permanent link">&para;</a></h3>
+<p>We now default every visualization in the dashboard to be unique. This means that if you are testing Branch links, and click a link 5 times, we will display that as one click. This applies to events as well. This applies to all events, as well.</p>
+<p>Select visualizations also allow you to see total (i.e. non-unique) numbers as well. If you'd like to see total numbers on a visualization that does not support it, you can also export raw data.</p>
+<h3 id="cutoff-date">Cutoff date<a class="headerlink" href="#cutoff-date" title="Permanent link">&para;</a></h3>
+<p>As far as the deployment of People-Based Attribution, we created our cut off date on October 14th 2017 and we kept the old and new analytical systems running in parallel since then and will continue to do this for a short while. This mean you can query data from any time before October 14th up until October 14th with old analytics. You can query data from October 14th onwards with both analytics. But if you wanted to do reports across this line, say, October 13th to October 15th, you would need two separate queries.</p>
+<h4 id="differences-from-cutoff-date">Differences From Cutoff Date<a class="headerlink" href="#differences-from-cutoff-date" title="Permanent link">&para;</a></h4>
+<p>If you are tracking Purchase events, and want to see unique values for Purchases before the cut off date of October 14th 2017, those values will display as 0. This is because the Purchase event hasn't stored unique counts before October 14th. However, we are now storing this information since then.</p>
+<h2 id="changes-to-the-branch-dashboard">Changes to the Branch Dashboard<a class="headerlink" href="#changes-to-the-branch-dashboard" title="Permanent link">&para;</a></h2>
+<h3 id="branch-summary-analytics">Branch Summary Analytics<a class="headerlink" href="#branch-summary-analytics" title="Permanent link">&para;</a></h3>
+<p>This section covers the changes found on the main page of the Branch <a href="https://dashboard.branch.io">dashboard</a>.  </p>
+<h4 id="install-summary-section">Install Summary Section<a class="headerlink" href="#install-summary-section" title="Permanent link">&para;</a></h4>
+<p>This is the first chart found on the main page. This chart surfaces install counts for your app using the new People-Based Analytics.</p>
+<p><img alt="image" src="../../../img/pages/dashboard/people-based-attribution/installs-summary-old.png" /></p>
+<p><em>old</em></p>
+<p><img alt="image" src="../../../img/pages/dashboard/people-based-attribution/installs-summary-new.png" /></p>
+<p><em>new</em></p>
+<p><strong>Changes</strong></p>
+<p>We've removed the pie chart from the old visualizations; this is simply removing a chart, not removing any data. You can see the same breakdowns by campaign, channel, etc on the new install summary chart, making the pie chart redundant. (See also this article on why <a href="http://www.businessinsider.com/pie-charts-are-the-worst-2013-6">pie charts</a> are misleading.)</p>
+<p>This new install summary chart by default shows Branch only installs, that are powered by the new attribution <a href="#attribution-windows">windows</a>. If you want to see all installs, and not just Branch driven installs, simply click <code>Show All Installs</code>. You will likely notice a higher number of installs driven by Branch--this is because we have a bigger window to count an install.</p>
+<p>Filtering is improved on this chart, as you can add additional query logic by clicking <code>Add Compare</code> and <code>Add Filter</code>. Previously, you could only filter by one dimension, and now you can filter with more dimensions, with more comparisons.</p>
+<h4 id="click-flow-section">Click Flow Section<a class="headerlink" href="#click-flow-section" title="Permanent link">&para;</a></h4>
+<p>This section is visually the same, but different in terms of <em>how</em> clicks are tracked. First, we only track unique person clicks, so if you click the same link on your device 5 times, this chart will only reflect one click. Mobile deepview views or SMS sents do not count as clicks in this chart.</p>
+<h3 id="quick-link-analytics">Quick Link Analytics<a class="headerlink" href="#quick-link-analytics" title="Permanent link">&para;</a></h3>
+<p>Just like click flow analytics, this section is visually the same, but clicks are tracked differently. These clicks are tracked by unique counts, and follow the model where only a click is counted when someone physically taps a link. Mobile deepview views or SMS sents do not count as clicks in this chart. The data can be exported.</p>
+<h3 id="source-analytics">Source Analytics<a class="headerlink" href="#source-analytics" title="Permanent link">&para;</a></h3>
+<p>Visually, you will see the query selector that is present on Install Summary. This is the same component, and it will let you drill down and add filtering logic across all events, not just installs. This data is unique as well, and can be exported.</p>
+<h3 id="journeys">Journeys<a class="headerlink" href="#journeys" title="Permanent link">&para;</a></h3>
+<p>Journeys data has also changed substantially. Previously, Journeys only included paid Journeys. Now it includes all of our Web SDK's web-to-app offerings. So it also includes analytics from the .banner() and .deepview() functions.</p>
+<h3 id="universal-ads">Universal Ads<a class="headerlink" href="#universal-ads" title="Permanent link">&para;</a></h3>
+<p>Universal Ads were introduced using the new People-Based Analytics platform, so there is no expected change. The data is unique as well, and can be exported.</p>
+<h2 id="changes-to-exported-data">Changes to exported data<a class="headerlink" href="#changes-to-exported-data" title="Permanent link">&para;</a></h2>
+<h3 id="liveview">Liveview<a class="headerlink" href="#liveview" title="Permanent link">&para;</a></h3>
+<p>Liveview hasn't changed much, but we've introduced an improved CSV export that reflects these new data models.</p>
+<h3 id="data-integrations">Data Integrations<a class="headerlink" href="#data-integrations" title="Permanent link">&para;</a></h3>
+<p>Data Integrations now mirrors the UI of our ads flow. The data we send is also utilizing the new mechanism of attribution, meaning we will send data within a proper attribution window instead of the same session. This means more of your attributed data will make it across automatically.</p>
+<h3 id="webhooks">Webhooks<a class="headerlink" href="#webhooks" title="Permanent link">&para;</a></h3>
+<p>Webhooks, like data integratons, is no longer session based. This means we will send more webhooks to you automatically. This update hasn't completed yet.</p>
+<h2 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">&para;</a></h2>
+<h3 id="data-speed">Data Speed<a class="headerlink" href="#data-speed" title="Permanent link">&para;</a></h3>
+<p>This new People-Based Analytics platform introduces a slight delay compared to the old dashboard analytics, and it may now take a few minutes for events to appear. We're continually improving the speed and plan to significantly decrease the delay in Q1 2018.</p>
+<h3 id="unique-counts">Unique Counts<a class="headerlink" href="#unique-counts" title="Permanent link">&para;</a></h3>
+<p>One thing to be aware of is that unique counts may be within a 4% window of error across the dashboard. For example, if you have 100 total clicks, and 90 were truly unique, it's possible that the dashboard could report within 4% of that 90 number. If you want true uniques, you can export raw data and de-dupe across events.</p>
+<h3 id="differing-installs">Differing Installs<a class="headerlink" href="#differing-installs" title="Permanent link">&para;</a></h3>
+<p>As part of People-Based Attribution, your install numbers will likely not line up one to one. What this means is that if you see 200 Branch driven installs on the old Analytics Platform, it's ok to see 190 Branch driven installs (or even 210) on the same day. This is due to the way we have fundamentally changed the way we count attributions. </p>
+<p>Some installs on the old analytics platform were actually "reinstalls", but were not counted as such, which would be one reason why installs are lower. Some campaigns will count higher installs, because they may be clicked on a variety of browsers and platforms, and Branch is able to connect those touch points to accurately count an install.</p>
+<p>If the difference in numbers is still concerning, reach out to your Branch account manager, or send us a message at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#105;&#110;&#116;&#101;&#103;&#114;&#97;&#116;&#105;&#111;&#110;&#115;&#64;&#98;&#114;&#97;&#110;&#99;&#104;&#46;&#105;&#111;">&#105;&#110;&#116;&#101;&#103;&#114;&#97;&#116;&#105;&#111;&#110;&#115;&#64;&#98;&#114;&#97;&#110;&#99;&#104;&#46;&#105;&#111;</a></p>
+<h3 id="new-dashboard-accounts">New Dashboard Accounts<a class="headerlink" href="#new-dashboard-accounts" title="Permanent link">&para;</a></h3>
+<p>Accounts created on or after December 15th, 2017 (UTC time zone) will run exclusively on the People-Based Attribution platform.</p>
+<h2 id="support">Support<a class="headerlink" href="#support" title="Permanent link">&para;</a></h2>
+<h3 id="discrepancies">Discrepancies<a class="headerlink" href="#discrepancies" title="Permanent link">&para;</a></h3>
+<h4 id="sdk-version">SDK Version<a class="headerlink" href="#sdk-version" title="Permanent link">&para;</a></h4>
+<p>While different install numbers are to be expected, there may be some discrepancies not related to the new attribution platform counting methodologies. You may notice numbers are off if you are on version 0.12.4 or below on the iOS SDK. If that is the case, please upgrade to the latest version of the SDK, or at least 0.12.5. There is no cut off for Android.</p>
                 
-                  
-                    <h2 id="__source">Source</h2>
-                    
-                    
-                      <a href="https://github.com/branchmetrics/docs/tree/master/src/pages/deep-linked-ads/google-search-engagement-ads.md" title="google-search-engagement-ads.md" class="md-source-file">
-                        google-search-engagement-ads.md
-                      </a>
-                    
                   
                 
               
@@ -2339,9 +2696,9 @@
                   <div id="disqus_thread"></div>
 <script>
   var disqus_config = function () {
-    this.page.url = "https://docs.branch.io/pages/deep-linked-ads/google-search-engagement-ads/";
+    this.page.url = "https://docs.branch.io/pages/dashboard/unified-analytics/";
     this.page.identifier =
-      "/pages/deep-linked-ads/google-search-engagement-ads/";
+      "/pages/dashboard/unified-analytics/";
   };
   (function() {
     var d = document, s = d.createElement("script");
