@@ -2335,7 +2335,7 @@
                   <h1>Branch Matching Overview</h1>
                 
                 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>There are several mechanisms Branch uses to pass data through to the app and attribute app sessions back to the source. We always use the method with the highest match confidence rate.</p>
+<p>There are several mechanisms Branch uses to pass data through to the app and attribute app sessions back to the source. We always use the method with the highest match confidence rate. When we are 100% confident, the deep link data will contain the variable <code>+match_guaranteed=true</code>.</p>
 <h3 id="methods-with-100-match-accuracy">Methods with 100% match accuracy<a class="headerlink" href="#methods-with-100-match-accuracy" title="Permanent link">&para;</a></h3>
 <h4 id="direct-deeplinking">Direct deeplinking<a class="headerlink" href="#direct-deeplinking" title="Permanent link">&para;</a></h4>
 <p>If the app is currently installed on the phone, and you've configured your Branch links with your app's URI scheme (<code>myapp://</code>) or to use Universal or App Links, we will open the app immediately and pass a click identifier through to our native library. This click identifier is then sent to the Branch servers to retrieve the dictionary of data associated with the link.</p>
