@@ -1982,6 +1982,54 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#branch-cli-for-automated-ios-integration" title="Branch CLI for Automated iOS Integration" class="md-nav__link">
+    Branch CLI for Automated iOS Integration
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" title="Overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-important-features" title="Other Important Features:" class="md-nav__link">
+    Other Important Features:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" title="Prerequisites:" class="md-nav__link">
+    Prerequisites:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation" title="Installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-using-the-cli-on-a-project-with-no-third-party-sdks" title="Example: Using the CLI on a project with no third party SDKs" class="md-nav__link">
+    Example: Using the CLI on a project with no third party SDKs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#aasa-validator" title="AASA Validator" class="md-nav__link">
     AASA Validator
   </a>
@@ -2004,7 +2052,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#overview" title="Overview" class="md-nav__link">
+  <a href="#overview_1" title="Overview" class="md-nav__link">
     Overview
   </a>
   
@@ -2095,6 +2143,54 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#branch-cli-for-automated-ios-integration" title="Branch CLI for Automated iOS Integration" class="md-nav__link">
+    Branch CLI for Automated iOS Integration
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" title="Overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-important-features" title="Other Important Features:" class="md-nav__link">
+    Other Important Features:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" title="Prerequisites:" class="md-nav__link">
+    Prerequisites:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation" title="Installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-using-the-cli-on-a-project-with-no-third-party-sdks" title="Example: Using the CLI on a project with no third party SDKs" class="md-nav__link">
+    Example: Using the CLI on a project with no third party SDKs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#aasa-validator" title="AASA Validator" class="md-nav__link">
     AASA Validator
   </a>
@@ -2117,7 +2213,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#overview" title="Overview" class="md-nav__link">
+  <a href="#overview_1" title="Overview" class="md-nav__link">
     Overview
   </a>
   
@@ -2160,12 +2256,78 @@
                 
                   <h1>Validation Tools</h1>
                 
-                <h2 id="aasa-validator">AASA Validator<a class="headerlink" href="#aasa-validator" title="Permanent link">&para;</a></h2>
+                <h2 id="branch-cli-for-automated-ios-integration">Branch CLI for Automated iOS Integration<a class="headerlink" href="#branch-cli-for-automated-ios-integration" title="Permanent link">&para;</a></h2>
+<h3 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h3>
+<p>The <a href="https://github.com/BranchMetrics/branch_io_cli">Branch CLI</a> is a simple plugin which integrates Branch into your <strong>iOS</strong> project for you.</p>
+<h3 id="other-important-features">Other Important Features:<a class="headerlink" href="#other-important-features" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Validates Universal Links</strong>: The CLI ensures that your app supports Universal Links by comparing your project’s bundle identifier, team id, and domain entries in your entitlements file against what is stored in Branch’s Apple App Site Association file for your link domain.</li>
+<li><strong>Supports multiple targets</strong>: To install for a specific target, use the <a href="https://github.com/BranchMetrics/branch_io_cli#options">--target</a> flag, or use the configuration editor to change the inferred target each time. If the target in question is an extension, the tool will add the SDK, set the keys into the Info.plist, and patch source (if it's a Messages extension, for example).</li>
+<li><strong>Includes Rake for Task Management</strong>: This gem has a rake for Task Management that is available <a href="https://github.com/BranchMetrics/branch_io_cli#rake-task">here</a>.</li>
+<li><strong>Fastlane Plugin</strong>: There is also a Fastlane plugin available <a href="https://github.com/BranchMetrics/branch_io_cli#using-fastlane">here</a>, should you prefer to use it instead.</li>
+</ul>
+<h3 id="prerequisites">Prerequisites:<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Ensure that you’ve set up your Branch Dashboard using the instructions <a href="https://docs.branch.io/pages/dashboard/integrate/">here</a>, and have your Branch Key and Branch link domain handy.</li>
+<li>An iOS project with which you’d like to integrate Branch.</li>
+</ol>
+<h3 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h3>
+<ol>
+<li>From terminal, cd into your iOS app’s project directory (the one that includes the xcodeproj file).</li>
+<li>
+<p>Type <code>gem install branch_io_cli</code> into terminal.</p>
+<p><strong>Note</strong>: If you get an error saying that you don’t have permissions to perform this operation, try installing with sudo.</p>
+</li>
+</ol>
+<h3 id="example-using-the-cli-on-a-project-with-no-third-party-sdks">Example: Using the CLI on a project with no third party SDKs<a class="headerlink" href="#example-using-the-cli-on-a-project-with-no-third-party-sdks" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Type <code>br setup</code> into terminal, and you’ll be greeted with a few options on the following screen:</p>
+<p><img alt="image" src="../../../img/pages/resources/validation/cli_install_1.png" /></p>
+</li>
+<li>
+<p>Fill out your Branch Key from <a href="https://branch.dashboard.branch.io/account-settings/app">Account Settings</a>, and your app’s link domain information from your <a href="https://branch.dashboard.branch.io/link-settings">Link Settings</a> pages.</p>
+<p><strong>Note</strong>: You don’t need to add your -alternate.app.link domain. The CLI will take care of that for you.</p>
+</li>
+<li>
+<p>Once complete, you’ll see the following set of instructions:</p>
+<p><img alt="image" src="../../../img/pages/resources/validation/cli_install_2.png" /></p>
+</li>
+<li>
+<p>If your app does not have any third party SDKs integrated, pick option 2: <strong>Set this project up to use CocoaPods and add the Branch SDK</strong>.</p>
+</li>
+<li>
+<p>Before modifying your project, the CLI will confirm your inputs. If something is entered incorrectly, you’ll have the option to return and change your values:</p>
+<p><img alt="image" src="../../../img/pages/resources/validation/cli_install_3.png" /></p>
+</li>
+<li>
+<p>To make changes to your URI scheme for example, enter <strong>N</strong> to the prompt.</p>
+</li>
+<li>
+<p>To insert your app’s URI scheme, enter <strong>4</strong> into the prompt:</p>
+<p><img alt="image" src="../../../img/pages/resources/validation/cli_install_4.png" />
+<img alt="image" src="../../../img/pages/resources/validation/cli_install_5.png" /></p>
+</li>
+<li>
+<p>After entering a URI scheme, enter option <strong>19: Accept and Continue</strong>, which starts the Universal Link validation process:</p>
+<p><img alt="image" src="../../../img/pages/resources/validation/cli_install_6.png" /></p>
+</li>
+<li>
+<p>If your link domains, are found in your app's <strong>apple-app-site-association</strong> file, the rest of the process will continue as expected.</p>
+<p><img alt="image" src="../../../img/pages/resources/validation/cli_install_7.png" /></p>
+</li>
+<li>
+<p>After installing cocoapods, the CLI will install the Branch plugin and inject values and various snippets from your app into your project.</p>
+<p><img alt="image" src="../../../img/pages/resources/validation/cli_install_8.png" /></p>
+</li>
+</ol>
+<p>You're all done! </p>
+<h2 id="aasa-validator">AASA Validator<a class="headerlink" href="#aasa-validator" title="Permanent link">&para;</a></h2>
 <p>In case you need to validate your domain, use the <a href="https://branch.io/resources/aasa-validator/">AASA Validator</a> to check universal linking is set up properly.</p>
 <h2 id="app-indexing-validator">App Indexing Validator<a class="headerlink" href="#app-indexing-validator" title="Permanent link">&para;</a></h2>
 <p>Check your app to see if it can properly index and surface content for Firebase through our <a href="https://branch.io/resources/app-indexing/">App Indexing Validator</a>.</p>
 <h2 id="universal-link-validator">Universal Link Validator<a class="headerlink" href="#universal-link-validator" title="Permanent link">&para;</a></h2>
-<h3 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h3>
+<h3 id="overview_1">Overview<a class="headerlink" href="#overview_1" title="Permanent link">&para;</a></h3>
 <p>The Universal Link Validator compares an app’s local project settings to its dashboard settings and helps pinpoint errors that may prevent Universal Links from functioning properly. This service verifies that:</p>
 <ul>
 <li>the entries in the project’s .entitlements file are correct</li>
