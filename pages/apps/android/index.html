@@ -2947,6 +2947,10 @@
 
 </li>
 </ul>
+<div class="admonition warning">
+<p class="admonition-title">Only initialize Branch in the Launcher activity</p>
+<p>The app will open through the Launcher activity, where Branch will initialize and retrieve the deep link data from the link click.</p>
+</div>
 </li>
 <li>
 <h3 id="load-branch">Load Branch<a class="headerlink" href="#load-branch" title="Permanent link">&para;</a></h3>
@@ -3018,6 +3022,10 @@
 <p>Click on the deep link to open your app</p>
 </li>
 </ul>
+<div class="admonition tip">
+<p class="admonition-title">Testing deferred deep linking</p>
+<p>Deferred deep linking is simply deep linking into an app that is not yet installed. Once the app is installed, the context is preserved and the user's first app-open will have the deep link data from the original Branch link. To test this, uninstall the app from your device, click the Branch link, and manually launch the app from Android Studio. You should be routed to the correct content within your app.</p>
+</div>
 </li>
 </ul>
 <h2 id="implement-features">Implement features<a class="headerlink" href="#implement-features" title="Permanent link">&para;</a></h2>
