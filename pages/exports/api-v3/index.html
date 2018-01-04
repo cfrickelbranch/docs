@@ -2237,7 +2237,7 @@
 <div class="admonition note">
 <p class="admonition-title">Data Feeds is a premium solution</p>
 <p>The Data Export API is included in Branch’s <a href="../../../pages/exports/data-feeds/">Data Feeds</a> offering, which can be purchased according to Branch’s <a href="https://branch.io/pricing/" target="_blank">pricing schedule</a>, and is available at no additional charge to customers who are on MAU plans for <a href="https://branch.io/journeys/" target="_blank">Journeys</a>, <a href="https://branch.io/email/" target="_blank">Deep Linked Email</a>, or <a href="https://branch.io/attribution/" target="_blank">Universal Ads</a>. Without Data Feeds, you can still export Branch data in CSV form directly from the Branch dashboard via <a href="https://dashboard.branch.io/sources" target="_blank">Sources</a> or <a href="https://dashboard.branch.io/data-import-export/csv-exports" target="_blank">CSV Exports</a>.</p>
-<p><strong>If you are looking for the legacy Data Export API</strong>, please see <a href="../../../pages/exports/api">these docs</a>.</p>
+<p><strong>If you are looking for the legacy Data Export API</strong>, please see <a href="../../../pages/exports/api/">these docs</a>.</p>
 </div>
 <h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
 <p>In order to use this API you must have an App ID and a Branch Public Key. You must also be whitelisted to use the API. If you'd like to be whitelisted for the Export API, please contact <a href="mailto:integrations@branch.io"><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#105;&#110;&#116;&#101;&#103;&#114;&#97;&#116;&#105;&#111;&#110;&#115;&#64;&#98;&#114;&#97;&#110;&#99;&#104;&#46;&#105;&#111;">&#105;&#110;&#116;&#101;&#103;&#114;&#97;&#116;&#105;&#111;&#110;&#115;&#64;&#98;&#114;&#97;&#110;&#99;&#104;&#46;&#105;&#111;</a></a>.</p>
@@ -2276,7 +2276,7 @@
 }
 </pre></div>
 
-<p>All exports via Data Feeds are powered by Branch's <a href="../../../pages/dashboard/people-based-attribution">People-Based Attribution</a>. For an exhaustive list of events included in these exports and more detailed definitions of each event, please see the <a href="../../../pages/exports/event_ontology_data_schema/">Event Ontology Data Schema</a>.</p>
+<p>All exports via Data Feeds are powered by Branch's <a href="../../../pages/dashboard/people-based-attribution/">People-Based Attribution</a>. For an exhaustive list of events included in these exports and more detailed definitions of each event, please see the <a href="../../../pages/exports/event_ontology_data_schema/">Event Ontology Data Schema</a>.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>A full day's files will be available on our S3 bucket at that location to download around 8:00am UTC. It will return a blank array from s3 for any empty files until the UTC day is over and the data has been transfered to s3, therefore it is recommended you schedule any ETLs to fetch the data for the previous day around 8:00am UTC.</p>
