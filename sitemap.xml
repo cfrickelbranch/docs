@@ -258,13 +258,19 @@
     </url>
         
     <url>
-     <loc>https://docs.branch.io/pages/emails/braze/</loc>
+     <loc>https://docs.branch.io/pages/emails/betaout/</loc>
      <lastmod>2018-01-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://docs.branch.io/pages/emails/blueshift/</loc>
+     <lastmod>2018-01-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://docs.branch.io/pages/emails/braze/</loc>
      <lastmod>2018-01-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
