@@ -22,7 +22,7 @@
     
     
       
-        <title>Dashboard unified-analytics - Branch documentation</title>
+        <title>New Dashboard Analytics - Branch documentation</title>
       
     
     
@@ -133,7 +133,7 @@
                   </span>
                 
               
-              Dashboard unified-analytics
+              New Dashboard Analytics
             
           </span>
         </div>
@@ -744,11 +744,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="toc">
-        Dashboard unified-analytics
+        New Dashboard Analytics
       </label>
     
-    <a href="./" title="Dashboard unified-analytics" class="md-nav__link md-nav__link--active">
-      Dashboard unified-analytics
+    <a href="./" title="New Dashboard Analytics" class="md-nav__link md-nav__link--active">
+      New Dashboard Analytics
     </a>
     
       
@@ -928,6 +928,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changes-to-install-re-installs-and-opens" title="Changes to Install, Re-installs, and Opens" class="md-nav__link">
+    Changes to Install, Re-installs, and Opens
+  </a>
   
 </li>
       
@@ -2494,6 +2501,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#changes-to-install-re-installs-and-opens" title="Changes to Install, Re-installs, and Opens" class="md-nav__link">
+    Changes to Install, Re-installs, and Opens
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#faq" title="FAQ" class="md-nav__link">
     FAQ
   </a>
@@ -2685,13 +2699,24 @@ Behavior | Old Analytics | new People-Based Attribution
 <p>Data Integrations now mirrors the UI of our ads flow. The data we send is also utilizing the new mechanism of attribution, meaning we will send data within a proper attribution window instead of the same session. This means more of your attributed data will make it across automatically.</p>
 <h3 id="webhooks">Webhooks<a class="headerlink" href="#webhooks" title="Permanent link">&para;</a></h3>
 <p>Webhooks, like data integratons, is no longer session based. This means we will send more webhooks to you automatically. This update hasn't completed yet.</p>
+<h2 id="changes-to-install-re-installs-and-opens">Changes to Install, Re-installs, and Opens<a class="headerlink" href="#changes-to-install-re-installs-and-opens" title="Permanent link">&para;</a></h2>
+<p>Prior to the rollout of People-Based Attribution, Branch classified “re-installs” as opens. With People-Based Attribution, we now split out re-installs from opens. As a result, we can show you installs vs reinstalls vs opens.</p>
+<p>Our SDK uses an identifier, which we persist between app opens, to know whether the app was previously installed. This identifier is for internal use only. When an app is first installed, this identifier is not yet stored on the device. Then our SDK makes a request to our install endpoint. On our backend, Branch determines whether this is an install, a reinstall, or in some cases, an open. Then it returns this identifier. The SDK persists this identifier, and all future requests will be made to our servers with it present.</p>
+<p>Overall, how does Branch determine whether an app open is an install, reinstall, or open?</p>
+<p>When Branch first launched, every partner who integrated the Branch SDK saw Branch measure an artificially high number of installs. As an example, if a user had an app installed on their phone before without the Branch SDK, and then upgraded to a version of the app that had the Branch SDK, Branch would count this upgrade as an install, even though the user had the app previously. Branch attempted to solve for this use case.</p>
+<p>Branch introduced a field to the SDK, called “update”, which used complex, OS-specific logic. The SDK indicated, based on either OS-provided methods or traces left by the file system, whether this particular install or open was actually just an update. In other words, the app was already installed, but the user just updated what version of the app they had. If the SDK indicated that for this particular app session, the app was updated, we would not count an install, but rather an open.</p>
+<p>Now, how does Branch translate this update, within the context of installs, opens, and reinstalls?</p>
+<p>If we see the flag “update” sent by the SDK set to “fresh install” (this is set to an enum value of <code>0</code> in our SDK logs), then we know that the user was not updating the app. In this case, it’s either an install or a reinstall. Given this information, our backend must decide between install and reinstall. Our backend performs a lookup to our People Based Attribution database and finds whether this device, using the device identifier, ever had the app installed. If so, we count this as a re-install, instead of an install. If the app was never installed on this device, we track an install.</p>
+<p>If we see the flag “update” sent by the SDK set to “just updated” (this is an enum value of <code>2</code> in our SDK logs), then we know that the user updated the app, as opposed to freshly installing. This event is not tracked as an install. This event is tracked as an open.</p>
+<p>With the introduction and adoption of iOS 11, we uncovered an intermittent issue with install tracking. It appears that on newer versions of the OS, app installs have been inconsistently counted as opens rather than fresh installs. The logic causing this was intended to detect when apps had been installed on a device prior to the Branch SDK being integrated and to register opens instead of installs, as described above. However, as more devices have updated to newer versions of iOS, install discrepancies have increased and we believe this logic is the cause. In response, we have removed this logic.</p>
+<p>The resultant impact for apps using Branch for over three months is that installs should increase to reflect correct numbers, starting January 5th. There should be no adverse impact. Partners who have newly integrated the Branch SDK will notice a large spike of installs when first releasing the SDK but no impact beyond that.</p>
 <h2 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">&para;</a></h2>
 <h3 id="data-speed">Data Speed<a class="headerlink" href="#data-speed" title="Permanent link">&para;</a></h3>
 <p>This new People-Based Analytics platform introduces a slight delay compared to the old dashboard analytics, and it may now take a few minutes for events to appear. We're continually improving the speed and plan to significantly decrease the delay in Q1 2018.</p>
 <h3 id="unique-counts">Unique Counts<a class="headerlink" href="#unique-counts" title="Permanent link">&para;</a></h3>
 <p>One thing to be aware of is that unique counts may be within a 4% window of error across the dashboard. For example, if you have 100 total clicks, and 90 were truly unique, it's possible that the dashboard could report within 4% of that 90 number. If you want true uniques, you can export raw data and de-dupe across events.</p>
 <h3 id="differing-installs">Differing Installs<a class="headerlink" href="#differing-installs" title="Permanent link">&para;</a></h3>
-<p>As part of People-Based Attribution, your install numbers will likely not line up one to one. What this means is that if you see 200 Branch driven installs on the old Analytics Platform, it's ok to see 190 Branch driven installs (or even 210) on the same day. This is due to the way we have fundamentally changed the way we count attributions. </p>
+<p>As part of People-Based Attribution, your install numbers will likely not line up one to one. What this means is that if you see 200 Branch driven installs on the old Analytics Platform, it's ok to see 190 Branch driven installs (or even 210) on the same day. This is due to the way we have fundamentally changed the way we count attributions.</p>
 <p>Some installs on the old analytics platform were actually "reinstalls", but were not counted as such, which would be one reason why installs are lower. Some campaigns will count higher installs, because they may be clicked on a variety of browsers and platforms, and Branch is able to connect those touch points to accurately count an install.</p>
 <p>If the difference in numbers is still concerning, reach out to your Branch account manager, or send us a message at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#105;&#110;&#116;&#101;&#103;&#114;&#97;&#116;&#105;&#111;&#110;&#115;&#64;&#98;&#114;&#97;&#110;&#99;&#104;&#46;&#105;&#111;">&#105;&#110;&#116;&#101;&#103;&#114;&#97;&#116;&#105;&#111;&#110;&#115;&#64;&#98;&#114;&#97;&#110;&#99;&#104;&#46;&#105;&#111;</a></p>
 <h3 id="new-dashboard-accounts">New Dashboard Accounts<a class="headerlink" href="#new-dashboard-accounts" title="Permanent link">&para;</a></h3>
