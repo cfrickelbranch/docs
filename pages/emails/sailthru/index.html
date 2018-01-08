@@ -2601,7 +2601,7 @@
 <h4 id="making-regular-branch-links-compatible-with-email">Making regular Branch links compatible with email<a class="headerlink" href="#making-regular-branch-links-compatible-with-email" title="Permanent link">&para;</a></h4>
 <p>Be sure to add <code>"$3p":"e_xx"</code> to the deep link data of any links you use in email to ensure Universal Link and click tracking works as expected.</p>
 <h4 id="create-email-links-via-api-without-changing-your-email-templates">Create email links via API without changing your email templates<a class="headerlink" href="#create-email-links-via-api-without-changing-your-email-templates" title="Permanent link">&para;</a></h4>
-<p>To create email links via API, please use the instructions on how to <a href="../../../getting-started/creating-links/other-ways/#http-api">create links via API</a>, but include the following key value pairs in your call:</p>
+<p>To create email links via API, please use the instructions on how to <a href="../../../pages/apps/api/#link-create">create links via API</a>, but include the following key value pairs in your call:</p>
 <ol>
 <li><code>"$3p":"e_xx"</code> This is required for Universal Link and click tracking functionality.</li>
 <li><code>"$original_url":"{{your web url URI encoded}}"</code> For each piece of content, include a URI encoded version of your content's web URL. You can also add deep link data as query parameters on that web URL. This ensures accurate Content Analytics reporting. 
