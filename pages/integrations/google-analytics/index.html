@@ -1919,15 +1919,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#set-up-google-analytics-to-use-standard-hardware-or-advertising-identifiers-recommended" title="Set up Google Analytics to use standard hardware or advertising identifiers (recommended)" class="md-nav__link">
-    Set up Google Analytics to use standard hardware or advertising identifiers (recommended)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#alternative-approach-to-client-id-pass-to-branch-directly" title="Alternative approach to Client ID - pass to Branch directly" class="md-nav__link">
-    Alternative approach to Client ID - pass to Branch directly
+  <a href="#mandatory-pass-client-id-to-branch" title="Mandatory: pass Client ID to Branch" class="md-nav__link">
+    Mandatory: pass Client ID to Branch
   </a>
   
 </li>
@@ -2281,15 +2274,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#set-up-google-analytics-to-use-standard-hardware-or-advertising-identifiers-recommended" title="Set up Google Analytics to use standard hardware or advertising identifiers (recommended)" class="md-nav__link">
-    Set up Google Analytics to use standard hardware or advertising identifiers (recommended)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#alternative-approach-to-client-id-pass-to-branch-directly" title="Alternative approach to Client ID - pass to Branch directly" class="md-nav__link">
-    Alternative approach to Client ID - pass to Branch directly
+  <a href="#mandatory-pass-client-id-to-branch" title="Mandatory: pass Client ID to Branch" class="md-nav__link">
+    Mandatory: pass Client ID to Branch
   </a>
   
 </li>
@@ -2392,7 +2378,7 @@
 <h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
 <h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h3>
 <ul>
-<li>This guide requires you to have already integrated the Branch mobile SDKsand the Google Analytics SDK into your app.</li>
+<li>This guide requires you to have already integrated the Branch mobile SDKs and the Google Analytics SDK into your app.</li>
 </ul>
 <h3 id="enter-your-google-analytics-tracking-id">Enter your Google Analytics Tracking ID<a class="headerlink" href="#enter-your-google-analytics-tracking-id" title="Permanent link">&para;</a></h3>
 <p>For the basic, codeless integration: find your Google Analytics Tracking ID (tid) and enter it into the Branch Dashboard.</p>
@@ -2408,43 +2394,17 @@
 <li>If you have not yet entered billing information, please do so now.</li>
 <li>Enter your Google Analytics Tracking ID and hit <strong>Save</strong></li>
 </ol>
-<p><img alt="image" src="../../../img/pages/integrations/google-analytics/enable-google-analytics-integration.png" /></p>
+<p><img alt="image" src="../../../img/pages/integrations/google-analytics/enable-ga.png" /></p>
 <div class="admonition warning">
 <p class="admonition-title">Please test your integration!</p>
 <p>Branch is not responsible for inaccurate API keys.</p>
 </div>
-<h3 id="set-up-google-analytics-to-use-standard-hardware-or-advertising-identifiers-recommended">Set up Google Analytics to use standard hardware or advertising identifiers (recommended)<a class="headerlink" href="#set-up-google-analytics-to-use-standard-hardware-or-advertising-identifiers-recommended" title="Permanent link">&para;</a></h3>
-<p>Please ensure you're using the Branch iOS SDK 0.12.2 or greater, and Android SDK v1.12.1 or greater. If you implemented Branch after May 28th 2016, you are likely already on this version or later.</p>
-<p>In addition to the basic integration, you should add a tiny amount of code to your app. This will ensure that Google Analytics uses the correct device-specific identifier for client ID (cid) with the logic Branch uses. As a result, the CIDs for SDK and integration should match up and result in unified user data on the GA Dashboard.</p>
-<p><strong>iOS:</strong></p>
-<p>On iOS, please add the following when tracking events, screen views, etc. It will ensure that the GA SDK uses the IDFA when available, and uses the IDFV if not.</p>
-<p>Please add the following to your Google Analytics code when the app first starts</p>
-<div class="codehilite"><pre><span></span><span class="cp">#import &lt;AdSupport/AdSupport.h&gt;</span>
-
-<span class="c1">// before tracking screen, event, etc.</span>
-<span class="kt">Class</span> <span class="n">ASIdentifierManagerClass</span> <span class="o">=</span> <span class="n">NSClassFromString</span><span class="p">(</span><span class="s">@&quot;ASIdentifierManager&quot;</span><span class="p">);</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">ASIdentifierManagerClass</span> <span class="o">&amp;&amp;</span> <span class="p">[[</span><span class="bp">ASIdentifierManager</span> <span class="n">sharedManager</span><span class="p">]</span> <span class="n">isAdvertisingTrackingEnabled</span><span class="p">])</span> <span class="p">{</span>
-    <span class="bp">NSUUID</span> <span class="o">*</span><span class="n">idfa</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">ASIdentifierManager</span> <span class="n">sharedManager</span><span class="p">]</span> <span class="n">advertisingIdentifier</span><span class="p">];</span>
-    <span class="p">[</span><span class="n">tracker</span> <span class="nl">set</span><span class="p">:</span><span class="n">kGAIClientId</span> <span class="nl">value</span><span class="p">:[</span><span class="n">idfa</span> <span class="n">UUIDString</span><span class="p">]];</span>
-<span class="p">}</span>
-<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">NSClassFromString</span><span class="p">(</span><span class="s">@&quot;UIDevice&quot;</span><span class="p">))</span> <span class="p">{</span>
-    <span class="p">[</span><span class="n">tracker</span> <span class="nl">set</span><span class="p">:</span><span class="n">kGAIClientId</span> <span class="nl">value</span><span class="p">:[[</span><span class="bp">UIDevice</span> <span class="n">currentDevice</span><span class="p">].</span><span class="n">identifierForVendor</span> <span class="n">UUIDString</span><span class="p">]];</span>
-<span class="p">}</span>
-</pre></div>
-
-<p>In order for IDFA to be available, please be sure you have included <code>AdSupport.framework</code>.</p>
-<div class="admonition protip">
-<p class="admonition-title">iOS 10 and Ad Tracking Limited</p>
-<p>If ad tracking is limited, the IDFA will be set to "00000000-0000-0000-0000-000000000000" <a href="https://developer.apple.com/reference/adsupport/asidentifiermanager">documentation</a>. The alternative approach below allows you to specify a <code>cid</code> manually, which avoids this issue.</p>
+<h3 id="mandatory-pass-client-id-to-branch">Mandatory: pass Client ID to Branch<a class="headerlink" href="#mandatory-pass-client-id-to-branch" title="Permanent link">&para;</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Required for integration</p>
+<p>If you don't include the below code snippet, events will be sent to Google but Google Analytics will not ingest them and they will not be visible on the Google Analytics dashboard.</p>
 </div>
-<p><strong>Android:</strong></p>
-<p>On Android, please add the following when tracking events, screen views, etc. It will ensure that the GA SDK uses the GAID when available, and uses the Android ID (hardware ID) if not.</p>
-<div class="codehilite"><pre><span></span><span class="c1">// Enable Advertising Features.</span>
-<span class="n">mTracker</span><span class="o">.</span><span class="na">enableAdvertisingIdCollection</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
-</pre></div>
-
-<h3 id="alternative-approach-to-client-id-pass-to-branch-directly">Alternative approach to Client ID - pass to Branch directly<a class="headerlink" href="#alternative-approach-to-client-id-pass-to-branch-directly" title="Permanent link">&para;</a></h3>
-<p>If you specify <code>$google_analytics_client_id</code>, we can pass that to Google (as <em>cid</em>).</p>
+<p>Please specify <code>$google_analytics_client_id</code>. We will pass that to Google (as <em>cid</em>) so Google can match the events we send them to a specific user.</p>
 <p><strong>iOS:</strong></p>
 <p>Please add the following before initializing the Branch session:</p>
 <div class="codehilite"><pre><span></span><span class="p">[[</span><span class="n">Branch</span> <span class="n">getInstance</span><span class="p">]</span> <span class="nl">setRequestMetadataKey</span><span class="p">:</span><span class="s">@&quot;$google_analytics_client_id&quot;</span> <span class="nl">value</span><span class="p">:</span><span class="s">@&quot;CLIENT-ID-HERE&quot;</span><span class="p">];</span>
