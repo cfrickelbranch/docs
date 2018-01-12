@@ -163,7 +163,7 @@ If we see the flag “update” sent by the SDK set to “just updated” (this 
 
 With the introduction and adoption of iOS 11, we uncovered an intermittent issue with install tracking. It appears that on newer versions of the OS, app installs have been inconsistently counted as opens rather than fresh installs. The logic causing this was intended to detect when apps had been installed on a device prior to the Branch SDK being integrated and to register opens instead of installs, as described above. However, as more devices have updated to newer versions of iOS, install discrepancies have increased and we believe this logic is the cause. In response, we have removed this logic.
 
-The resultant impact for apps using Branch for over three months is that installs should increase to reflect correct numbers, starting January 5th. There should be no adverse impact. Partners who have newly integrated the Branch SDK will notice a large spike of installs when first releasing the SDK but no impact beyond that.
+The resultant impact for apps using Branch for over three months is that installs should increase to reflect correct numbers, starting January 10th. There should be no adverse impact. Partners who have newly integrated the Branch SDK will notice a large spike of installs when first releasing the SDK but no impact beyond that.
 
 ## FAQ
 
