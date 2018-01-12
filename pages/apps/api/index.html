@@ -3497,6 +3497,10 @@ curl -XGET <span class="s1">&#39;https://api.branch.io/v1/profile?branch_key=key
 </table>
 </li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Please take note of the <code>type</code> parameter</p>
+<p><code>type</code> = <code>credit</code> will create a reward rule on your dashboard, but <code>type</code> = <code>web_hook</code> will create a webhook each time the reward rule is triggered. To see the structure of the webhook callback, please test this with <a href="https://requestb.in/">RequestBin</a> or a similar service.</p>
+</div>
 </li>
 <li>
 <h3 id="referral-troubleshooting">Referral troubleshooting<a class="headerlink" href="#referral-troubleshooting" title="Permanent link">&para;</a></h3>
