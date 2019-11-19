@@ -47,7 +47,7 @@ Here is a full breakdown of standard events trackable by Branch.
 | - | - |
 | commerce event | ADD_TO_CART, ADD_TO_WISHLIST, VIEW_CART, INITIATE_PURCHASE, ADD_PAYMENT_INFO, PURCHASE, SPEND_CREDITS |
 | content event | SEARCH, VIEW_ITEM, VIEW_ITEMS, RATE, SHARE |
-| user lifecycle event | COMPLETE_REGISTRATION, COMPLETE_TUTORIAL, ACHIEVE_LEVEL, UNLOCK_ACHIEVEMENT |
+| user lifecycle event | COMPLETE_REGISTRATION, COMPLETE_TUTORIAL, ACHIEVE_LEVEL, UNLOCK_ACHIEVEMENT, SUBSCRIBE |
 
 ## Fields included
 
