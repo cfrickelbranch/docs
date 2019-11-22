@@ -41,7 +41,7 @@ Facebook Data | Branch Data | Possible Values
 --- | --- | ---
 n/a | ~advertising_partner_name | “Facebook”
 n/a | ~channel | “Facebook” if null or last touch
-na/a | ~feature | "Paid Advertising"
+n/a | ~feature | "paid advertising"
 campaign_name | ~campaign | Light Bright Launch
 campaign_id | ~campaign_id | 15292426
 publisher_platform | ~secondary_publisher | facebook / instagram / audience_network
